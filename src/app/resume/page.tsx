@@ -151,7 +151,7 @@ export default function ResumePage() {
                         {e.degree}, {e.field}
                       </div>
                       <div className="text-xs text-muted-foreground">
-                        {e.school}, {e.department} · {e.location}
+                        {e.school}, {e.department} · {e.location} · CGPA {e.gpa}
                       </div>
                     </div>
                     <div className="text-xs text-muted-foreground">

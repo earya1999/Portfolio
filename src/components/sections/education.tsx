@@ -54,6 +54,9 @@ export function Education() {
                     <MapPin className="size-3" />
                     {e.location}
                   </span>
+                  <span className="inline-flex items-center gap-1 font-medium text-foreground/75">
+                    CGPA {e.gpa}
+                  </span>
                 </div>
 
                 <ul className="mt-5 space-y-2 border-t border-border/60 pt-4 text-sm text-foreground/85">

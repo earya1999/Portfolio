@@ -8,6 +8,7 @@
     "location": "West Lafayette, IN",
     "start": "Aug 2024",
     "end": "May 2026",
+    "gpa": "3.6 / 4.00",
     "logo": "/logos/purdue.svg",
     "highlights": [
       "STEM-designated program at the intersection of business, data, and enterprise decision-making.",
@@ -24,6 +25,7 @@
     "location": "Chennai, India",
     "start": "Jul 2018",
     "end": "Jul 2022",
+    "gpa": "8.46 / 10.00",
     "logo": "/logos/srm.svg",
     "highlights": [
       "Foundational coursework across software engineering, databases, distributed systems, and machine learning.",
