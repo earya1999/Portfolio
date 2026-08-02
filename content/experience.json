@@ -1,56 +1,89 @@
 [
   {
-    "id": "highradius",
-    "company": "HighRadius",
+    "id": "community-first-bank",
+    "company": "Community First Bank of Indiana",
+    "role": "Data Analytics Consultant — Industry Practicum",
+    "type": "Practicum",
+    "location": "West Lafayette, Indiana",
+    "start": "Jan 2026",
+    "end": "May 2026",
+    "logo": "",
+    "summary": "Banking practicum focused on workflow analysis, operational bottlenecks, and data-backed automation recommendations for deposit and banking operations.",
+    "highlights": [
+      "Analyzed end-to-end banking workflows to identify bottlenecks, delays, and rework.",
+      "Quantified cycle times, wait times, and exception drivers using workflow data.",
+      "Provided data-backed automation recommendations through executive-ready visualizations and presentations."
+    ],
+    "technologies": [
+      "Process Mapping",
+      "Business Analysis",
+      "Data Analytics",
+      "Excel",
+      "Power BI"
+    ],
+    "impact": [
+      { "value": "Workflows", "label": "Mapped end-to-end" },
+      { "value": "Data-backed", "label": "Automation recommendations" }
+    ]
+  },
+  {
+    "id": "highradius-consultant",
+    "company": "HighRadius Technologies",
     "role": "Implementation Consultant",
     "type": "Full-time",
-    "location": "Remote",
+    "location": "Hyderabad, India",
     "start": "Jul 2022",
-    "end": "Jul 2025",
+    "end": "May 2025",
     "logo": "/logos/highradius.svg",
-    "summary": "Led enterprise SaaS implementations for Fortune 500 finance and operations teams — running discovery, design, configuration, integrations, testing, training, go-live, and post-production support.",
+    "summary": "Led enterprise SaaS onboarding and implementation for Fortune 500 clients — discovery through go-live, with ERP integrations, training, and measurable automation outcomes.",
     "highlights": [
-      "Led enterprise SaaS implementations from discovery and requirements gathering through configuration, testing, UAT, go-live, and post-production support.",
-      "Partnered with Fortune 500 finance and operations stakeholders to translate business requirements into scalable platform solutions.",
-      "Coordinated integrations involving SAP, Oracle, REST APIs, and banking systems.",
-      "Recovered a high-risk implementation and delivered approximately 72% automation against a 44% commitment.",
-      "Improved automation performance from approximately 42% to 70% through configuration and process optimization.",
-      "Delivered user training, documentation, adoption support, and executive project updates.",
-      "Collaborated with Product, Engineering, QA, and customer teams to resolve blockers and deliver measurable outcomes."
+      "Led 3+ end-to-end enterprise SaaS onboarding and implementation projects for Fortune 500 clients, managing discovery, requirements gathering, system configuration, testing, UAT, go-live readiness, and user adoption.",
+      "Managed multiple concurrent, time-sensitive implementations, coordinating project timelines, client communications, risks, dependencies, and follow-up actions to support on-time delivery.",
+      "Analyzed client financial workflows, including accounts receivable, ERP integrations, and transaction processing, to identify operational requirements and recommend appropriate system configurations.",
+      "Supported system integrations between the SaaS platform, SAP, Oracle ERP systems, and third-party banking applications, coordinating testing, data validation, and issue resolution.",
+      "Conducted solution walkthroughs and end-user training across client teams, addressing questions, resolving usability concerns, and improving confidence in day-to-day platform usage.",
+      "Advised business and technical stakeholders on configuration decisions, process changes, and implementation strategies aligned with operational requirements and desired outcomes.",
+      "Delivered workflow transformation initiatives that increased automation from 42% to 70%, reducing manual processing and improving operational efficiency.",
+      "Recovered a high-risk Cash Application implementation from red to green in under one month by resolving delivery blockers, aligning stakeholders, and increasing automation by 28 percentage points.",
+      "Maintained regular client communication through status updates, action tracking, and issue follow-ups, ensuring stakeholders remained aligned throughout implementation."
     ],
     "technologies": [
       "Enterprise SaaS",
+      "Cash Application",
       "SAP",
       "Oracle",
-      "REST APIs",
-      "SQL",
-      "Python",
-      "Power BI",
+      "ERP Integrations",
+      "UAT",
       "Jira",
-      "Salesforce"
+      "SQL"
     ],
     "impact": [
-      { "value": "72%", "label": "Automation on recovered project" },
+      { "value": "3+", "label": "Implementations led" },
       { "value": "42→70%", "label": "Automation improvement" },
+      { "value": "+28 pts", "label": "Recovered Cash App" },
       { "value": "F500", "label": "Client scale" }
     ]
   },
   {
-    "id": "internship-placeholder",
-    "company": "Prior internship — editable",
-    "role": "Analyst / Consulting Intern",
+    "id": "highradius-intern",
+    "company": "HighRadius Technologies",
+    "role": "Intern",
     "type": "Internship",
-    "location": "—",
-    "start": "—",
-    "end": "—",
-    "logo": "",
-    "summary": "Editable placeholder for a prior internship. Update via content/experience.json.",
+    "location": "Hyderabad, India",
+    "start": "Aug 2021",
+    "end": "Jun 2022",
+    "logo": "/logos/highradius.svg",
+    "summary": "Year-long training and delivery support in Cash Application implementation, culminating in promotion to full-time Implementation Consultant.",
     "highlights": [
-      "Add 3–5 bullets describing responsibilities and impact.",
-      "Include measurable outcomes where possible.",
-      "List key stakeholders and technologies."
+      "Completed year-long training in Cash Application implementation, supported enterprise client delivery, exceeded automation targets, and was promoted to full-time Implementation Consultant."
     ],
-    "technologies": [],
-    "impact": []
+    "technologies": [
+      "Cash Application",
+      "Enterprise SaaS",
+      "Client Delivery"
+    ],
+    "impact": [
+      { "value": "Promoted", "label": "To Implementation Consultant" }
+    ]
   }
 ]

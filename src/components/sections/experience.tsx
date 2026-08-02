@@ -15,8 +15,8 @@ export function Experience() {
     <Section
       id="experience"
       eyebrow="Experience"
-      title="Three years running enterprise deployments."
-      description="Primary experience: HighRadius. Prior internship and academic roles kept as editable placeholders — update via content/experience.json."
+      title="Enterprise implementations and applied analytics."
+      description="HighRadius delivery experience, plus a banking analytics practicum at Community First Bank of Indiana."
       accent="emerald"
     >
       <div className="relative">
