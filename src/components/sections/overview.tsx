@@ -5,6 +5,8 @@ import { ArrowRight, Check } from "lucide-react";
 import { Section } from "@/components/ui/section";
 import { Button } from "@/components/ui/button";
 import { TiltCard } from "@/components/tilt-card";
+import { Spotlight } from "@/components/spotlight";
+import { Magnetic } from "@/components/magnetic";
 import { overview } from "@/lib/content";
 
 export function Overview() {
@@ -23,7 +25,8 @@ export function Overview() {
         className="mx-auto max-w-3xl"
       >
         <TiltCard maxTilt={5} className="rounded-2xl">
-        <div className="depth-card rounded-2xl border border-border/60 bg-card/60 p-6 sm:p-10">
+        <Spotlight className="aurora-border depth-card rounded-2xl border border-border/60 bg-card/60">
+        <div className="relative p-6 sm:p-10">
           <div className="flex flex-col gap-5">
             {overview.intro.map((p, i) => (
               <p
@@ -100,15 +103,18 @@ export function Overview() {
               <p className="text-sm text-foreground/85 text-pretty sm:text-base">
                 {overview.cta}
               </p>
-              <Button asChild className="shrink-0">
-                <a href="#contact">
-                  Get in touch
-                  <ArrowRight />
-                </a>
-              </Button>
+              <Magnetic className="shrink-0">
+                <Button asChild>
+                  <a href="#contact">
+                    Get in touch
+                    <ArrowRight />
+                  </a>
+                </Button>
+              </Magnetic>
             </div>
           )}
         </div>
+        </Spotlight>
         </TiltCard>
       </motion.div>
     </Section>

@@ -16,6 +16,8 @@ import {
 import { toast } from "sonner";
 import { Section } from "@/components/ui/section";
 import { Button } from "@/components/ui/button";
+import { Magnetic } from "@/components/magnetic";
+import { Spotlight } from "@/components/spotlight";
 import { profile } from "@/lib/content";
 
 export function Contact() {
@@ -138,6 +140,7 @@ export function Contact() {
           </div>
         </motion.div>
 
+        <Spotlight className="lg:col-span-3 rounded-2xl">
         <motion.form
           onSubmit={onSubmit}
           noValidate
@@ -145,7 +148,7 @@ export function Contact() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-60px" }}
           transition={{ duration: 0.4, delay: 0.1 }}
-          className="lg:col-span-3 rounded-2xl border border-border/60 bg-card/60 p-6"
+          className="relative rounded-2xl border border-border/60 bg-card/60 p-6"
         >
           <div className="eyebrow mb-4">Send a message</div>
           <div className="grid gap-4 sm:grid-cols-2">
@@ -172,18 +175,21 @@ export function Contact() {
               />
             </label>
           </div>
-          <div className="mt-4 flex items-center justify-between">
+          <div className="mt-4 flex items-center justify-between gap-3">
             <p className="text-xs text-muted-foreground">
               {process.env.NEXT_PUBLIC_CONTACT_FORM_ENDPOINT
                 ? "Sent securely to my inbox."
                 : "This form opens your mail client. Nothing is stored on this site."}
             </p>
-            <Button type="submit" disabled={submitting}>
-              <Send />
-              {submitting ? "Sending…" : "Send message"}
-            </Button>
+            <Magnetic>
+              <Button type="submit" disabled={submitting}>
+                <Send />
+                {submitting ? "Sending…" : "Send message"}
+              </Button>
+            </Magnetic>
           </div>
         </motion.form>
+        </Spotlight>
       </div>
     </Section>
   );

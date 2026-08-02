@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown, Briefcase } from "lucide-react";
 import { Section } from "@/components/ui/section";
 import { Badge } from "@/components/ui/badge";
+import { Spotlight } from "@/components/spotlight";
 import { cn } from "@/lib/utils";
 import { experience } from "@/lib/content";
 
@@ -37,6 +38,7 @@ export function Experience() {
                   <Briefcase className="size-4 text-foreground/70" />
                 </div>
 
+                <Spotlight className="rounded-2xl">
                 <button
                   onClick={() => setOpen(isOpen ? null : entry.id)}
                   className={cn(
@@ -116,6 +118,7 @@ export function Experience() {
                     )}
                   </AnimatePresence>
                 </button>
+                </Spotlight>
               </motion.div>
             );
           })}

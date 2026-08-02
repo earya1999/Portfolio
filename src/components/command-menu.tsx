@@ -23,6 +23,7 @@ import {
   GraduationCap,
   Layers,
   Wrench,
+  FolderGit2,
 } from "lucide-react";
 import { useTheme } from "next-themes";
 import { toast } from "sonner";
@@ -101,6 +102,7 @@ export function CommandMenuProvider({ children }: { children: React.ReactNode })
       { id: "home", label: "Home", icon: Home, action: nav("/"), group: "navigate" },
       { id: "overview", label: "Overview", icon: Layers, action: nav("/#overview"), group: "navigate" },
       { id: "experience", label: "Experience", icon: Briefcase, action: nav("/#experience"), group: "navigate" },
+      { id: "projects", label: "Projects", icon: FolderGit2, action: nav("/#projects"), group: "navigate", keywords: "github repos work" },
       { id: "skills", label: "Skills", icon: Layers, action: nav("/#skills"), group: "navigate" },
       { id: "tools", label: "Tools", icon: Wrench, action: nav("/#tools"), group: "navigate" },
       { id: "education", label: "Education", icon: GraduationCap, action: nav("/#education"), group: "navigate" },

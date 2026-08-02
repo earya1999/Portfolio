@@ -1,5 +1,6 @@
 import * as React from "react";
 import { cn } from "@/lib/utils";
+import { Reveal } from "@/components/reveal";
 
 export type SectionAccent =
   | "none"
@@ -79,7 +80,7 @@ export function Section({
 
       <div className="container relative">
         {(eyebrow || title || description) && (
-          <div
+          <Reveal
             className={cn(
               "mb-12 max-w-2xl sm:mb-16",
               center && "mx-auto text-center"
@@ -96,7 +97,7 @@ export function Section({
                 {description}
               </p>
             )}
-          </div>
+          </Reveal>
         )}
         {children}
       </div>

@@ -23,6 +23,8 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { TiltCard } from "@/components/tilt-card";
+import { Magnetic } from "@/components/magnetic";
+import { Spotlight } from "@/components/spotlight";
 import { profile } from "@/lib/content";
 
 const fadeUp = {
@@ -80,7 +82,8 @@ function ProfileCard() {
       className="order-1 lg:col-span-7"
     >
       <TiltCard maxTilt={7} className="rounded-2xl">
-      <div className="depth-card rounded-2xl border border-border/60 bg-card/70 p-7 backdrop-blur-xl sm:p-8 lg:p-9">
+      <Spotlight className="aurora-border depth-card noise-overlay rounded-2xl border border-border/60 bg-card/70 backdrop-blur-xl">
+      <div className="relative p-7 sm:p-8 lg:p-9">
         <div className="flex items-start gap-5 sm:gap-6" style={{ transform: "translateZ(18px)" }}>
           <div className="relative aspect-[4/5] w-32 shrink-0 overflow-hidden rounded-2xl border border-border bg-secondary shadow-lg sm:w-40 lg:w-44">
             {avatarOk ? (
@@ -99,7 +102,7 @@ function ProfileCard() {
               </div>
             )}
             <span
-              className="absolute bottom-2.5 right-2.5 size-3.5 rounded-full border-2 border-card bg-emerald-500 shadow-md"
+              className="shimmer-dot absolute bottom-2.5 right-2.5 size-3.5 rounded-full border-2 border-card bg-emerald-500 shadow-md"
               aria-hidden
             />
           </div>
@@ -129,7 +132,7 @@ function ProfileCard() {
         </div>
 
         <div className="mt-6 flex items-start gap-2.5 rounded-xl border border-emerald-500/20 bg-emerald-500/[0.06] px-4 py-3">
-          <span className="mt-1.5 size-1.5 shrink-0 rounded-full bg-emerald-500" />
+          <span className="shimmer-dot mt-1.5 size-1.5 shrink-0 rounded-full bg-emerald-500" />
           <p className="text-xs leading-relaxed text-foreground/85 text-pretty sm:text-[13px]">
             {profile.availability}
           </p>
@@ -175,20 +178,25 @@ function ProfileCard() {
         </div>
 
         <div className="mt-6 grid grid-cols-2 gap-2.5" style={{ transform: "translateZ(12px)" }}>
-          <Button asChild>
-            <a href="#contact">
-              Contact me
-              <ArrowRight />
-            </a>
-          </Button>
-          <Button asChild variant="secondary">
-            <a href={profile.resumeUrl} download>
-              <Download />
-              Download resume
-            </a>
-          </Button>
+          <Magnetic strength={0.28} className="w-full">
+            <Button asChild className="w-full">
+              <a href="#contact">
+                Contact me
+                <ArrowRight />
+              </a>
+            </Button>
+          </Magnetic>
+          <Magnetic strength={0.28} className="w-full">
+            <Button asChild variant="secondary" className="w-full">
+              <a href={profile.resumeUrl} download>
+                <Download />
+                Download resume
+              </a>
+            </Button>
+          </Magnetic>
         </div>
       </div>
+      </Spotlight>
       </TiltCard>
     </motion.aside>
   );
@@ -266,15 +274,19 @@ function HeroCopy() {
         custom={5}
         className="mt-7 flex flex-wrap items-center gap-2"
       >
-        <Button asChild size="lg">
-          <Link href="#overview">
-            Read overview
-            <ArrowRight />
-          </Link>
-        </Button>
-        <Button asChild variant="secondary" size="lg">
-          <Link href="#experience">See experience</Link>
-        </Button>
+        <Magnetic>
+          <Button asChild size="lg">
+            <Link href="#overview">
+              Read overview
+              <ArrowRight />
+            </Link>
+          </Button>
+        </Magnetic>
+        <Magnetic>
+          <Button asChild variant="secondary" size="lg">
+            <Link href="#experience">See experience</Link>
+          </Button>
+        </Magnetic>
       </motion.div>
 
       <motion.div
