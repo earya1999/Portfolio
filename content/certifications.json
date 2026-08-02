@@ -1,0 +1,20 @@
+[
+  {
+    "name": "Microsoft Certified: Azure AI Fundamentals",
+    "issuer": "Microsoft",
+    "date": "",
+    "credentialId": "",
+    "url": "https://learn.microsoft.com/en-us/certifications/azure-ai-fundamentals/",
+    "logo": "azure",
+    "skills": ["Azure AI", "Cognitive Services", "Responsible AI", "AI Fundamentals"]
+  },
+  {
+    "name": "SAP Certified — SAP S/4HANA Cloud",
+    "issuer": "SAP",
+    "date": "",
+    "credentialId": "",
+    "url": "https://training.sap.com",
+    "logo": "sap",
+    "skills": ["SAP S/4HANA", "Cloud", "Integration", "Implementation"]
+  }
+]

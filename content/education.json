@@ -1,0 +1,34 @@
+[
+  {
+    "id": "purdue",
+    "school": "Purdue University",
+    "department": "Daniels School of Business",
+    "degree": "Master of Science",
+    "field": "Business Analytics and Information Management",
+    "location": "West Lafayette, IN",
+    "start": "Aug 2024",
+    "end": "May 2026",
+    "logo": "/logos/purdue.svg",
+    "highlights": [
+      "STEM-designated program at the intersection of business, data, and enterprise decision-making.",
+      "Coursework: Analytical Programming, Data Mining, IT Project Management, AI for Business, Business Analytics.",
+      "Focus areas: enterprise implementation, applied AI, and analytics for operations."
+    ]
+  },
+  {
+    "id": "srm",
+    "school": "SRM Institute of Science and Technology",
+    "department": "School of Computing",
+    "degree": "Bachelor of Technology",
+    "field": "Computer Science Engineering",
+    "location": "Chennai, India",
+    "start": "Jul 2018",
+    "end": "Jul 2022",
+    "logo": "/logos/srm.svg",
+    "highlights": [
+      "Foundational coursework across software engineering, databases, distributed systems, and machine learning.",
+      "Capstone in applied machine learning for enterprise workflows.",
+      "Active in analytics & automation student communities."
+    ]
+  }
+]

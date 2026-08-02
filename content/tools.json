@@ -1,0 +1,17 @@
+[
+  { "name": "SQL", "category": "Data", "icon": "database", "note": "Ad-hoc analysis + validation" },
+  { "name": "Python", "category": "Data", "icon": "code", "note": "pandas, scripting, automation" },
+  { "name": "Power BI", "category": "Analytics", "icon": "barChart", "note": "Executive dashboards + DAX" },
+  { "name": "Excel", "category": "Analytics", "icon": "table", "note": "Modeling and analysis" },
+  { "name": "Jira", "category": "Delivery", "icon": "jira", "note": "Delivery + issue tracking" },
+  { "name": "Salesforce", "category": "Platforms", "icon": "salesforce", "note": "CRM + customer records" },
+  { "name": "SAP", "category": "ERP", "icon": "sap", "note": "Integrations & finance flows" },
+  { "name": "Oracle", "category": "ERP", "icon": "oracle", "note": "Integrations & data sources" },
+  { "name": "Microsoft Dynamics 365", "category": "ERP", "icon": "microsoft", "note": "ERP integrations" },
+  { "name": "Azure", "category": "Cloud", "icon": "azure", "note": "AI services + hosting" },
+  { "name": "MongoDB", "category": "Data", "icon": "mongodb", "note": "Document data stores" },
+  { "name": "REST APIs", "category": "Integrations", "icon": "api", "note": "System-to-system integration" },
+  { "name": "ChatGPT", "category": "AI", "icon": "openai", "note": "Research + drafting" },
+  { "name": "Claude", "category": "AI", "icon": "anthropic", "note": "Long-context analysis" },
+  { "name": "GitHub", "category": "Delivery", "icon": "github", "note": "Version control + Copilot" }
+]

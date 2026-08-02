@@ -1,0 +1,35 @@
+{
+  "intro": [
+    "I'm a SaaS Implementation Consultant with 3+ years of experience delivering enterprise ERP and Accounts Receivable automation solutions for Fortune 500 clients. I specialize in bridging business and technology to drive measurable operational impact.",
+    "At HighRadius, I led multiple end-to-end implementations, significantly reducing manual effort and improving processing efficiency. I've also turned around critical client implementations from red to green by optimizing workflows and aligning stakeholders.",
+    "Currently, at Purdue University, I'm advancing my expertise in data analytics while working on a banking practicum project focused on identifying workflow inefficiencies and delivering data-driven automation recommendations."
+  ],
+  "capabilities": [
+    {
+      "title": "SaaS Implementation & ERP Integrations",
+      "description": "End-to-end enterprise deployments with SAP, Oracle, and cross-system integrations.",
+      "icon": "Rocket"
+    },
+    {
+      "title": "Data Analysis",
+      "description": "Turning production data into decisions with Python, SQL, and Power BI.",
+      "icon": "BarChart3"
+    },
+    {
+      "title": "Process Optimization & Automation",
+      "description": "Reducing manual effort by finding the highest-leverage points in a workflow.",
+      "icon": "Zap"
+    },
+    {
+      "title": "Stakeholder & Change Management",
+      "description": "Aligning finance, IT, and executive stakeholders through delivery and adoption.",
+      "icon": "Users"
+    }
+  ],
+  "seeking": [
+    "Data Analytics",
+    "Business / Technology Consulting",
+    "Implementation & Product roles"
+  ],
+  "cta": "If you're working on data-driven transformation or enterprise SaaS solutions, feel free to connect."
+}

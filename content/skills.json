@@ -1,0 +1,83 @@
+[
+  {
+    "category": "Implementation & Consulting",
+    "description": "End-to-end enterprise deployments — from discovery to hyper-care.",
+    "icon": "Rocket",
+    "items": [
+      { "name": "Enterprise SaaS Implementation", "level": 95 },
+      { "name": "Requirements Gathering", "level": 92 },
+      { "name": "Discovery Workshops", "level": 90 },
+      { "name": "Solution Design", "level": 92 },
+      { "name": "Process Mapping", "level": 90 },
+      { "name": "Platform Configuration", "level": 92 },
+      { "name": "UAT", "level": 92 },
+      { "name": "Go-Live Management", "level": 92 },
+      { "name": "Customer Training", "level": 90 },
+      { "name": "Change Management", "level": 88 },
+      { "name": "Stakeholder Management", "level": 92 },
+      { "name": "Project Management", "level": 90 }
+    ]
+  },
+  {
+    "category": "Technical & Integrations",
+    "description": "Enough hands-on depth to be dangerous with the engineering team.",
+    "icon": "Terminal",
+    "items": [
+      { "name": "REST APIs", "level": 90 },
+      { "name": "SQL", "level": 92 },
+      { "name": "Data Mapping", "level": 90 },
+      { "name": "Data Validation", "level": 90 },
+      { "name": "ERP Integrations", "level": 88 },
+      { "name": "SAP", "level": 82 },
+      { "name": "Oracle", "level": 82 },
+      { "name": "Microsoft Dynamics 365", "level": 78 },
+      { "name": "MongoDB", "level": 78 },
+      { "name": "System Troubleshooting", "level": 90 }
+    ]
+  },
+  {
+    "category": "Analytics",
+    "description": "Turning messy operational data into decisions.",
+    "icon": "BarChart3",
+    "items": [
+      { "name": "Python", "level": 88 },
+      { "name": "Power BI", "level": 92 },
+      { "name": "Excel", "level": 95 },
+      { "name": "Business Analytics", "level": 90 },
+      { "name": "Reporting", "level": 92 },
+      { "name": "Process Analysis", "level": 90 },
+      { "name": "Automation Measurement", "level": 88 }
+    ]
+  },
+  {
+    "category": "Product & Customer",
+    "description": "Feedback loops from field to roadmap.",
+    "icon": "Users",
+    "items": [
+      { "name": "Product Adoption", "level": 92 },
+      { "name": "Customer Onboarding", "level": 95 },
+      { "name": "Customer Enablement", "level": 92 },
+      { "name": "Product Feedback", "level": 90 },
+      { "name": "Cross-Functional Collaboration", "level": 92 },
+      { "name": "Executive Communication", "level": 90 },
+      { "name": "Documentation", "level": 92 },
+      { "name": "Playbook Development", "level": 90 }
+    ]
+  },
+  {
+    "category": "AI",
+    "description": "Practical AI, applied to real workflows.",
+    "icon": "Sparkles",
+    "items": [
+      { "name": "Generative AI", "level": 88 },
+      { "name": "Prompt Engineering", "level": 90 },
+      { "name": "AI-Assisted Documentation", "level": 92 },
+      { "name": "AI-Assisted Research", "level": 90 },
+      { "name": "Workflow Automation", "level": 88 },
+      { "name": "ChatGPT", "level": 92 },
+      { "name": "Claude", "level": 90 },
+      { "name": "Gemini", "level": 82 },
+      { "name": "GitHub Copilot", "level": 85 }
+    ]
+  }
+]

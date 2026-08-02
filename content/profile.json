@@ -1,0 +1,36 @@
+{
+  "name": "Eshaan Arya",
+  "shortName": "Eshaan",
+  "role": "Enterprise SaaS Implementation Consultant",
+  "altRole": "Implementation & Solutions Consultant",
+  "location": "United States",
+  "languages": ["English", "Hindi"],
+  "eyebrow": "Helping teams turn complex requirements into successful deployments.",
+  "headline": "Turning complex enterprise workflows into solutions customers actually use.",
+  "subheadline": "I lead enterprise software implementations from discovery through go-live, combining customer consulting, process design, technical coordination, and adoption strategy to deliver measurable business outcomes.",
+  "positioning": "I turn complex enterprise requirements into technology solutions that customers successfully adopt.",
+  "availability": "Open to implementation, solutions consulting, professional services, and AI deployment opportunities.",
+  "avatar": "/avatar.jpg",
+  "email": "eshaanarya1999@gmail.com",
+  "resumeUrl": "/resume/Eshaan-Arya-Resume.pdf",
+  "vcardUrl": "/eshaan-arya.vcf",
+  "socials": {
+    "linkedin": "https://www.linkedin.com/in/eshaan-arya-26461616a",
+    "github": "https://github.com/earya1999",
+    "instagram": "https://instagram.com/eshaanarya",
+    "calendly": "https://calendly.com/eshaanarya1999",
+    "email": "mailto:eshaanarya1999@gmail.com"
+  },
+  "targetRoles": [
+    "Implementation Consultant",
+    "Solutions Consultant",
+    "Professional Services",
+    "Deployment Strategist",
+    "Customer Success Engineer"
+  ],
+  "highlights": {
+    "degree": "MS · Purdue University",
+    "experience": "3+ years enterprise SaaS implementation",
+    "focus": "Fortune 500 & large enterprise clients"
+  }
+}
