@@ -99,40 +99,18 @@ export function Experience() {
                               ))}
                             </ul>
                           </div>
-                          <div className="lg:col-span-2 flex flex-col gap-5">
-                            {entry.impact.length > 0 && (
-                              <div>
-                                <div className="eyebrow mb-2">Impact</div>
-                                <div className="grid grid-cols-2 gap-2">
-                                  {entry.impact.map((m) => (
-                                    <div
-                                      key={m.label}
-                                      className="rounded-xl border border-border/60 bg-background/60 p-3"
-                                    >
-                                      <div className="font-display text-lg font-semibold">
-                                        {m.value}
-                                      </div>
-                                      <div className="text-[11px] text-muted-foreground">
-                                        {m.label}
-                                      </div>
-                                    </div>
-                                  ))}
-                                </div>
+                          {entry.technologies.length > 0 && (
+                            <div className="lg:col-span-2">
+                              <div className="eyebrow mb-2">Skills used</div>
+                              <div className="flex flex-wrap gap-1.5">
+                                {entry.technologies.map((t) => (
+                                  <Badge key={t} variant="muted" className="text-[10px]">
+                                    {t}
+                                  </Badge>
+                                ))}
                               </div>
-                            )}
-                            {entry.technologies.length > 0 && (
-                              <div>
-                                <div className="eyebrow mb-2">Skills used</div>
-                                <div className="flex flex-wrap gap-1.5">
-                                  {entry.technologies.map((t) => (
-                                    <Badge key={t} variant="muted" className="text-[10px]">
-                                      {t}
-                                    </Badge>
-                                  ))}
-                                </div>
-                              </div>
-                            )}
-                          </div>
+                            </div>
+                          )}
                         </div>
                       </motion.div>
                     )}
