@@ -4,22 +4,22 @@
 
 @layer base {
   :root {
-    /* Slightly darker cool grey canvas for light mode */
-    --background: 220 12% 90%;
-    --foreground: 222 28% 14%;
-    --muted: 220 10% 84%;
-    --muted-foreground: 220 10% 36%;
-    --card: 220 16% 95%;
-    --card-foreground: 222 28% 14%;
-    --primary: 222 28% 14%;
+    /* Deeper cool grey light mode */
+    --background: 220 12% 86%;
+    --foreground: 222 28% 12%;
+    --muted: 220 10% 80%;
+    --muted-foreground: 220 10% 34%;
+    --card: 220 14% 92%;
+    --card-foreground: 222 28% 12%;
+    --primary: 222 28% 12%;
     --primary-foreground: 210 40% 98%;
-    --secondary: 220 10% 84%;
-    --secondary-foreground: 222 28% 14%;
-    --accent: 220 10% 84%;
-    --accent-foreground: 222 28% 14%;
-    --border: 220 10% 78%;
-    --input: 220 10% 78%;
-    --ring: 222 28% 14%;
+    --secondary: 220 10% 80%;
+    --secondary-foreground: 222 28% 12%;
+    --accent: 220 10% 80%;
+    --accent-foreground: 222 28% 12%;
+    --border: 220 10% 74%;
+    --input: 220 10% 74%;
+    --ring: 222 28% 12%;
     --radius: 14px;
   }
 
