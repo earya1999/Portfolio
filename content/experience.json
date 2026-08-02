@@ -20,10 +20,6 @@
       "Data Analytics",
       "Excel",
       "Power BI"
-    ],
-    "impact": [
-      { "value": "Workflows", "label": "Mapped end-to-end" },
-      { "value": "Data-backed", "label": "Automation recommendations" }
     ]
   },
   {
@@ -56,12 +52,6 @@
       "UAT",
       "Jira",
       "SQL"
-    ],
-    "impact": [
-      { "value": "3+", "label": "Implementations led" },
-      { "value": "42→70%", "label": "Automation improvement" },
-      { "value": "+28 pts", "label": "Recovered Cash App" },
-      { "value": "F500", "label": "Client scale" }
     ]
   },
   {
@@ -81,9 +71,6 @@
       "Cash Application",
       "Enterprise SaaS",
       "Client Delivery"
-    ],
-    "impact": [
-      { "value": "Promoted", "label": "To Implementation Consultant" }
     ]
   }
 ]
