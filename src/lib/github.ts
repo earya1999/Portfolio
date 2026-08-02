@@ -13,6 +13,8 @@ export type GithubProject = {
   forks: number;
   updatedAt: string;
   pushedAt: string;
+  /** Optional cover from content/projects.json → images */
+  image: string | null;
 };
 
 type GithubApiRepo = {
@@ -76,6 +78,7 @@ export async function getGithubProjects(): Promise<{
       (projectsConfig.exclude || []).map((n) => n.toLowerCase())
     );
     const requireTopic = projectsConfig.requireTopic;
+    const images = (projectsConfig.images || {}) as Record<string, string>;
 
     const projects = repos
       .filter((r) => {
@@ -103,6 +106,7 @@ export async function getGithubProjects(): Promise<{
           forks: r.forks_count,
           updatedAt: r.updated_at,
           pushedAt: r.pushed_at,
+          image: images[r.name] ?? null,
         })
       );
 

@@ -7,5 +7,10 @@
   "excludeForks": true,
   "excludeArchived": true,
   "requireTopic": null,
-  "sortBy": "updated"
+  "sortBy": "updated",
+  "images": {
+    "NewsApplication": "/projects/NewsApplication.png",
+    "CFB_Application": "/projects/CFB_Application.png",
+    "Stock-Index-Forecasting": "/projects/Stock-Index-Forecasting.png"
+  }
 }
