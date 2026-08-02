@@ -275,16 +275,6 @@ function HeroCopy() {
         <Button asChild variant="secondary" size="lg">
           <Link href="#experience">See experience</Link>
         </Button>
-        <Button asChild variant="ghost" size="lg">
-          <a
-            href={profile.socials.linkedin}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Linkedin />
-            LinkedIn
-          </a>
-        </Button>
       </motion.div>
 
       <motion.div
