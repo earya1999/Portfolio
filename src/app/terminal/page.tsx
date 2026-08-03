@@ -3,7 +3,7 @@ import { Terminal } from "@/components/terminal";
 
 export const metadata: Metadata = {
   title: "Terminal",
-  description: "Every implementation consultant deserves a terminal easter egg.",
+  description: "Interactive terminal view of Eshaan Arya's portfolio.",
 };
 
 export default function TerminalPage() {

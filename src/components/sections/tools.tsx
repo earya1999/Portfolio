@@ -15,8 +15,8 @@ export function Tools() {
     <Section
       id="tools"
       eyebrow="Tools"
-      title="What I reach for on any given day."
-      description="The stack behind discovery, configuration, integrations, and adoption work — plus the AI tools I use to move faster."
+      title="Tools I work with."
+      description="Platforms and technologies used across discovery, configuration, integrations, analytics, and delivery."
       accent="amber"
     >
       <Marquee speed={48} className="mb-12 rounded-xl border border-border/40 bg-card/40 py-3">

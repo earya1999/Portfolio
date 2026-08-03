@@ -75,7 +75,7 @@ export function Skills() {
     <Section
       id="skills"
       eyebrow="Skills"
-      title="Grouped by how I actually use them on deployments."
+      title="Capabilities I bring to every engagement."
       accent="violet"
     >
       <div className="grid gap-6 lg:grid-cols-[280px_1fr]">

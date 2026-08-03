@@ -17,7 +17,7 @@ export function Experience() {
       id="experience"
       eyebrow="Experience"
       title="Enterprise implementations and applied analytics."
-      description="HighRadius delivery experience, plus a banking analytics practicum at Community First Bank of Indiana."
+      description="Enterprise SaaS implementations at HighRadius, and a banking analytics practicum at Community First Bank of Indiana."
       accent="emerald"
     >
       <div className="relative">

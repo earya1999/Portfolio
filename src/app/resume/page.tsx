@@ -26,8 +26,8 @@ export default function ResumePage() {
     <div className="pt-32">
       <Section
         eyebrow="Resume"
-        title="One-page, PDF-first."
-        description="Embedded preview below. Download the PDF, print this page, or read the machine-readable summary."
+        title="Resume."
+        description="Download the PDF or browse a print-friendly version below."
       >
         <div className="mb-6 flex flex-wrap items-center gap-3 no-print">
           <Button asChild>

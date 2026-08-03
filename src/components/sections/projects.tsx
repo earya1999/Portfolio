@@ -57,19 +57,7 @@ export function Projects({
         </div>
       )}
 
-      <div className="mt-10 flex flex-wrap items-center justify-between gap-4 border-t border-border/60 pt-6">
-        <p className="text-sm text-muted-foreground">
-          Synced from{" "}
-          <a
-            href={profile.socials.github}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="link-underline text-foreground/90"
-          >
-            github.com/{projectsConfig.username}
-          </a>
-          . New public repos show up automatically.
-        </p>
+      <div className="mt-10 flex justify-end border-t border-border/60 pt-6">
         <Magnetic>
           <Button asChild variant="secondary" size="sm">
             <a
@@ -78,7 +66,7 @@ export function Projects({
               rel="noopener noreferrer"
             >
               <Github />
-              View all on GitHub
+              View GitHub
               <ArrowUpRight />
             </a>
           </Button>
@@ -248,20 +236,19 @@ function EmptyProjects() {
     <div className="rounded-2xl border border-dashed border-border/70 bg-card/40 px-6 py-12 text-center">
       <Github className="mx-auto size-8 text-muted-foreground" />
       <h3 className="mt-4 font-display text-lg font-semibold">
-        No public projects yet
+        Projects coming soon
       </h3>
       <p className="mx-auto mt-2 max-w-md text-sm text-muted-foreground text-pretty">
-        Create a public repository on GitHub (or make an existing one public) and
-        it will show up here automatically within a few minutes.
+        In the meantime, you can browse my work on GitHub.
       </p>
       <Magnetic className="mt-6">
         <Button asChild>
           <a
-            href={`${profile.socials.github}?tab=repositories`}
+            href={profile.socials.github}
             target="_blank"
             rel="noopener noreferrer"
           >
-            Open GitHub
+            View GitHub
             <ArrowUpRight />
           </a>
         </Button>

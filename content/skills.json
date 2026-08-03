@@ -1,7 +1,7 @@
 [
   {
     "category": "Implementation & Consulting",
-    "description": "End-to-end enterprise deployments — from discovery to hyper-care.",
+    "description": "End-to-end enterprise deployments, from discovery through go-live and adoption.",
     "icon": "Rocket",
     "items": [
       { "name": "Enterprise SaaS Implementation", "level": 95 },
@@ -20,7 +20,7 @@
   },
   {
     "category": "Technical & Integrations",
-    "description": "Enough hands-on depth to be dangerous with the engineering team.",
+    "description": "Hands-on technical depth to partner effectively with engineering teams.",
     "icon": "Terminal",
     "items": [
       { "name": "REST APIs", "level": 90 },
@@ -37,7 +37,7 @@
   },
   {
     "category": "Analytics",
-    "description": "Turning messy operational data into decisions.",
+    "description": "Turning operational data into clear decisions and reporting.",
     "icon": "BarChart3",
     "items": [
       { "name": "Python", "level": 88 },
@@ -51,7 +51,7 @@
   },
   {
     "category": "Product & Customer",
-    "description": "Feedback loops from field to roadmap.",
+    "description": "Connecting customer feedback to product and delivery outcomes.",
     "icon": "Users",
     "items": [
       { "name": "Product Adoption", "level": 92 },
@@ -66,7 +66,7 @@
   },
   {
     "category": "AI",
-    "description": "Practical AI, applied to real workflows.",
+    "description": "Practical AI applied to documentation, research, and workflow automation.",
     "icon": "Sparkles",
     "items": [
       { "name": "Generative AI", "level": 88 },

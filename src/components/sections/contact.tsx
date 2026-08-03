@@ -124,9 +124,9 @@ export function Contact() {
           >
             <div>
               <div className="eyebrow">Book time</div>
-              <div className="mt-1 text-base font-medium">30-min intro on Calendly</div>
+              <div className="mt-1 text-base font-medium">Schedule a 30-minute intro</div>
               <div className="mt-1 text-xs text-muted-foreground">
-                Best for recruiters &amp; hiring managers
+                Available for conversations about open roles
               </div>
             </div>
             <Calendar className="size-5 text-muted-foreground transition-transform group-hover:translate-x-1" />
@@ -161,7 +161,7 @@ export function Contact() {
             name="message"
             textarea
             required
-            placeholder="A quick sentence or two — I reply within 24 hours."
+            placeholder="Role, team, or what you'd like to discuss"
           />
           {/* Honeypot — hidden from real users */}
           <div className="absolute -left-[9999px]" aria-hidden>
@@ -177,9 +177,7 @@ export function Contact() {
           </div>
           <div className="mt-4 flex items-center justify-between gap-3">
             <p className="text-xs text-muted-foreground">
-              {process.env.NEXT_PUBLIC_CONTACT_FORM_ENDPOINT
-                ? "Sent securely to my inbox."
-                : "This form opens your mail client. Nothing is stored on this site."}
+              I typically respond within one business day.
             </p>
             <Magnetic>
               <Button type="submit" disabled={submitting}>

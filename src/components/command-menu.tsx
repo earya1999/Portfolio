@@ -178,7 +178,7 @@ export function CommandMenuProvider({ children }: { children: React.ReactNode })
                       ref={inputRef}
                       value={query}
                       onChange={(e) => setQuery(e.target.value)}
-                      placeholder="Search sections, case studies, actions…"
+                      placeholder="Search pages and actions…"
                       className="h-12 w-full bg-transparent text-sm outline-none placeholder:text-muted-foreground"
                     />
                     <kbd className="rounded border border-border bg-muted px-1.5 py-0.5 font-mono text-[10px] text-muted-foreground">

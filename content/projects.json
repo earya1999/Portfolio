@@ -1,7 +1,7 @@
 {
   "username": "earya1999",
-  "title": "Selected work from GitHub.",
-  "description": "Public repositories sync automatically from GitHub — new projects appear here after you push them.",
+  "title": "Selected work.",
+  "description": "A few projects spanning enterprise tooling, applied analytics, and product builds.",
   "maxRepos": 12,
   "exclude": ["Portfolio"],
   "excludeForks": true,

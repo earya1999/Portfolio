@@ -12,7 +12,7 @@ export function Certifications() {
     <Section
       id="certifications"
       eyebrow="Certifications"
-      title="Credentialed where it counts."
+      title="Professional certifications."
       accent="blue"
     >
       <div className="grid gap-4 sm:grid-cols-2">
@@ -41,9 +41,11 @@ export function Certifications() {
                     </span>
                     <div>
                       <div className="text-xs text-muted-foreground">{c.issuer}</div>
-                      <div className="text-xs font-mono text-muted-foreground">
-                        {c.date || "Credential date — editable"}
-                      </div>
+                      {c.date ? (
+                        <div className="text-xs font-mono text-muted-foreground">
+                          {c.date}
+                        </div>
+                      ) : null}
                     </div>
                   </div>
                   <ExternalLink className="size-3.5 text-muted-foreground opacity-0 transition-opacity group-hover:opacity-100" />
