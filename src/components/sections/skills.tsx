@@ -13,55 +13,44 @@ type Accent = {
   chipText: string;
   activeBg: string;
   activeText: string;
-  bar: string;
 };
 
 // Ordered to match the order of categories in content/skills.json
 const accents: Accent[] = [
   {
-    // Implementation & Consulting → sky
     chipBg: "bg-sky-500/12",
     chipRing: "ring-sky-500/30",
     chipText: "text-sky-500 dark:text-sky-400",
     activeBg: "bg-gradient-to-br from-sky-500 to-blue-600",
     activeText: "text-white",
-    bar: "bg-gradient-to-r from-sky-400 to-blue-500",
   },
   {
-    // Technical & Integrations → emerald
     chipBg: "bg-emerald-500/12",
     chipRing: "ring-emerald-500/30",
     chipText: "text-emerald-500 dark:text-emerald-400",
     activeBg: "bg-gradient-to-br from-emerald-500 to-teal-600",
     activeText: "text-white",
-    bar: "bg-gradient-to-r from-emerald-400 to-teal-500",
   },
   {
-    // Analytics → violet
     chipBg: "bg-violet-500/12",
     chipRing: "ring-violet-500/30",
     chipText: "text-violet-500 dark:text-violet-400",
     activeBg: "bg-gradient-to-br from-violet-500 to-purple-600",
     activeText: "text-white",
-    bar: "bg-gradient-to-r from-violet-400 to-purple-500",
   },
   {
-    // Product & Customer → amber
     chipBg: "bg-amber-500/12",
     chipRing: "ring-amber-500/30",
     chipText: "text-amber-500 dark:text-amber-400",
     activeBg: "bg-gradient-to-br from-amber-500 to-orange-600",
     activeText: "text-white",
-    bar: "bg-gradient-to-r from-amber-400 to-orange-500",
   },
   {
-    // AI → rose
     chipBg: "bg-rose-500/12",
     chipRing: "ring-rose-500/30",
     chipText: "text-rose-500 dark:text-rose-400",
     activeBg: "bg-gradient-to-br from-rose-500 to-pink-600",
     activeText: "text-white",
-    bar: "bg-gradient-to-r from-rose-400 to-pink-500",
   },
 ];
 
@@ -147,32 +136,16 @@ export function Skills() {
               {activeCategory.items.length} skills
             </span>
           </div>
-          <ul className="grid gap-4 sm:grid-cols-2">
+          <ul className="flex flex-wrap gap-2">
             {activeCategory.items.map((item, i) => (
               <motion.li
                 key={item.name}
-                initial={{ opacity: 0, x: -6 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: i * 0.03 }}
+                initial={{ opacity: 0, y: 6 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.02 }}
+                className="rounded-full border border-border/60 bg-background/50 px-3.5 py-1.5 text-sm text-foreground/90"
               >
-                <div className="mb-1.5 flex items-baseline justify-between text-sm">
-                  <span>{item.name}</span>
-                  <span className="font-mono text-[11px] text-muted-foreground">
-                    {item.level}
-                  </span>
-                </div>
-                <div className="h-1.5 w-full overflow-hidden rounded-full bg-secondary">
-                  <motion.div
-                    initial={{ width: 0 }}
-                    animate={{ width: `${item.level}%` }}
-                    transition={{
-                      duration: 0.8,
-                      ease: [0.22, 1, 0.36, 1],
-                      delay: 0.1,
-                    }}
-                    className={cn("h-full rounded-full", activeAccent.bar)}
-                  />
-                </div>
+                {item.name}
               </motion.li>
             ))}
           </ul>
