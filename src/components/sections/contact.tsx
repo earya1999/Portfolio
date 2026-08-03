@@ -84,7 +84,7 @@ export function Contact() {
       id="contact"
       eyebrow="Contact"
       title="Let's build something that works."
-      description="I'm interested in implementation, solutions consulting, professional services, AI deployment, and customer-facing technology roles."
+      description="Open to Implementation Consultant, Solutions Consultant, and Professional Services conversations."
       accent="emerald"
     >
       <div className="grid gap-6 lg:grid-cols-5">

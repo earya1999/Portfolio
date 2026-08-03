@@ -294,7 +294,7 @@ function HeroCopy() {
         custom={6}
         className="mt-7 flex flex-wrap items-center gap-1.5"
       >
-        <span className="mr-1 text-xs text-muted-foreground">Open to:</span>
+        <span className="mr-1 text-xs text-muted-foreground">Target roles:</span>
         {profile.targetRoles.map((r) => (
           <span
             key={r}

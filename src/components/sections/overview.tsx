@@ -84,7 +84,7 @@ export function Overview() {
           </div>
 
           <div className="mt-10">
-            <h3 className="eyebrow">Actively seeking full-time opportunities in</h3>
+            <h3 className="eyebrow">Target roles</h3>
             <ul className="mt-4 flex flex-col gap-2">
               {overview.seeking.map((s) => (
                 <li

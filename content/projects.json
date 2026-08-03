@@ -1,16 +1,38 @@
 {
   "username": "earya1999",
   "title": "Selected work.",
-  "description": "A few projects spanning enterprise tooling, applied analytics, and product builds.",
+  "description": "Applied builds across banking operations, enterprise-adjacent tooling, and analytics.",
   "maxRepos": 12,
   "exclude": ["Portfolio"],
   "excludeForks": true,
   "excludeArchived": true,
   "requireTopic": null,
   "sortBy": "updated",
+  "featured": [
+    "CFB_Application",
+    "NewsApplication",
+    "Stock-Index-Forecasting"
+  ],
   "images": {
     "NewsApplication": "/projects/NewsApplication.png",
     "CFB_Application": "/projects/CFB_Application.png",
     "Stock-Index-Forecasting": "/projects/Stock-Index-Forecasting.png"
+  },
+  "overrides": {
+    "CFB_Application": {
+      "title": "OD Recovery Rules Highlighter",
+      "summary": "Banking operations tool that applies NSF/OD recovery rules to account CSVs and exports a color-coded Excel workbook.",
+      "outcome": "Built during my Community First Bank practicum to replace manual sort-and-shade work for recovery teams."
+    },
+    "NewsApplication": {
+      "title": "Brief — AI News Reader",
+      "summary": "Cross-platform mobile news app with a FastAPI backend that turns major RSS feeds into ~100-word AI summaries.",
+      "outcome": "Designed for faster daily reading with topic filters, bookmarks, and a cached summarization pipeline."
+    },
+    "Stock-Index-Forecasting": {
+      "title": "Global Stock Index Forecasting",
+      "summary": "Purdue MGMT 590 final project forecasting monthly closing prices for major indices across India, USA, China, and Japan.",
+      "outcome": "End-to-end analytics workflow covering data prep, modeling, and executive-ready presentation of forecast results."
+    }
   }
 }

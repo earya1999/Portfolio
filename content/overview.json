@@ -1,8 +1,8 @@
 {
   "intro": [
-    "I'm a SaaS Implementation Consultant with 3+ years of experience delivering enterprise ERP and Accounts Receivable automation solutions for Fortune 500 clients. I specialize in bridging business and technology to drive measurable operational impact.",
-    "At HighRadius, I led multiple end-to-end implementations, significantly reducing manual effort and improving processing efficiency. I've also turned around critical client implementations from red to green by optimizing workflows and aligning stakeholders.",
-    "Currently, at Purdue University, I'm advancing my expertise in data analytics while working on a banking practicum project focused on identifying workflow inefficiencies and delivering data-driven automation recommendations."
+    "I'm a client-facing Implementation Consultant with 3+ years of experience delivering enterprise SaaS implementations, customer onboarding, financial workflow optimization, training, and go-live success for Fortune 500 organizations.",
+    "At HighRadius, I led multiple end-to-end implementations — increasing automation from 42% to 70% on key workflows and turning around a high-risk Cash Application engagement from red to green in under a month.",
+    "At Purdue University, I'm completing an MS in Business Analytics and Information Management while working on a banking practicum focused on operational bottlenecks and data-backed automation recommendations."
   ],
   "capabilities": [
     {
@@ -11,8 +11,8 @@
       "icon": "Rocket"
     },
     {
-      "title": "Data Analysis",
-      "description": "Turning production data into decisions with Python, SQL, and Power BI.",
+      "title": "Business Process Analysis",
+      "description": "Mapping financial and operational workflows to the right system configuration.",
       "icon": "BarChart3"
     },
     {
@@ -27,9 +27,9 @@
     }
   ],
   "seeking": [
-    "Data Analytics",
-    "Business / Technology Consulting",
-    "Implementation & Product roles"
+    "Implementation Consultant",
+    "Solutions Consultant",
+    "Professional Services / Customer Success"
   ],
-  "cta": "If you're working on data-driven transformation or enterprise SaaS solutions, feel free to connect."
+  "cta": "If you're hiring for enterprise SaaS implementation or professional services roles, I'd welcome a conversation."
 }

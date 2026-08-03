@@ -3,8 +3,10 @@ import projectsConfig from "../../content/projects.json";
 export type GithubProject = {
   id: number;
   name: string;
+  displayName: string;
   fullName: string;
   description: string;
+  outcome: string | null;
   url: string;
   homepage: string | null;
   language: string | null;
@@ -33,6 +35,12 @@ type GithubApiRepo = {
   fork: boolean;
   archived: boolean;
   private: boolean;
+};
+
+type ProjectOverride = {
+  title?: string;
+  summary?: string;
+  outcome?: string;
 };
 
 const REVALIDATE_SECONDS = 600; // 10 minutes
@@ -79,6 +87,12 @@ export async function getGithubProjects(): Promise<{
     );
     const requireTopic = projectsConfig.requireTopic;
     const images = (projectsConfig.images || {}) as Record<string, string>;
+    const overrides = (projectsConfig.overrides || {}) as Record<
+      string,
+      ProjectOverride
+    >;
+    const featured = (projectsConfig.featured || []) as string[];
+    const featuredIndex = new Map(featured.map((name, i) => [name, i]));
 
     const projects = repos
       .filter((r) => {
@@ -91,13 +105,16 @@ export async function getGithubProjects(): Promise<{
         }
         return true;
       })
-      .slice(0, projectsConfig.maxRepos || 12)
-      .map(
-        (r): GithubProject => ({
+      .map((r): GithubProject => {
+        const override = overrides[r.name] || {};
+        return {
           id: r.id,
           name: r.name,
+          displayName: override.title || r.name,
           fullName: r.full_name,
-          description: r.description || "No description yet.",
+          description:
+            override.summary || r.description || "No description yet.",
+          outcome: override.outcome || null,
           url: r.html_url,
           homepage: r.homepage || null,
           language: r.language,
@@ -107,8 +124,22 @@ export async function getGithubProjects(): Promise<{
           updatedAt: r.updated_at,
           pushedAt: r.pushed_at,
           image: images[r.name] ?? null,
-        })
-      );
+        };
+      })
+      .sort((a, b) => {
+        const ai = featuredIndex.has(a.name)
+          ? featuredIndex.get(a.name)!
+          : Number.MAX_SAFE_INTEGER;
+        const bi = featuredIndex.has(b.name)
+          ? featuredIndex.get(b.name)!
+          : Number.MAX_SAFE_INTEGER;
+        if (ai !== bi) return ai - bi;
+        return (
+          new Date(b.pushedAt || b.updatedAt).getTime() -
+          new Date(a.pushedAt || a.updatedAt).getTime()
+        );
+      })
+      .slice(0, projectsConfig.maxRepos || 12);
 
     return { projects };
   } catch (e) {

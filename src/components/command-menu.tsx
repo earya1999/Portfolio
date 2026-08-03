@@ -93,6 +93,20 @@ export function CommandMenuProvider({ children }: { children: React.ReactNode })
       toast.success("Email copied to clipboard");
       setOpen(false);
     };
+    const copyLinkedInAbout = () => {
+      const about = profile.linkedin?.about;
+      if (!about) return;
+      navigator.clipboard.writeText(about);
+      toast.success("LinkedIn About copied — paste into your profile");
+      setOpen(false);
+    };
+    const copyLinkedInHeadline = () => {
+      const headline = profile.linkedin?.headline;
+      if (!headline) return;
+      navigator.clipboard.writeText(headline);
+      toast.success("LinkedIn headline copied");
+      setOpen(false);
+    };
     const downloadResume = () => {
       window.open(profile.resumeUrl, "_blank");
       setOpen(false);
@@ -111,6 +125,8 @@ export function CommandMenuProvider({ children }: { children: React.ReactNode })
       { id: "contact", label: "Contact", icon: Mail, action: nav("/#contact"), group: "navigate" },
 
       { id: "copy-email", label: "Copy email address", icon: Copy, action: copyEmail, group: "actions" },
+      { id: "copy-linkedin-headline", label: "Copy LinkedIn headline", icon: Linkedin, action: copyLinkedInHeadline, group: "actions", keywords: "sync linkedin" },
+      { id: "copy-linkedin-about", label: "Copy LinkedIn About", icon: Linkedin, action: copyLinkedInAbout, group: "actions", keywords: "sync linkedin bio" },
       { id: "download-resume", label: "Download resume (PDF)", icon: Download, action: downloadResume, group: "actions" },
       { id: "theme-light", label: "Switch to light mode", icon: Sun, action: () => { setTheme("light"); setOpen(false); }, group: "actions" },
       { id: "theme-dark", label: "Switch to dark mode", icon: Moon, action: () => { setTheme("dark"); setOpen(false); }, group: "actions" },

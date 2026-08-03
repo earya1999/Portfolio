@@ -127,28 +127,36 @@ function ProjectCard({
                   className="flex items-center gap-2"
                 >
                   <Github className="size-4 shrink-0 text-muted-foreground transition-colors group-hover:text-foreground" />
-                  <h3 className="truncate font-display text-lg font-semibold tracking-tight hover:underline">
-                    {project.name}
-                  </h3>
-                </a>
-                <p className="mt-1 text-xs text-muted-foreground">
-                  Updated {formatDate(project.pushedAt || project.updatedAt)}
-                </p>
-              </div>
-              <a
-                href={project.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={`Open ${project.name} on GitHub`}
-                className="shrink-0 text-muted-foreground transition-transform hover:-translate-y-0.5 hover:translate-x-0.5 hover:text-foreground"
-              >
-                <ArrowUpRight className="size-4" />
+                <h3 className="truncate font-display text-lg font-semibold tracking-tight hover:underline">
+                  {project.displayName}
+                </h3>
               </a>
+              <p className="mt-1 text-xs text-muted-foreground">
+                {project.name}
+                {project.pushedAt || project.updatedAt
+                  ? ` · Updated ${formatDate(project.pushedAt || project.updatedAt)}`
+                  : ""}
+              </p>
             </div>
+            <a
+              href={project.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`Open ${project.displayName} on GitHub`}
+              className="shrink-0 text-muted-foreground transition-transform hover:-translate-y-0.5 hover:translate-x-0.5 hover:text-foreground"
+            >
+              <ArrowUpRight className="size-4" />
+            </a>
+          </div>
 
-            <p className="mt-3 flex-1 text-sm text-foreground/80 text-pretty">
-              {project.description}
+          <p className="mt-3 text-sm text-foreground/85 text-pretty">
+            {project.description}
+          </p>
+          {project.outcome && (
+            <p className="mt-2 flex-1 text-sm text-muted-foreground text-pretty">
+              {project.outcome}
             </p>
+          )}
 
             {project.topics.length > 0 && (
               <div className="mt-4 flex flex-wrap gap-1.5">

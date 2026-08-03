@@ -31,17 +31,17 @@
     "start": "Jul 2022",
     "end": "May 2025",
     "logo": "/logos/highradius.svg",
-    "summary": "Led enterprise SaaS onboarding and implementation for Fortune 500 clients — discovery through go-live, with ERP integrations, training, and measurable automation outcomes.",
+    "summary": "Client-facing Implementation Consultant delivering enterprise SaaS onboarding, spend and financial workflow optimization, training, and go-live success for Fortune 500 organizations.",
     "highlights": [
-      "Led 3+ end-to-end enterprise SaaS onboarding and implementation projects for Fortune 500 clients, managing discovery, requirements gathering, system configuration, testing, UAT, go-live readiness, and user adoption.",
-      "Managed multiple concurrent, time-sensitive implementations, coordinating project timelines, client communications, risks, dependencies, and follow-up actions to support on-time delivery.",
-      "Analyzed client financial workflows, including accounts receivable, ERP integrations, and transaction processing, to identify operational requirements and recommend appropriate system configurations.",
-      "Supported system integrations between the SaaS platform, SAP, Oracle ERP systems, and third-party banking applications, coordinating testing, data validation, and issue resolution.",
-      "Conducted solution walkthroughs and end-user training across client teams, addressing questions, resolving usability concerns, and improving confidence in day-to-day platform usage.",
-      "Advised business and technical stakeholders on configuration decisions, process changes, and implementation strategies aligned with operational requirements and desired outcomes.",
       "Delivered workflow transformation initiatives that increased automation from 42% to 70%, reducing manual processing and improving operational efficiency.",
       "Recovered a high-risk Cash Application implementation from red to green in under one month by resolving delivery blockers, aligning stakeholders, and increasing automation by 28 percentage points.",
-      "Maintained regular client communication through status updates, action tracking, and issue follow-ups, ensuring stakeholders remained aligned throughout implementation."
+      "Led 3+ end-to-end enterprise SaaS onboarding and implementation projects for Fortune 500 clients, from discovery through UAT, go-live, and user adoption.",
+      "Supported system integrations between the SaaS platform, SAP, Oracle ERP, and third-party banking applications, coordinating testing, data validation, and issue resolution.",
+      "Managed multiple concurrent, time-sensitive implementations, coordinating timelines, client communications, risks, and dependencies to support on-time delivery.",
+      "Analyzed client financial workflows — including accounts receivable, ERP integrations, and transaction processing — to recommend system configurations.",
+      "Conducted solution walkthroughs and end-user training across client teams to improve day-to-day platform confidence.",
+      "Advised business and technical stakeholders on configuration decisions, process changes, and implementation strategy.",
+      "Maintained regular client communication through status updates, action tracking, and issue follow-ups."
     ],
     "technologies": [
       "Enterprise SaaS",

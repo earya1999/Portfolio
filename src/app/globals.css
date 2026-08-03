@@ -91,15 +91,14 @@
     background: linear-gradient(
       120deg,
       hsl(var(--foreground)) 0%,
-      hsl(210 80% 70%) 35%,
-      hsl(270 70% 72%) 55%,
-      hsl(var(--foreground) / 0.7) 100%
+      hsl(210 40% 78%) 45%,
+      hsl(var(--foreground) / 0.72) 100%
     );
-    background-size: 200% auto;
+    background-size: 180% auto;
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
-    animation: gradient-shift 8s ease infinite;
+    animation: gradient-shift 14s ease infinite;
   }
   .shimmer-dot {
     position: relative;
@@ -122,14 +121,13 @@
     border-radius: inherit;
     padding: 1px;
     background: linear-gradient(
-      120deg,
-      rgba(56, 189, 248, 0.7),
-      rgba(167, 139, 250, 0.55),
-      rgba(52, 211, 153, 0.65),
-      rgba(56, 189, 248, 0.7)
+      135deg,
+      rgba(148, 163, 184, 0.45),
+      rgba(56, 189, 248, 0.28),
+      rgba(148, 163, 184, 0.35)
     );
-    background-size: 300% 300%;
-    animation: aurora-spin 10s linear infinite;
+    background-size: 200% 200%;
+    animation: aurora-spin 18s linear infinite;
     -webkit-mask:
       linear-gradient(#fff 0 0) content-box,
       linear-gradient(#fff 0 0);
@@ -137,7 +135,7 @@
     mask-composite: exclude;
     pointer-events: none;
     z-index: 2;
-    opacity: 0.85;
+    opacity: 0.55;
   }
   .noise-overlay::after {
     content: "";
