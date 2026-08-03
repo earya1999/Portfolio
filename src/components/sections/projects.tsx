@@ -112,7 +112,7 @@ function ProjectCard({
             href={project.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="relative block aspect-[16/10] overflow-hidden border-b border-border/50 bg-secondary/40"
+            className="relative block aspect-[16/5] overflow-hidden border-b border-border/50 bg-secondary/40"
             aria-label={`${project.name} preview`}
           >
             {project.image ? (
