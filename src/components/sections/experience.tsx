@@ -13,6 +13,7 @@ import { Section } from "@/components/ui/section";
 import { Badge } from "@/components/ui/badge";
 import { Spotlight } from "@/components/spotlight";
 import { TiltCard } from "@/components/tilt-card";
+import { OrgLogo } from "@/components/org-logo";
 import { cn } from "@/lib/utils";
 import { experience } from "@/lib/content";
 
@@ -35,16 +36,6 @@ const typeStyle: Record<
     node: "from-amber-400 to-orange-500 shadow-amber-500/25",
   },
 };
-
-function companyInitials(company: string) {
-  return company
-    .split(/\s+/)
-    .filter((w) => !/^(of|the|and|&)$/i.test(w))
-    .map((w) => w[0])
-    .slice(0, 2)
-    .join("")
-    .toUpperCase();
-}
 
 export function Experience() {
   const [open, setOpen] = React.useState<string | null>(
@@ -136,11 +127,12 @@ export function Experience() {
                         aria-controls={`exp-panel-${entry.id}`}
                       >
                         <div className="flex items-start gap-4">
-                          <div
-                            className="flex size-12 shrink-0 items-center justify-center rounded-xl border border-border/60 bg-secondary/80 font-display text-sm font-semibold tracking-wide text-foreground/85 shadow-sm"
-                            style={{ transform: "translateZ(12px)" }}
-                          >
-                            {companyInitials(entry.company)}
+                          <div style={{ transform: "translateZ(12px)" }}>
+                            <OrgLogo
+                              src={entry.logo}
+                              alt={entry.company}
+                              size={48}
+                            />
                           </div>
 
                           <div className="min-w-0 flex-1">

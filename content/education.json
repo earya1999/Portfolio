@@ -9,7 +9,7 @@
     "start": "Aug 2025",
     "end": "Aug 2026",
     "gpa": "3.6 / 4.00",
-    "logo": "/logos/purdue.svg",
+    "logo": "/logos/purdue.png",
     "highlights": [
       "STEM-designated program at the intersection of business, data, and enterprise decision-making.",
       "Coursework: Analytical Programming, Data Mining, IT Project Management, AI for Business, Business Analytics.",
@@ -26,7 +26,7 @@
     "start": "May 2018",
     "end": "May 2022",
     "gpa": "8.46 / 10.00",
-    "logo": "/logos/srm.svg",
+    "logo": "/logos/srm.png",
     "highlights": [
       "Foundational coursework across software engineering, databases, distributed systems, and machine learning.",
       "Capstone in applied machine learning for enterprise workflows.",

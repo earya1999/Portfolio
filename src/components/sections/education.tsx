@@ -1,9 +1,10 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { GraduationCap, MapPin, Calendar } from "lucide-react";
+import { MapPin, Calendar } from "lucide-react";
 import { Section } from "@/components/ui/section";
 import { TiltCard } from "@/components/tilt-card";
+import { OrgLogo } from "@/components/org-logo";
 import { education } from "@/lib/content";
 
 export function Education() {
@@ -23,17 +24,15 @@ export function Education() {
             viewport={{ once: true, margin: "-60px" }}
             transition={{ duration: 0.45, delay: i * 0.06 }}
           >
-            <TiltCard maxTilt={6} className="h-full rounded-2xl">
-              <article className="depth-card flex h-full flex-col rounded-2xl border border-border/60 bg-card/60 p-6 transition-colors hover:border-foreground/20 hover:bg-card">
+            <TiltCard maxTilt={4} className="h-full rounded-2xl">
+              <article className="depth-card flex h-full flex-col rounded-2xl border border-border/60 bg-card/70 p-6 transition-colors duration-200 hover:border-foreground/20 hover:bg-card">
                 <div
                   className="flex items-start gap-4"
                   style={{ transform: "translateZ(14px)" }}
                 >
-                  <span className="flex size-10 shrink-0 items-center justify-center rounded-xl bg-secondary shadow-md">
-                    <GraduationCap className="size-5 text-foreground/80" />
-                  </span>
+                  <OrgLogo src={e.logo} alt={e.school} size={52} />
                   <div className="min-w-0">
-                    <h3 className="font-display text-base font-semibold text-balance sm:text-lg">
+                    <h3 className="font-display text-base font-medium tracking-tight text-balance sm:text-lg">
                       {e.school}
                     </h3>
                     <p className="text-xs text-muted-foreground">{e.department}</p>

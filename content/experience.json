@@ -7,7 +7,7 @@
     "location": "West Lafayette, Indiana",
     "start": "Jan 2026",
     "end": "May 2026",
-    "logo": "",
+    "logo": "/logos/community-first-bank.png",
     "summary": "Banking practicum focused on workflow analysis, operational bottlenecks, and data-backed automation recommendations for deposit and banking operations.",
     "highlights": [
       "Analyzed end-to-end banking workflows to identify bottlenecks, delays, and rework.",
@@ -30,7 +30,7 @@
     "location": "Hyderabad, India",
     "start": "Jul 2022",
     "end": "May 2025",
-    "logo": "/logos/highradius.svg",
+    "logo": "/logos/highradius.png",
     "summary": "Client-facing Implementation Consultant delivering enterprise SaaS onboarding, spend and financial workflow optimization, training, and go-live success for Fortune 500 organizations.",
     "highlights": [
       "Delivered workflow transformation initiatives that increased automation from 42% to 70%, reducing manual processing and improving operational efficiency.",
@@ -62,7 +62,7 @@
     "location": "Hyderabad, India",
     "start": "Aug 2021",
     "end": "Jun 2022",
-    "logo": "/logos/highradius.svg",
+    "logo": "/logos/highradius.png",
     "summary": "Year-long training and delivery support in Cash Application implementation, culminating in promotion to full-time Implementation Consultant.",
     "highlights": [
       "Completed year-long training in Cash Application implementation, supported enterprise client delivery, exceeded automation targets, and was promoted to full-time Implementation Consultant."
