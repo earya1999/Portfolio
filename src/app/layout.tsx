@@ -8,6 +8,7 @@ import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { CommandMenuProvider } from "@/components/command-menu";
 import { ScrollProgress } from "@/components/scroll-progress";
+import { SiteBackdrop } from "@/components/site-backdrop";
 import { profile } from "@/lib/content";
 
 const inter = Inter({
@@ -161,7 +162,8 @@ export default function RootLayout({
         >
           <CommandMenuProvider>
             <ScrollProgress />
-            <div className="relative flex min-h-screen animate-fade-in flex-col">
+            <SiteBackdrop />
+            <div className="relative z-0 flex min-h-screen animate-fade-in flex-col">
               <Navbar />
               <main className="flex-1">{children}</main>
               <Footer />
