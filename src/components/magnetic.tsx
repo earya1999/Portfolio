@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 export function Magnetic({
   children,
   className,
-  strength = 0.35,
+  strength = 0.18,
 }: {
   children: React.ReactNode;
   className?: string;
@@ -17,8 +17,8 @@ export function Magnetic({
   const [reduced, setReduced] = React.useState(false);
   const x = useMotionValue(0);
   const y = useMotionValue(0);
-  const springX = useSpring(x, { stiffness: 260, damping: 18, mass: 0.4 });
-  const springY = useSpring(y, { stiffness: 260, damping: 18, mass: 0.4 });
+  const springX = useSpring(x, { stiffness: 200, damping: 24, mass: 0.5 });
+  const springY = useSpring(y, { stiffness: 200, damping: 24, mass: 0.5 });
 
   React.useEffect(() => {
     const mq = window.matchMedia("(prefers-reduced-motion: reduce)");

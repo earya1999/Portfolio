@@ -37,12 +37,12 @@ export function Footer() {
               Explore
             </h3>
             <ul className="mt-4 flex flex-col gap-2 text-sm">
-              <li><Link className="hover:text-foreground text-muted-foreground" href="/#overview">Overview</Link></li>
-              <li><Link className="hover:text-foreground text-muted-foreground" href="/#experience">Experience</Link></li>
-              <li><Link className="hover:text-foreground text-muted-foreground" href="/#skills">Skills</Link></li>
-              <li><Link className="hover:text-foreground text-muted-foreground" href="/#education">Education</Link></li>
-              <li><Link className="hover:text-foreground text-muted-foreground" href="/resume">Resume</Link></li>
-              <li><Link className="hover:text-foreground text-muted-foreground" href="/terminal">Terminal</Link></li>
+              <li><Link className="hover:text-foreground text-muted-foreground transition-colors duration-200" href="/#overview">Overview</Link></li>
+              <li><Link className="hover:text-foreground text-muted-foreground transition-colors duration-200" href="/#experience">Experience</Link></li>
+              <li><Link className="hover:text-foreground text-muted-foreground transition-colors duration-200" href="/#projects">Projects</Link></li>
+              <li><Link className="hover:text-foreground text-muted-foreground transition-colors duration-200" href="/#skills">Skills</Link></li>
+              <li><Link className="hover:text-foreground text-muted-foreground transition-colors duration-200" href="/#education">Education</Link></li>
+              <li><Link className="hover:text-foreground text-muted-foreground transition-colors duration-200" href="/resume">Resume</Link></li>
             </ul>
           </div>
 
@@ -57,7 +57,7 @@ export function Footer() {
                     href={s.href}
                     target={s.href.startsWith("http") ? "_blank" : undefined}
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground"
+                    className="inline-flex items-center gap-2 text-muted-foreground transition-colors duration-200 hover:text-foreground"
                   >
                     <s.icon className="size-3.5" />
                     {s.label}

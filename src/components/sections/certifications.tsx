@@ -24,19 +24,19 @@ export function Certifications() {
             viewport={{ once: true, margin: "-60px" }}
             transition={{ duration: 0.4, delay: i * 0.05 }}
           >
-            <TiltCard maxTilt={6} className="h-full rounded-2xl">
+            <TiltCard maxTilt={4} className="h-full rounded-2xl">
               <a
                 href={c.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="depth-card group relative flex h-full flex-col overflow-hidden rounded-2xl border border-border/60 bg-card/60 p-5 transition-colors hover:border-foreground/20 hover:bg-card"
+                className="depth-card group relative flex h-full flex-col overflow-hidden rounded-2xl border border-border/60 bg-card/70 p-6 transition-colors duration-200 ease-out hover:border-foreground/20 hover:bg-card"
               >
                 <div
                   className="flex items-start justify-between"
                   style={{ transform: "translateZ(14px)" }}
                 >
                   <div className="flex items-center gap-3">
-                    <span className="flex size-10 items-center justify-center rounded-xl bg-secondary shadow-md">
+                    <span className="flex size-10 items-center justify-center rounded-xl border border-border/60 bg-secondary/80 shadow-sm">
                       <Award className="size-5 text-foreground/70" />
                     </span>
                     <div>
@@ -48,10 +48,10 @@ export function Certifications() {
                       ) : null}
                     </div>
                   </div>
-                  <ExternalLink className="size-3.5 text-muted-foreground opacity-0 transition-opacity group-hover:opacity-100" />
+                  <ExternalLink className="size-3.5 text-muted-foreground opacity-0 transition-opacity duration-200 group-hover:opacity-100" />
                 </div>
                 <h3
-                  className="mt-4 text-sm font-semibold text-balance"
+                  className="mt-4 font-display text-base font-medium tracking-tight text-balance"
                   style={{ transform: "translateZ(10px)" }}
                 >
                   {c.name}

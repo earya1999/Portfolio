@@ -17,9 +17,9 @@ interface TiltCardProps extends React.HTMLAttributes<HTMLDivElement> {
 export function TiltCard({
   children,
   className,
-  maxTilt = 8,
-  perspective = 1000,
-  hoverScale = 1.015,
+  maxTilt = 4,
+  perspective = 1200,
+  hoverScale = 1.008,
   ...props
 }: TiltCardProps) {
   const ref = React.useRef<HTMLDivElement>(null);

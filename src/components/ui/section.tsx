@@ -19,16 +19,17 @@ interface SectionProps extends React.HTMLAttributes<HTMLElement> {
   accent?: SectionAccent;
 }
 
+/** Quieter, more neutral washes — less rainbow banding between sections */
 const accentClass: Record<SectionAccent, string> = {
   none: "",
-  blue: "bg-[radial-gradient(closest-side,rgba(59,130,246,0.42),transparent_68%)]",
+  blue: "bg-[radial-gradient(closest-side,rgba(100,116,139,0.22),transparent_70%)]",
   emerald:
-    "bg-[radial-gradient(closest-side,rgba(16,185,129,0.40),transparent_68%)]",
+    "bg-[radial-gradient(closest-side,rgba(100,116,139,0.20),transparent_70%)]",
   violet:
-    "bg-[radial-gradient(closest-side,rgba(139,92,246,0.42),transparent_68%)]",
+    "bg-[radial-gradient(closest-side,rgba(100,116,139,0.22),transparent_70%)]",
   amber:
-    "bg-[radial-gradient(closest-side,rgba(245,158,11,0.38),transparent_68%)]",
-  rose: "bg-[radial-gradient(closest-side,rgba(244,63,94,0.38),transparent_68%)]",
+    "bg-[radial-gradient(closest-side,rgba(100,116,139,0.18),transparent_70%)]",
+  rose: "bg-[radial-gradient(closest-side,rgba(100,116,139,0.18),transparent_70%)]",
 };
 
 export function Section({
@@ -46,7 +47,7 @@ export function Section({
     <section
       id={id}
       className={cn(
-        "relative overflow-hidden scroll-mt-24 py-20 sm:py-28",
+        "relative overflow-hidden scroll-mt-24 py-24 sm:py-28 md:py-32",
         className
       )}
       {...props}
@@ -54,24 +55,23 @@ export function Section({
       {accent !== "none" && (
         <div
           aria-hidden
-          className="pointer-events-none absolute inset-0 -z-10"
+          className="pointer-events-none absolute inset-0 -z-10 opacity-70"
           style={{
-            // Soft vertical dissolve so accents don't create hard section bands
             maskImage:
-              "linear-gradient(to bottom, transparent 0%, black 18%, black 82%, transparent 100%)",
+              "linear-gradient(to bottom, transparent 0%, black 22%, black 78%, transparent 100%)",
             WebkitMaskImage:
-              "linear-gradient(to bottom, transparent 0%, black 18%, black 82%, transparent 100%)",
+              "linear-gradient(to bottom, transparent 0%, black 22%, black 78%, transparent 100%)",
           }}
         >
           <div
             className={cn(
-              "absolute top-[14%] -left-32 h-[620px] w-[620px] rounded-full blur-3xl",
+              "absolute top-[18%] -left-40 h-[520px] w-[520px] rounded-full blur-3xl",
               accentClass[accent]
             )}
           />
           <div
             className={cn(
-              "absolute bottom-[10%] -right-32 h-[540px] w-[540px] rounded-full blur-3xl opacity-90",
+              "absolute bottom-[12%] -right-40 h-[460px] w-[460px] rounded-full blur-3xl opacity-80",
               accentClass[accent]
             )}
           />
@@ -82,18 +82,18 @@ export function Section({
         {(eyebrow || title || description) && (
           <Reveal
             className={cn(
-              "mb-12 max-w-2xl sm:mb-16",
+              "mb-14 max-w-2xl sm:mb-16",
               center && "mx-auto text-center"
             )}
           >
-            {eyebrow && <div className="eyebrow mb-3">{eyebrow}</div>}
+            {eyebrow && <div className="eyebrow mb-4">{eyebrow}</div>}
             {title && (
-              <h2 className="heading text-3xl font-semibold sm:text-4xl md:text-5xl">
+              <h2 className="heading text-3xl sm:text-4xl md:text-[2.75rem] md:leading-[1.15]">
                 {title}
               </h2>
             )}
             {description && (
-              <p className="mt-4 text-base text-muted-foreground sm:text-lg text-pretty">
+              <p className="mt-5 max-w-xl text-base text-muted-foreground sm:text-lg text-pretty">
                 {description}
               </p>
             )}

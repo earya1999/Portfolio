@@ -14,7 +14,6 @@ import {
   Download,
   Linkedin,
   Github,
-  Instagram,
   Mail,
   Calendar,
   MapPin,
@@ -51,12 +50,12 @@ export function Hero() {
   return (
     <section
       onMouseMove={onMove}
-      className="relative overflow-hidden pt-28 pb-14 sm:pt-32 sm:pb-20 lg:min-h-[92vh] lg:flex lg:items-center"
+      className="relative overflow-hidden pt-28 pb-16 sm:pt-32 sm:pb-24 lg:min-h-[92vh] lg:flex lg:items-center"
     >
       <HeroBackground mouseX={springX} mouseY={springY} />
 
       <div className="container relative z-10 w-full">
-        <div className="grid gap-8 lg:grid-cols-12 lg:items-start xl:gap-10">
+        <div className="grid gap-10 lg:grid-cols-12 lg:items-start lg:gap-12 xl:gap-14">
           <ProfileCard />
           <HeroCopy />
         </div>
@@ -81,8 +80,8 @@ function ProfileCard() {
       custom={0}
       className="order-1 lg:col-span-7"
     >
-      <TiltCard maxTilt={7} className="rounded-2xl">
-      <Spotlight className="aurora-border depth-card noise-overlay rounded-2xl border border-border/60 bg-card/70 backdrop-blur-xl">
+      <TiltCard maxTilt={4} className="rounded-2xl">
+      <Spotlight className="aurora-border depth-card rounded-2xl border border-border/60 bg-card/75 backdrop-blur-xl">
       <div className="relative p-7 sm:p-8 lg:p-9">
         <div className="flex items-start gap-5 sm:gap-6" style={{ transform: "translateZ(18px)" }}>
           <div className="relative aspect-[4/5] w-32 shrink-0 overflow-hidden rounded-2xl border border-border bg-secondary shadow-lg sm:w-40 lg:w-44">
@@ -97,18 +96,18 @@ function ProfileCard() {
                 priority
               />
             ) : (
-              <div className="flex h-full w-full items-center justify-center bg-foreground text-background text-3xl font-semibold">
+              <div className="flex h-full w-full items-center justify-center bg-foreground text-background font-display text-3xl font-medium">
                 {initials}
               </div>
             )}
             <span
-              className="shimmer-dot absolute bottom-2.5 right-2.5 size-3.5 rounded-full border-2 border-card bg-emerald-500 shadow-md"
+              className="absolute bottom-2.5 right-2.5 size-3.5 rounded-full border-2 border-card bg-emerald-500 shadow-md"
               aria-hidden
             />
           </div>
 
           <div className="min-w-0 flex-1 py-1">
-            <h1 className="font-display text-2xl font-semibold tracking-tight sm:text-3xl">
+            <h1 className="font-display text-2xl font-medium tracking-tight sm:text-3xl">
               {profile.name}
             </h1>
             <p className="mt-1.5 text-sm text-foreground/85 text-pretty sm:text-base">
@@ -132,7 +131,7 @@ function ProfileCard() {
         </div>
 
         <div className="mt-6 flex items-start gap-2.5 rounded-xl border border-emerald-500/20 bg-emerald-500/[0.06] px-4 py-3">
-          <span className="shimmer-dot mt-1.5 size-1.5 shrink-0 rounded-full bg-emerald-500" />
+          <span className="mt-1.5 size-1.5 shrink-0 rounded-full bg-emerald-500" />
           <p className="text-xs leading-relaxed text-foreground/85 text-pretty sm:text-[13px]">
             {profile.availability}
           </p>
@@ -152,18 +151,6 @@ function ProfileCard() {
             external
           />
           <ContactTile
-            href={profile.socials.github}
-            icon={Github}
-            label="GitHub"
-            external
-          />
-          <ContactTile
-            href={profile.socials.instagram}
-            icon={Instagram}
-            label="Instagram"
-            external
-          />
-          <ContactTile
             href={profile.socials.calendly}
             icon={Calendar}
             label="Book a call"
@@ -176,9 +163,18 @@ function ProfileCard() {
             download
           />
         </div>
+        <a
+          href={profile.socials.github}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mt-3 inline-flex items-center gap-1.5 text-xs text-muted-foreground transition-colors duration-200 hover:text-foreground"
+        >
+          <Github className="size-3.5" />
+          GitHub
+        </a>
 
         <div className="mt-6 grid grid-cols-2 gap-2.5" style={{ transform: "translateZ(12px)" }}>
-          <Magnetic strength={0.28} className="w-full">
+          <Magnetic strength={0.16} className="w-full">
             <Button asChild className="w-full">
               <a href="#contact">
                 Contact me
@@ -186,7 +182,7 @@ function ProfileCard() {
               </a>
             </Button>
           </Magnetic>
-          <Magnetic strength={0.28} className="w-full">
+          <Magnetic strength={0.16} className="w-full">
             <Button asChild variant="secondary" className="w-full">
               <a href={profile.resumeUrl} download>
                 <Download />
@@ -223,7 +219,7 @@ function ContactTile({
       target={external ? "_blank" : undefined}
       rel={external ? "noopener noreferrer" : undefined}
       download={download}
-      className="group flex items-center gap-2.5 rounded-xl border border-border/60 bg-background/50 px-3.5 py-3 text-left transition-all hover:border-foreground/20 hover:bg-card"
+      className="group flex items-center gap-2.5 rounded-xl border border-border/60 bg-background/50 px-3.5 py-3 text-left transition-all duration-200 ease-out hover:border-foreground/20 hover:bg-card"
       aria-label={label}
     >
       <Icon className="size-4 shrink-0 text-foreground/70 transition-colors group-hover:text-foreground sm:size-[18px]" />
@@ -246,7 +242,7 @@ function HeroCopy() {
       initial="hidden"
       animate="show"
       custom={1}
-      className="order-2 lg:col-span-5 lg:pl-2 lg:pt-2 xl:pl-4"
+      className="order-2 lg:col-span-5 lg:pl-4 lg:pt-4 xl:pl-6"
     >
       <motion.p variants={fadeUp} custom={2} className="eyebrow">
         {profile.eyebrow}
@@ -255,7 +251,7 @@ function HeroCopy() {
       <motion.h2
         variants={fadeUp}
         custom={3}
-        className="heading mt-3 text-3xl font-semibold text-balance sm:text-4xl lg:text-5xl"
+        className="heading mt-4 text-3xl text-balance sm:text-4xl lg:text-[2.75rem] lg:leading-[1.15]"
       >
         <span className="gradient-text">Turning complex enterprise workflows</span>
         <span className="text-foreground"> into solutions customers actually use.</span>
@@ -264,7 +260,7 @@ function HeroCopy() {
       <motion.p
         variants={fadeUp}
         custom={4}
-        className="mt-5 max-w-2xl text-sm text-muted-foreground text-pretty sm:text-base"
+        className="mt-6 max-w-xl text-sm leading-relaxed text-muted-foreground text-pretty sm:text-base"
       >
         {profile.subheadline}
       </motion.p>
@@ -272,9 +268,9 @@ function HeroCopy() {
       <motion.div
         variants={fadeUp}
         custom={5}
-        className="mt-7 flex flex-wrap items-center gap-2"
+        className="mt-8 flex flex-wrap items-center gap-2"
       >
-        <Magnetic>
+        <Magnetic strength={0.16}>
           <Button asChild size="lg">
             <Link href="#overview">
               Read overview
@@ -282,7 +278,7 @@ function HeroCopy() {
             </Link>
           </Button>
         </Magnetic>
-        <Magnetic>
+        <Magnetic strength={0.16}>
           <Button asChild variant="secondary" size="lg">
             <Link href="#experience">See experience</Link>
           </Button>
@@ -292,7 +288,7 @@ function HeroCopy() {
       <motion.div
         variants={fadeUp}
         custom={6}
-        className="mt-7 flex flex-wrap items-center gap-1.5"
+        className="mt-8 flex flex-wrap items-center gap-1.5"
       >
         <span className="mr-1 text-xs text-muted-foreground">Target roles:</span>
         {profile.targetRoles.map((r) => (
@@ -315,15 +311,14 @@ function HeroBackground({
   mouseX: ReturnType<typeof useSpring>;
   mouseY: ReturnType<typeof useSpring>;
 }) {
-  const layer1 = useMotionTemplate`translate3d(calc(-50% + (${mouseX} - 0.5) * 28px), calc((${mouseY} - 0.5) * 22px), 0)`;
-  const layer2 = useMotionTemplate`translate3d(calc((${mouseX} - 0.5) * -36px), calc((${mouseY} - 0.5) * -28px), 0)`;
-  const layer3 = useMotionTemplate`translate3d(calc((${mouseX} - 0.5) * 44px), calc((${mouseY} - 0.5) * 18px), 0)`;
-  const gridShift = useMotionTemplate`translate3d(calc((${mouseX} - 0.5) * -12px), calc((${mouseY} - 0.5) * -10px), 0)`;
+  const layer1 = useMotionTemplate`translate3d(calc(-50% + (${mouseX} - 0.5) * 16px), calc((${mouseY} - 0.5) * 12px), 0)`;
+  const layer2 = useMotionTemplate`translate3d(calc((${mouseX} - 0.5) * -18px), calc((${mouseY} - 0.5) * -14px), 0)`;
+  const gridShift = useMotionTemplate`translate3d(calc((${mouseX} - 0.5) * -6px), calc((${mouseY} - 0.5) * -5px), 0)`;
 
   return (
     <div aria-hidden className="pointer-events-none absolute inset-0 -z-0 [perspective:1200px]">
       <motion.div
-        className="absolute inset-[-8%] grid-bg opacity-70"
+        className="absolute inset-[-8%] grid-bg opacity-40"
         style={{ transform: gridShift }}
       />
       <motion.div
@@ -333,19 +328,14 @@ function HeroBackground({
         className="absolute inset-0"
       >
         <motion.div
-          className="absolute -top-32 left-1/2 h-[560px] w-[560px] rounded-full bg-[radial-gradient(closest-side,rgba(59,130,246,0.38),transparent_70%)] blur-3xl"
+          className="absolute -top-32 left-1/2 h-[520px] w-[520px] rounded-full bg-[radial-gradient(closest-side,rgba(148,163,184,0.18),transparent_70%)] blur-3xl"
           style={{ transform: layer1 }}
         />
         <motion.div
-          className="absolute top-[30%] -right-16 h-[480px] w-[480px] rounded-full bg-[radial-gradient(closest-side,rgba(139,92,246,0.34),transparent_70%)] blur-3xl"
+          className="absolute top-[34%] -right-16 h-[420px] w-[420px] rounded-full bg-[radial-gradient(closest-side,rgba(100,116,139,0.14),transparent_70%)] blur-3xl"
           style={{ transform: layer2 }}
         />
-        <motion.div
-          className="absolute top-[38%] -left-16 h-[440px] w-[440px] rounded-full bg-[radial-gradient(closest-side,rgba(20,184,166,0.32),transparent_70%)] blur-3xl"
-          style={{ transform: layer3 }}
-        />
       </motion.div>
-      {/* Tall soft fade so the hero dissolves into the next section */}
       <div className="absolute inset-x-0 bottom-0 h-56 bg-gradient-to-b from-transparent via-background/40 to-background" />
     </div>
   );

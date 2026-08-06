@@ -3,14 +3,11 @@
 import * as React from "react";
 import { motion } from "framer-motion";
 import { Section } from "@/components/ui/section";
-import { Marquee } from "@/components/marquee";
 import { tools } from "@/lib/content";
 
 const groupOrder = ["Data", "Analytics", "Platforms", "ERP", "Cloud", "Integrations", "Delivery", "AI"];
 
 export function Tools() {
-  const highlight = tools.slice(0, 14);
-
   return (
     <Section
       id="tools"
@@ -19,17 +16,6 @@ export function Tools() {
       description="Platforms and technologies used across discovery, configuration, integrations, analytics, and delivery."
       accent="amber"
     >
-      <Marquee speed={48} className="mb-12 rounded-xl border border-border/40 bg-card/40 py-3">
-        {highlight.map((tool) => (
-          <span
-            key={tool.name}
-            className="inline-flex items-center rounded-full border border-border/60 bg-background/70 px-3.5 py-1.5 text-xs font-medium text-foreground/80"
-          >
-            {tool.name}
-          </span>
-        ))}
-      </Marquee>
-
       <div className="flex flex-col gap-8">
         {groupOrder.map((group) => {
           const items = tools.filter((t) => t.category === group);

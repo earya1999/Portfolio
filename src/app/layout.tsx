@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, JetBrains_Mono } from "next/font/google";
+import { Inter, JetBrains_Mono, Newsreader } from "next/font/google";
 import { Toaster } from "sonner";
 
 import "./globals.css";
@@ -14,6 +14,13 @@ const inter = Inter({
   subsets: ["latin"],
   variable: "--font-sans",
   display: "swap",
+});
+
+const newsreader = Newsreader({
+  subsets: ["latin"],
+  variable: "--font-display",
+  display: "swap",
+  style: ["normal", "italic"],
 });
 
 const mono = JetBrains_Mono({
@@ -134,7 +141,11 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="en" suppressHydrationWarning className={`${inter.variable} ${mono.variable}`}>
+    <html
+      lang="en"
+      suppressHydrationWarning
+      className={`${inter.variable} ${newsreader.variable} ${mono.variable}`}
+    >
       <head>
         <script
           type="application/ld+json"
@@ -150,7 +161,7 @@ export default function RootLayout({
         >
           <CommandMenuProvider>
             <ScrollProgress />
-            <div className="relative flex min-h-screen flex-col">
+            <div className="relative flex min-h-screen animate-fade-in flex-col">
               <Navbar />
               <main className="flex-1">{children}</main>
               <Footer />

@@ -82,34 +82,24 @@
     @apply bg-background/60 backdrop-blur-xl backdrop-saturate-150 border border-border/60;
   }
   .heading {
-    @apply font-display tracking-tight text-balance;
+    @apply font-display tracking-tight text-balance font-medium;
   }
   .eyebrow {
-    @apply text-xs uppercase tracking-[0.18em] text-muted-foreground font-medium;
+    @apply text-xs uppercase tracking-[0.2em] text-muted-foreground font-medium;
   }
   .gradient-text {
     background: linear-gradient(
       120deg,
       hsl(var(--foreground)) 0%,
-      hsl(210 40% 78%) 45%,
-      hsl(var(--foreground) / 0.72) 100%
+      hsl(210 28% 72%) 55%,
+      hsl(var(--foreground) / 0.78) 100%
     );
-    background-size: 180% auto;
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
-    animation: gradient-shift 14s ease infinite;
   }
   .shimmer-dot {
     position: relative;
-  }
-  .shimmer-dot::after {
-    content: "";
-    position: absolute;
-    inset: -3px;
-    border-radius: 9999px;
-    background: radial-gradient(circle, rgba(16, 185, 129, 0.55), transparent 70%);
-    animation: pulse-ring 2.2s ease-out infinite;
   }
   .aurora-border {
     position: relative;
@@ -122,12 +112,10 @@
     padding: 1px;
     background: linear-gradient(
       135deg,
-      rgba(148, 163, 184, 0.45),
-      rgba(56, 189, 248, 0.28),
+      rgba(148, 163, 184, 0.4),
+      rgba(148, 163, 184, 0.12),
       rgba(148, 163, 184, 0.35)
     );
-    background-size: 200% 200%;
-    animation: aurora-spin 18s linear infinite;
     -webkit-mask:
       linear-gradient(#fff 0 0) content-box,
       linear-gradient(#fff 0 0);
@@ -135,7 +123,7 @@
     mask-composite: exclude;
     pointer-events: none;
     z-index: 2;
-    opacity: 0.55;
+    opacity: 0.45;
   }
   .noise-overlay::after {
     content: "";
@@ -153,21 +141,21 @@
     mask-image: radial-gradient(ellipse at center, black 30%, transparent 70%);
   }
   .card-hover {
-    @apply transition-all duration-300 hover:border-foreground/20 hover:shadow-lg hover:-translate-y-0.5;
+    @apply transition-all duration-200 ease-out hover:border-foreground/20 hover:shadow-lg hover:-translate-y-0.5;
   }
   .depth-card {
     transform-style: preserve-3d;
     box-shadow:
       0 1px 0 0 hsl(var(--foreground) / 0.04) inset,
-      0 12px 40px -18px hsl(0 0% 0% / 0.55),
-      0 28px 60px -30px hsl(221 83% 53% / 0.18);
-    transition: box-shadow 0.35s ease, border-color 0.35s ease;
+      0 10px 36px -20px hsl(0 0% 0% / 0.5),
+      0 22px 48px -32px hsl(220 20% 20% / 0.12);
+    transition: box-shadow 0.25s ease, border-color 0.25s ease;
   }
   .depth-card:hover {
     box-shadow:
       0 1px 0 0 hsl(var(--foreground) / 0.06) inset,
-      0 18px 50px -16px hsl(0 0% 0% / 0.65),
-      0 36px 80px -28px hsl(221 83% 53% / 0.28);
+      0 14px 42px -18px hsl(0 0% 0% / 0.55),
+      0 28px 56px -30px hsl(220 20% 20% / 0.16);
   }
   .link-underline {
     @apply relative;
@@ -248,43 +236,6 @@
   @apply border-border my-10;
 }
 
-@keyframes gradient-shift {
-  0%,
-  100% {
-    background-position: 0% center;
-  }
-  50% {
-    background-position: 100% center;
-  }
-}
-
-@keyframes pulse-ring {
-  0% {
-    transform: scale(0.85);
-    opacity: 0.8;
-  }
-  70% {
-    transform: scale(1.85);
-    opacity: 0;
-  }
-  100% {
-    transform: scale(1.85);
-    opacity: 0;
-  }
-}
-
-@keyframes aurora-spin {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
 @keyframes marquee {
   from {
     transform: translateX(0);
@@ -299,10 +250,8 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .gradient-text,
-  .shimmer-dot::after,
-  .aurora-border::before,
-  .animate-marquee {
+  .animate-marquee,
+  .animate-fade-in {
     animation: none !important;
   }
 }
