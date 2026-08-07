@@ -19,17 +19,17 @@ interface SectionProps extends React.HTMLAttributes<HTMLElement> {
   accent?: SectionAccent;
 }
 
-/** Soft section washes — restrained steel / teal / warm slate */
+/** Soft section washes — enough chroma to feel alive */
 const accentClass: Record<SectionAccent, string> = {
   none: "",
-  blue: "bg-[radial-gradient(closest-side,rgba(110,140,175,0.28),transparent_70%)]",
+  blue: "bg-[radial-gradient(closest-side,rgba(90,150,210,0.36),transparent_70%)]",
   emerald:
-    "bg-[radial-gradient(closest-side,rgba(80,145,140,0.24),transparent_70%)]",
+    "bg-[radial-gradient(closest-side,rgba(50,160,145,0.3),transparent_70%)]",
   violet:
-    "bg-[radial-gradient(closest-side,rgba(120,130,160,0.24),transparent_70%)]",
+    "bg-[radial-gradient(closest-side,rgba(120,140,190,0.28),transparent_70%)]",
   amber:
-    "bg-[radial-gradient(closest-side,rgba(160,140,110,0.2),transparent_70%)]",
-  rose: "bg-[radial-gradient(closest-side,rgba(150,125,130,0.18),transparent_70%)]",
+    "bg-[radial-gradient(closest-side,rgba(190,145,85,0.26),transparent_70%)]",
+  rose: "bg-[radial-gradient(closest-side,rgba(170,120,130,0.22),transparent_70%)]",
 };
 
 export function Section({

@@ -1,26 +1,57 @@
-/** Fixed ambient page atmosphere — soft washes, grain, and a quiet grid. */
+"use client";
+
+import * as React from "react";
+import { motion, useMotionTemplate, useMotionValue, useSpring } from "framer-motion";
+
+/** Fixed ambient page atmosphere — richer light, texture, and quiet motion. */
 export function SiteBackdrop() {
+  const mouseX = useMotionValue(0.5);
+  const mouseY = useMotionValue(0.5);
+  const springX = useSpring(mouseX, { stiffness: 40, damping: 22, mass: 0.8 });
+  const springY = useSpring(mouseY, { stiffness: 40, damping: 22, mass: 0.8 });
+  const spotlight = useMotionTemplate`radial-gradient(680px circle at calc(${springX} * 100%) calc(${springY} * 100%), rgba(186, 205, 230, 0.14), transparent 55%)`;
+
+  React.useEffect(() => {
+    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const onMove = (e: MouseEvent) => {
+      if (mq.matches) return;
+      mouseX.set(e.clientX / window.innerWidth);
+      mouseY.set(e.clientY / window.innerHeight);
+    };
+    window.addEventListener("pointermove", onMove, { passive: true });
+    return () => window.removeEventListener("pointermove", onMove);
+  }, [mouseX, mouseY]);
+
   return (
     <div
       aria-hidden
       className="pointer-events-none fixed inset-0 -z-10 overflow-hidden"
     >
-      {/* Base depth gradient */}
       <div className="absolute inset-0 bg-background" />
       <div className="site-atmosphere absolute inset-0" />
 
-      {/* Soft ambient orbs — steel / teal / warm slate, never neon */}
-      <div className="absolute -left-[18%] top-[-8%] h-[58vmin] w-[58vmin] rounded-full bg-[radial-gradient(closest-side,rgba(125,148,178,0.22),transparent_72%)] blur-3xl ambient-drift-a dark:bg-[radial-gradient(closest-side,rgba(96,125,158,0.28),transparent_72%)]" />
-      <div className="absolute -right-[12%] top-[18%] h-[48vmin] w-[48vmin] rounded-full bg-[radial-gradient(closest-side,rgba(94,140,140,0.16),transparent_72%)] blur-3xl ambient-drift-b dark:bg-[radial-gradient(closest-side,rgba(56,120,130,0.22),transparent_72%)]" />
-      <div className="absolute bottom-[-10%] left-[22%] h-[52vmin] w-[52vmin] rounded-full bg-[radial-gradient(closest-side,rgba(148,140,128,0.14),transparent_72%)] blur-3xl ambient-drift-c dark:bg-[radial-gradient(closest-side,rgba(110,120,140,0.18),transparent_72%)]" />
+      {/* Primary light orbs */}
+      <div className="ambient-orb ambient-orb-a ambient-drift-a" />
+      <div className="ambient-orb ambient-orb-b ambient-drift-b" />
+      <div className="ambient-orb ambient-orb-c ambient-drift-c" />
+      <div className="ambient-orb ambient-orb-d ambient-drift-a" />
 
-      {/* Fine editorial grid */}
-      <div className="site-grid absolute inset-0 opacity-[0.35] dark:opacity-[0.28]" />
+      {/* Soft diagonal light beam */}
+      <div className="site-beam absolute inset-0" />
+
+      {/* Horizon glow */}
+      <div className="site-horizon absolute inset-x-0 top-0 h-[55vh]" />
+
+      {/* Mouse spotlight — calm, local lift */}
+      <motion.div className="absolute inset-0 opacity-90 dark:opacity-100" style={{ background: spotlight }} />
+
+      {/* Dot field + architectural grid */}
+      <div className="site-dots absolute inset-0 opacity-[0.55] dark:opacity-[0.45]" />
+      <div className="site-grid absolute inset-0 opacity-[0.45] dark:opacity-[0.38]" />
 
       {/* Film grain */}
-      <div className="site-grain absolute inset-0 opacity-[0.045] dark:opacity-[0.055]" />
+      <div className="site-grain absolute inset-0 opacity-[0.06] dark:opacity-[0.07]" />
 
-      {/* Soft vignette so edges fall away */}
       <div className="site-vignette absolute inset-0" />
     </div>
   );

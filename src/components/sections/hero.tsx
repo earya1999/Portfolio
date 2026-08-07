@@ -318,7 +318,7 @@ function HeroBackground({
   return (
     <div aria-hidden className="pointer-events-none absolute inset-0 -z-0 [perspective:1200px]">
       <motion.div
-        className="absolute inset-[-8%] grid-bg opacity-50"
+        className="absolute inset-[-8%] grid-bg opacity-60"
         style={{ transform: gridShift }}
       />
       <motion.div
@@ -328,16 +328,17 @@ function HeroBackground({
         className="absolute inset-0"
       >
         <motion.div
-          className="absolute -top-28 left-1/2 h-[560px] w-[560px] rounded-full bg-[radial-gradient(closest-side,rgba(130,155,185,0.28),transparent_70%)] blur-3xl"
+          className="absolute -top-24 left-1/2 h-[620px] w-[620px] rounded-full bg-[radial-gradient(closest-side,rgba(120,170,230,0.42),transparent_70%)] blur-3xl"
           style={{ transform: layer1 }}
         />
         <motion.div
-          className="absolute top-[30%] -right-12 h-[460px] w-[460px] rounded-full bg-[radial-gradient(closest-side,rgba(70,140,145,0.2),transparent_70%)] blur-3xl"
+          className="absolute top-[26%] -right-8 h-[500px] w-[500px] rounded-full bg-[radial-gradient(closest-side,rgba(50,170,160,0.32),transparent_70%)] blur-3xl"
           style={{ transform: layer2 }}
         />
-        <div className="absolute top-[55%] left-[8%] h-[320px] w-[320px] rounded-full bg-[radial-gradient(closest-side,rgba(150,135,115,0.12),transparent_70%)] blur-3xl" />
+        <div className="absolute top-[48%] left-[4%] h-[380px] w-[380px] rounded-full bg-[radial-gradient(closest-side,rgba(200,155,95,0.2),transparent_70%)] blur-3xl" />
+        <div className="absolute inset-x-[10%] top-0 h-px bg-gradient-to-r from-transparent via-sky-300/40 to-transparent" />
       </motion.div>
-      <div className="absolute inset-x-0 bottom-0 h-56 bg-gradient-to-b from-transparent via-background/30 to-background/80" />
+      <div className="absolute inset-x-0 bottom-0 h-64 bg-gradient-to-b from-transparent via-background/25 to-background/85" />
     </div>
   );
 }
