@@ -150,13 +150,13 @@ export function Experience() {
                             </div>
 
                             <h3 className="mt-2 font-display text-lg font-semibold tracking-tight text-balance sm:text-xl">
-                              {entry.role}
+                              {entry.company}
                             </h3>
 
                             <div className="mt-1.5 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-muted-foreground">
-                              <span className="inline-flex items-center gap-1.5 text-foreground/80">
+                              <span className="inline-flex items-center gap-1.5 text-foreground/85">
                                 <Building2 className="size-3.5" />
-                                {entry.company}
+                                {entry.role}
                               </span>
                               <span className="inline-flex items-center gap-1.5">
                                 <MapPin className="size-3.5" />
