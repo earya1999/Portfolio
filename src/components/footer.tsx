@@ -69,7 +69,7 @@ export function Footer() {
         </div>
 
         <div className="mt-12 flex flex-col items-start justify-between gap-3 border-t border-border/60 pt-6 text-xs text-muted-foreground md:flex-row md:items-center">
-          <p>© {new Date().getFullYear()} {profile.name}. Built with Next.js & Framer Motion.</p>
+          <p>© {new Date().getFullYear()} {profile.name}.</p>
           <p className="font-mono">
             Press <kbd className="rounded border border-border bg-muted px-1 py-0.5">⌘K</kbd> anywhere · <span className="text-foreground/80">v1.1</span>
           </p>
