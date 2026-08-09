@@ -140,6 +140,17 @@ export function Experience() {
                               {entry.company}
                             </h3>
 
+                            <div className="mt-1.5 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-muted-foreground">
+                              <span className="inline-flex items-center gap-1.5 text-foreground/85">
+                                <Building2 className="size-3.5" />
+                                {entry.role}
+                              </span>
+                              <span className="inline-flex items-center gap-1.5">
+                                <MapPin className="size-3.5" />
+                                {entry.location}
+                              </span>
+                            </div>
+
                             <div className="mt-2 flex flex-wrap items-center gap-2">
                               <Badge
                                 variant={style.badge}
@@ -150,17 +161,6 @@ export function Experience() {
                               <span className="inline-flex items-center gap-1 text-xs text-muted-foreground">
                                 <CalendarDays className="size-3" />
                                 {entry.start} — {entry.end}
-                              </span>
-                            </div>
-
-                            <div className="mt-1.5 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-muted-foreground">
-                              <span className="inline-flex items-center gap-1.5 text-foreground/85">
-                                <Building2 className="size-3.5" />
-                                {entry.role}
-                              </span>
-                              <span className="inline-flex items-center gap-1.5">
-                                <MapPin className="size-3.5" />
-                                {entry.location}
                               </span>
                             </div>
                           </div>
