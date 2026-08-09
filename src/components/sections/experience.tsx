@@ -136,7 +136,11 @@ export function Experience() {
                           </div>
 
                           <div className="min-w-0 flex-1">
-                            <div className="flex flex-wrap items-center gap-2">
+                            <h3 className="font-display text-lg font-semibold tracking-tight text-balance sm:text-xl">
+                              {entry.company}
+                            </h3>
+
+                            <div className="mt-2 flex flex-wrap items-center gap-2">
                               <Badge
                                 variant={style.badge}
                                 className="text-[10px]"
@@ -148,10 +152,6 @@ export function Experience() {
                                 {entry.start} — {entry.end}
                               </span>
                             </div>
-
-                            <h3 className="mt-2 font-display text-lg font-semibold tracking-tight text-balance sm:text-xl">
-                              {entry.company}
-                            </h3>
 
                             <div className="mt-1.5 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-muted-foreground">
                               <span className="inline-flex items-center gap-1.5 text-foreground/85">
