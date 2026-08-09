@@ -239,8 +239,7 @@ export function CommandMenuProvider({ children }: { children: React.ReactNode })
                       ))
                     )}
                   </div>
-                  <div className="flex items-center justify-between gap-2 border-t border-border px-3 py-2 text-[11px] text-muted-foreground">
-                    <span>Tip: press <kbd className="rounded border border-border bg-muted px-1 py-0.5 font-mono">⌘K</kbd> anywhere</span>
+                  <div className="flex items-center justify-end gap-2 border-t border-border px-3 py-2 text-[11px] text-muted-foreground">
                     <span>{filtered.length} results</span>
                   </div>
                 </motion.div>

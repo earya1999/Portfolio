@@ -77,9 +77,6 @@ export function Navbar() {
             >
               <Command className="size-3.5" />
               <span>Search</span>
-              <kbd className="ml-2 rounded border border-border bg-muted px-1.5 py-0.5 font-mono text-[10px]">
-                ⌘K
-              </kbd>
             </button>
             <ThemeToggle />
             <Button
