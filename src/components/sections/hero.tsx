@@ -55,7 +55,7 @@ export function Hero() {
       <HeroBackground mouseX={springX} mouseY={springY} />
 
       <div className="container relative z-10 w-full">
-        <div className="grid gap-10 lg:grid-cols-12 lg:items-start lg:gap-12 xl:gap-14">
+        <div className="grid gap-10 lg:grid-cols-12 lg:items-start lg:gap-10 xl:gap-12">
           <ProfileCard />
           <HeroCopy />
         </div>
@@ -78,42 +78,42 @@ function ProfileCard() {
       initial="hidden"
       animate="show"
       custom={0}
-      className="order-1 lg:col-span-7"
+      className="order-1 w-full max-w-md lg:col-span-5 lg:max-w-none"
     >
       <TiltCard maxTilt={4} className="rounded-2xl">
       <Spotlight className="aurora-border depth-card rounded-2xl border border-border/60 bg-card/75 backdrop-blur-xl">
-      <div className="relative p-7 sm:p-8 lg:p-9">
-        <div className="flex items-start gap-5 sm:gap-6" style={{ transform: "translateZ(18px)" }}>
-          <div className="relative aspect-[4/5] w-32 shrink-0 overflow-hidden rounded-2xl border border-border bg-secondary shadow-lg sm:w-40 lg:w-44">
+      <div className="relative p-5 sm:p-6">
+        <div className="flex items-start gap-4" style={{ transform: "translateZ(18px)" }}>
+          <div className="relative aspect-[4/5] w-28 shrink-0 overflow-hidden rounded-xl border border-border bg-secondary shadow-lg sm:w-32">
             {avatarOk ? (
               <Image
                 src={profile.avatar}
                 alt={profile.name}
                 fill
-                sizes="(min-width: 1024px) 176px, (min-width: 640px) 160px, 128px"
+                sizes="(min-width: 640px) 128px, 112px"
                 className="object-cover object-top"
                 onError={() => setAvatarOk(false)}
                 priority
               />
             ) : (
-              <div className="flex h-full w-full items-center justify-center bg-foreground text-background font-display text-3xl font-medium">
+              <div className="flex h-full w-full items-center justify-center bg-foreground text-background font-display text-2xl font-medium">
                 {initials}
               </div>
             )}
             <span
-              className="absolute bottom-2.5 right-2.5 size-3.5 rounded-full border-2 border-card bg-emerald-500 shadow-md"
+              className="absolute bottom-2 right-2 size-3 rounded-full border-2 border-card bg-emerald-500 shadow-md"
               aria-hidden
             />
           </div>
 
-          <div className="min-w-0 flex-1 py-1">
-            <h1 className="font-display text-2xl font-medium tracking-tight sm:text-3xl">
+          <div className="min-w-0 flex-1 py-0.5">
+            <h1 className="font-display text-xl font-medium tracking-tight sm:text-2xl">
               {profile.name}
             </h1>
-            <p className="mt-1.5 text-sm text-foreground/85 text-pretty sm:text-base">
+            <p className="mt-1 text-sm text-foreground/85 text-pretty">
               {profile.role}
             </p>
-            <div className="mt-4 flex flex-col gap-1.5 text-xs text-muted-foreground sm:text-[13px]">
+            <div className="mt-3 flex flex-col gap-1 text-xs text-muted-foreground">
               <span className="inline-flex items-center gap-1.5">
                 <GraduationCap className="size-3.5" />
                 Purdue University
@@ -130,14 +130,14 @@ function ProfileCard() {
           </div>
         </div>
 
-        <div className="mt-6 flex items-start gap-2.5 rounded-xl border border-emerald-500/20 bg-emerald-500/[0.06] px-4 py-3">
+        <div className="mt-5 flex items-start gap-2.5 rounded-xl border border-emerald-500/20 bg-emerald-500/[0.06] px-3.5 py-2.5">
           <span className="mt-1.5 size-1.5 shrink-0 rounded-full bg-emerald-500" />
-          <p className="text-xs leading-relaxed text-foreground/85 text-pretty sm:text-[13px]">
+          <p className="text-xs leading-relaxed text-foreground/85 text-pretty">
             {profile.availability}
           </p>
         </div>
 
-        <div className="mt-6 grid grid-cols-2 gap-2.5">
+        <div className="mt-5 grid grid-cols-2 gap-2">
           <ContactTile
             href={profile.socials.email}
             icon={Mail}
@@ -173,7 +173,7 @@ function ProfileCard() {
           GitHub
         </a>
 
-        <div className="mt-6 grid grid-cols-2 gap-2.5" style={{ transform: "translateZ(12px)" }}>
+        <div className="mt-5 grid grid-cols-2 gap-2" style={{ transform: "translateZ(12px)" }}>
           <Magnetic strength={0.16} className="w-full">
             <Button asChild className="w-full">
               <a href="#contact">
@@ -219,7 +219,7 @@ function ContactTile({
       target={external ? "_blank" : undefined}
       rel={external ? "noopener noreferrer" : undefined}
       download={download}
-      className="group flex items-center gap-2.5 rounded-xl border border-border/60 bg-background/50 px-3.5 py-3 text-left transition-all duration-200 ease-out hover:border-foreground/20 hover:bg-card"
+      className="group flex items-center gap-2 rounded-xl border border-border/60 bg-background/50 px-3 py-2.5 text-left transition-all duration-200 ease-out hover:border-foreground/20 hover:bg-card"
       aria-label={label}
     >
       <Icon className="size-4 shrink-0 text-foreground/70 transition-colors group-hover:text-foreground sm:size-[18px]" />
@@ -242,7 +242,7 @@ function HeroCopy() {
       initial="hidden"
       animate="show"
       custom={1}
-      className="order-2 lg:col-span-5 lg:pl-4 lg:pt-4 xl:pl-6"
+      className="order-2 lg:col-span-7 lg:pl-2 lg:pt-2 xl:pl-4"
     >
       <motion.p variants={fadeUp} custom={2} className="eyebrow">
         {profile.eyebrow}
