@@ -78,36 +78,37 @@ function ProfileCard() {
       initial="hidden"
       animate="show"
       custom={0}
-      className="order-1 w-full max-w-md lg:col-span-5 lg:max-w-none"
+      className="order-1 w-full max-w-lg lg:col-span-5 lg:max-w-none"
     >
       <TiltCard maxTilt={4} className="rounded-2xl">
-      <Spotlight className="aurora-border depth-card rounded-2xl border border-border/60 bg-card/75 backdrop-blur-xl">
+      <Spotlight className="aurora-border depth-card rounded-2xl border border-sky-400/15 bg-card/70 backdrop-blur-2xl">
       <div className="relative p-5 sm:p-6">
-        <div className="flex items-start gap-4" style={{ transform: "translateZ(18px)" }}>
-          <div className="relative aspect-[4/5] w-28 shrink-0 overflow-hidden rounded-xl border border-border bg-secondary shadow-lg sm:w-32">
+        <div className="flex items-start gap-4 sm:gap-5" style={{ transform: "translateZ(18px)" }}>
+          <div className="relative aspect-[4/5] w-36 shrink-0 overflow-hidden rounded-2xl border border-sky-400/20 bg-secondary shadow-[0_0_0_1px_rgba(56,189,248,0.15),0_12px_32px_-12px_rgba(0,0,0,0.55)] sm:w-40 lg:w-44">
             {avatarOk ? (
               <Image
                 src={profile.avatar}
                 alt={profile.name}
                 fill
-                sizes="(min-width: 640px) 128px, 112px"
+                sizes="(min-width: 1024px) 176px, (min-width: 640px) 160px, 144px"
+                quality={95}
                 className="object-cover object-top"
                 onError={() => setAvatarOk(false)}
                 priority
               />
             ) : (
-              <div className="flex h-full w-full items-center justify-center bg-foreground text-background font-display text-2xl font-medium">
+              <div className="flex h-full w-full items-center justify-center bg-foreground text-background font-display text-3xl font-medium">
                 {initials}
               </div>
             )}
             <span
-              className="absolute bottom-2 right-2 size-3 rounded-full border-2 border-card bg-emerald-500 shadow-md"
+              className="absolute bottom-2.5 right-2.5 size-3.5 rounded-full border-2 border-card bg-emerald-400 shadow-[0_0_12px_rgba(52,211,153,0.55)]"
               aria-hidden
             />
           </div>
 
           <div className="min-w-0 flex-1 py-0.5">
-            <h1 className="font-display text-xl font-medium tracking-tight sm:text-2xl">
+            <h1 className="font-display text-2xl font-medium tracking-tight sm:text-[1.7rem]">
               {profile.name}
             </h1>
             <p className="mt-1 text-sm text-foreground/85 text-pretty">
@@ -219,7 +220,7 @@ function ContactTile({
       target={external ? "_blank" : undefined}
       rel={external ? "noopener noreferrer" : undefined}
       download={download}
-      className="group flex items-center gap-2 rounded-xl border border-border/60 bg-background/50 px-3 py-2.5 text-left transition-all duration-200 ease-out hover:border-foreground/20 hover:bg-card"
+      className="group flex items-center gap-2 rounded-xl border border-border/50 bg-background/40 px-3 py-2.5 text-left transition-all duration-200 ease-out hover:border-sky-400/30 hover:bg-card/80"
       aria-label={label}
     >
       <Icon className="size-4 shrink-0 text-foreground/70 transition-colors group-hover:text-foreground sm:size-[18px]" />
@@ -328,15 +329,15 @@ function HeroBackground({
         className="absolute inset-0"
       >
         <motion.div
-          className="absolute -top-24 left-1/2 h-[620px] w-[620px] rounded-full bg-[radial-gradient(closest-side,rgba(120,170,230,0.42),transparent_70%)] blur-3xl"
+          className="absolute -top-24 left-1/2 h-[620px] w-[620px] rounded-full bg-[radial-gradient(closest-side,rgba(56,189,248,0.38),transparent_70%)] blur-3xl"
           style={{ transform: layer1 }}
         />
         <motion.div
-          className="absolute top-[26%] -right-8 h-[500px] w-[500px] rounded-full bg-[radial-gradient(closest-side,rgba(50,170,160,0.32),transparent_70%)] blur-3xl"
+          className="absolute top-[26%] -right-8 h-[500px] w-[500px] rounded-full bg-[radial-gradient(closest-side,rgba(45,212,191,0.28),transparent_70%)] blur-3xl"
           style={{ transform: layer2 }}
         />
-        <div className="absolute top-[48%] left-[4%] h-[380px] w-[380px] rounded-full bg-[radial-gradient(closest-side,rgba(200,155,95,0.2),transparent_70%)] blur-3xl" />
-        <div className="absolute inset-x-[10%] top-0 h-px bg-gradient-to-r from-transparent via-sky-300/40 to-transparent" />
+        <div className="absolute top-[48%] left-[4%] h-[380px] w-[380px] rounded-full bg-[radial-gradient(closest-side,rgba(96,165,250,0.18),transparent_70%)] blur-3xl" />
+        <div className="absolute inset-x-[10%] top-0 h-px bg-gradient-to-r from-transparent via-cyan-300/50 to-transparent" />
       </motion.div>
       <div className="absolute inset-x-0 bottom-0 h-64 bg-gradient-to-b from-transparent via-background/25 to-background/85" />
     </div>

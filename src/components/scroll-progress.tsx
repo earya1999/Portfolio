@@ -13,7 +13,7 @@ export function ScrollProgress() {
   return (
     <motion.div
       aria-hidden
-      className="pointer-events-none fixed inset-x-0 top-0 z-[80] h-[2px] origin-left bg-gradient-to-r from-sky-400 via-violet-400 to-emerald-400 no-print"
+      className="pointer-events-none fixed inset-x-0 top-0 z-[80] h-[2px] origin-left bg-gradient-to-r from-sky-400 via-cyan-300 to-teal-400 no-print"
       style={{ scaleX }}
     />
   );

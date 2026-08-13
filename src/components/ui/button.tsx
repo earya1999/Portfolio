@@ -11,11 +11,11 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default:
-          "bg-foreground text-background hover:bg-foreground/90 shadow-sm",
+          "bg-foreground text-background hover:bg-foreground/92 shadow-[0_0_24px_-6px_rgba(56,189,248,0.45)]",
         secondary:
-          "bg-secondary text-secondary-foreground hover:bg-secondary/80 border border-border",
+          "bg-secondary/80 text-secondary-foreground hover:bg-secondary border border-sky-400/20 hover:border-sky-400/35",
         outline:
-          "border border-border bg-transparent hover:bg-secondary/60 hover:border-foreground/30",
+          "border border-sky-400/25 bg-transparent hover:bg-sky-400/5 hover:border-sky-400/40",
         ghost:
           "hover:bg-secondary/60 text-foreground/80 hover:text-foreground",
         link: "text-foreground underline-offset-4 hover:underline rounded-none px-0",

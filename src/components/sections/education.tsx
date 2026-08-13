@@ -30,7 +30,7 @@ export function Education() {
                   className="flex items-start gap-4"
                   style={{ transform: "translateZ(14px)" }}
                 >
-                  <OrgLogo src={e.logo} alt={e.school} size={52} />
+                  <OrgLogo src={e.logo} alt={e.school} size={68} />
                   <div className="min-w-0">
                     <h3 className="font-display text-base font-medium tracking-tight text-balance sm:text-lg">
                       {e.school}

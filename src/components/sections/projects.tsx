@@ -95,12 +95,12 @@ function ProjectCard({
       transition={{ duration: 0.5, delay: index * 0.05, ease: [0.22, 1, 0.36, 1] }}
     >
       <Spotlight className="h-full rounded-2xl">
-        <article className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-border/60 bg-card/60 transition-all hover:border-foreground/20 hover:bg-card">
+        <article className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-sky-400/10 bg-card/55 transition-all duration-300 hover:border-sky-400/25 hover:bg-card/80">
           <a
             href={project.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="relative block aspect-[16/5] overflow-hidden border-b border-border/50 bg-secondary/40"
+            className="relative block aspect-[16/9] overflow-hidden border-b border-border/50 bg-secondary/40"
             aria-label={`${project.name} preview`}
           >
             {project.image ? (
@@ -109,12 +109,13 @@ function ProjectCard({
                 alt=""
                 fill
                 sizes="(min-width: 640px) 50vw, 100vw"
-                className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                quality={90}
+                className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.04]"
               />
             ) : (
               <ProjectPlaceholder name={project.name} language={project.language} />
             )}
-            <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-card/80 via-transparent to-transparent opacity-80" />
+            <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-card via-card/20 to-transparent opacity-90" />
           </a>
 
           <div className="flex flex-1 flex-col p-5 sm:p-6">

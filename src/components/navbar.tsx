@@ -44,12 +44,12 @@ export function Navbar() {
       <div className="container">
         <nav
           className={cn(
-            "flex items-center justify-between rounded-full border border-border/60 bg-background/70 px-4 py-2 backdrop-blur-xl backdrop-saturate-150 transition-all",
-            scrolled && "shadow-sm"
+            "flex items-center justify-between rounded-full border border-sky-400/15 bg-background/55 px-4 py-2 backdrop-blur-2xl backdrop-saturate-150 transition-all",
+            scrolled && "border-sky-400/25 shadow-[0_8px_32px_-12px_rgba(56,189,248,0.25)]"
           )}
         >
           <Link href="/" className="group flex items-center gap-2 pl-1">
-            <span className="relative flex size-7 items-center justify-center rounded-full bg-foreground text-background">
+            <span className="relative flex size-7 items-center justify-center rounded-full bg-foreground text-background shadow-[0_0_16px_rgba(56,189,248,0.35)]">
               <span className="text-xs font-semibold">EA</span>
             </span>
             <span className="hidden text-sm font-medium sm:block">

@@ -9,7 +9,7 @@ export function SiteBackdrop() {
   const mouseY = useMotionValue(0.5);
   const springX = useSpring(mouseX, { stiffness: 40, damping: 22, mass: 0.8 });
   const springY = useSpring(mouseY, { stiffness: 40, damping: 22, mass: 0.8 });
-  const spotlight = useMotionTemplate`radial-gradient(680px circle at calc(${springX} * 100%) calc(${springY} * 100%), rgba(186, 205, 230, 0.14), transparent 55%)`;
+  const spotlight = useMotionTemplate`radial-gradient(720px circle at calc(${springX} * 100%) calc(${springY} * 100%), rgba(56, 189, 248, 0.16), transparent 55%)`;
 
   React.useEffect(() => {
     const mq = window.matchMedia("(prefers-reduced-motion: reduce)");

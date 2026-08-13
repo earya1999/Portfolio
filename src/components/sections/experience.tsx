@@ -131,7 +131,7 @@ export function Experience() {
                             <OrgLogo
                               src={entry.logo}
                               alt={entry.company}
-                              size={48}
+                              size={64}
                             />
                           </div>
 
