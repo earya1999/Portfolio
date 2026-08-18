@@ -84,7 +84,7 @@ export function Contact() {
       id="contact"
       eyebrow="Contact"
       title="Let's build something that works."
-      description="Open to Implementation Consultant, Solutions Consultant, and Professional Services conversations."
+      description="Open to Implementation Consultant, Solutions Consultant, and Professional Services conversations. Open to relocation."
       accent="emerald"
     >
       <div className="grid gap-6 lg:grid-cols-5">

@@ -28,7 +28,7 @@ export function Footer() {
               {profile.subheadline}
             </p>
             <p className="mt-3 text-xs text-muted-foreground">
-              {profile.location} · {profile.languages.join(" · ")}
+              {profile.location} · Open to relocation · {profile.languages.join(" · ")}
             </p>
           </div>
 
