@@ -84,7 +84,7 @@ export function Contact() {
       id="contact"
       eyebrow="Contact"
       title="Let's build something that works."
-      description="Hiring for a Project Manager or adjacent delivery role? Tell me about the program. I typically reply within a day."
+      description="Open to Project Manager, Implementation Consultant, Solutions Consultant, Professional Services, and Customer Success conversations. I typically reply within a day."
       accent="emerald"
     >
       <div className="grid gap-6 lg:grid-cols-5">

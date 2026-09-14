@@ -14,7 +14,7 @@ export function Overview() {
     <Section
       id="overview"
       eyebrow="Overview"
-      title="How I run delivery."
+      title="From discovery to go-live."
       accent="violet"
     >
       <motion.div
@@ -86,14 +86,10 @@ export function Overview() {
             <div>
               <h3 className="eyebrow">Target roles</h3>
               <ul className="mt-4 flex flex-wrap gap-1.5">
-                {overview.seeking.map((s, i) => (
+                {overview.seeking.map((s) => (
                   <li
                     key={s}
-                    className={
-                      i === 0
-                        ? "rounded-full border border-sky-400/35 bg-sky-400/10 px-3 py-1.5 text-sm text-foreground"
-                        : "rounded-full border border-border/50 bg-background/50 px-3 py-1.5 text-sm text-foreground/85"
-                    }
+                    className="rounded-full border border-border/50 bg-background/50 px-3 py-1.5 text-sm text-foreground/85"
                   >
                     {s}
                   </li>

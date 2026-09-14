@@ -2,7 +2,7 @@
   "name": "eshaan-arya-portfolio",
   "version": "1.0.0",
   "private": true,
-  "description": "Personal portfolio for Eshaan Arya — Project Manager, enterprise software delivery",
+  "description": "Personal portfolio for Eshaan Arya — enterprise SaaS delivery, implementation, and project management",
   "scripts": {
     "dev": "next dev",
     "build": "next build",

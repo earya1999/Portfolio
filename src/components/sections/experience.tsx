@@ -47,8 +47,8 @@ export function Experience() {
     <Section
       id="experience"
       eyebrow="Experience"
-      title="Programs I've delivered."
-      description="Enterprise SaaS programs at HighRadius, plus a banking analytics practicum at Community First Bank of Indiana."
+      title="Enterprise implementations and applied analytics."
+      description="SaaS delivery at HighRadius, plus a banking analytics practicum at Community First Bank of Indiana."
       accent="emerald"
     >
       <div className="relative">

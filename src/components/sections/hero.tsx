@@ -297,15 +297,10 @@ function HeroCopy() {
       >
         <p className="text-xs text-muted-foreground">Target roles</p>
         <div className="mt-2 flex max-w-2xl flex-wrap gap-1.5">
-          {profile.targetRoles.map((r, i) => (
+          {profile.targetRoles.map((r) => (
             <span
               key={r}
-              className={cn(
-                "rounded-full border px-2.5 py-1 text-[11px] backdrop-blur",
-                i === 0
-                  ? "border-sky-400/35 bg-sky-400/10 text-foreground"
-                  : "border-border/60 bg-background/60 text-foreground/80"
-              )}
+              className="rounded-full border border-border/60 bg-background/60 px-2.5 py-1 text-[11px] text-foreground/80 backdrop-blur"
             >
               {r}
             </span>

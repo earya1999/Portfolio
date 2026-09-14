@@ -1,15 +1,15 @@
 {
   "name": "Eshaan Arya",
   "shortName": "Eshaan",
-  "role": "Project Manager",
-  "altRole": "Enterprise software delivery",
+  "role": "Enterprise SaaS Delivery",
+  "altRole": "Implementation · project delivery · customer success",
   "location": "West Lafayette, IN",
   "languages": ["English", "Hindi"],
-  "eyebrow": "Enterprise delivery · Fortune 500 programs",
+  "eyebrow": "Client-facing delivery · Fortune 500 programs",
   "headline": "Turning complex enterprise workflows into solutions customers actually use.",
-  "subheadline": "I lead enterprise software programs from kickoff to go-live — scope, stakeholders, and adoption — so the platform actually gets used.",
-  "positioning": "I run the delivery of enterprise SaaS programs: discovery, configuration, training, integration, and go-live.",
-  "availability": "Open to Project Manager roles first, plus Implementation Consultant, Solutions Consultant, and Professional Services. Open to relocation.",
+  "subheadline": "I work across implementation, project delivery, and customer success — taking enterprise SaaS from discovery and configuration through training and go-live.",
+  "positioning": "I help enterprises adopt SaaS platforms successfully — from discovery and configuration through training, integration, and go-live.",
+  "availability": "Open to Project Manager, Implementation Consultant, Solutions Consultant, Professional Services, and Customer Success roles. Open to relocation.",
   "avatar": "/avatar-prev.jpg",
   "email": "eshaanarya1999@gmail.com",
   "resumeUrl": "/resume/Eshaan-Arya-Resume.pdf",
@@ -26,7 +26,7 @@
     "Implementation Consultant",
     "Solutions Consultant",
     "Professional Services",
-    "Customer Success"
+    "Customer Success Engineer"
   ],
   "highlights": {
     "degree": "MS · Purdue University",
@@ -34,7 +34,7 @@
     "focus": "Fortune 500 & large enterprise clients"
   },
   "linkedin": {
-    "headline": "Project Manager | Enterprise SaaS Delivery · Onboarding · Go-Live | Purdue MSBAIM",
-    "about": "Project Manager and enterprise delivery lead with 3+ years running SaaS programs for Fortune 500 organizations — from discovery and configuration through training, integration, and go-live.\n\nAt HighRadius, as an Implementation Consultant I led multiple end-to-end implementations, increased automation from 42% to 70% on key workflows, and recovered a high-risk Cash Application engagement from red to green in under a month.\n\nCurrently pursuing an MS in Business Analytics and Information Management at Purdue University’s Daniels School of Business, with a banking analytics practicum at Community First Bank of Indiana.\n\nOpen to Project Manager roles first, plus Implementation Consultant, Solutions Consultant, and Professional Services. Open to relocation.\n\nPortfolio: https://eshaanarya.com"
+    "headline": "Enterprise SaaS Delivery | Implementation · Project Management · Go-Live | Purdue MSBAIM",
+    "about": "Client-facing professional with 3+ years delivering enterprise SaaS for Fortune 500 organizations — spanning implementation, project delivery, and customer success, from discovery and configuration through training and go-live.\n\nAt HighRadius, as an Implementation Consultant I led multiple end-to-end implementations, increased automation from 42% to 70% on key workflows, and recovered a high-risk Cash Application engagement from red to green in under a month.\n\nCurrently pursuing an MS in Business Analytics and Information Management at Purdue University’s Daniels School of Business, with a banking analytics practicum at Community First Bank of Indiana.\n\nOpen to Project Manager, Implementation Consultant, Solutions Consultant, Professional Services, and Customer Success roles. Open to relocation.\n\nPortfolio: https://eshaanarya.com"
   }
 }
