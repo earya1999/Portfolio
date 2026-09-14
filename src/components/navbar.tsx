@@ -119,7 +119,7 @@ export function Navbar() {
             transition={{ duration: 0.2 }}
             className="container mt-2 lg:hidden"
           >
-            <div className="flex flex-col gap-1 rounded-2xl border border-border/60 bg-background/95 p-3 backdrop-blur-xl">
+            <div className="flex flex-col gap-1 rounded-3xl border border-border/50 bg-background/95 p-3 backdrop-blur-xl">
               {links.map((l) => (
                 <Link
                   key={l.href}

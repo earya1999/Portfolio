@@ -185,7 +185,7 @@ export function CommandMenuProvider({ children }: { children: React.ReactNode })
                   animate={{ opacity: 1, y: 0, scale: 1 }}
                   exit={{ opacity: 0, y: -8, scale: 0.98 }}
                   transition={{ duration: 0.15 }}
-                  className="fixed left-1/2 top-[15%] z-[70] w-[92%] max-w-xl -translate-x-1/2 overflow-hidden rounded-2xl border border-border bg-background shadow-2xl"
+                  className="fixed left-1/2 top-[15%] z-[70] w-[92%] max-w-xl -translate-x-1/2 overflow-hidden rounded-3xl border border-border/50 bg-background shadow-2xl"
                 >
                   <Dialog.Title className="sr-only">Command menu</Dialog.Title>
                   <div className="flex items-center gap-3 border-b border-border px-4">

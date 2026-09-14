@@ -32,7 +32,7 @@ export function OrgLogo({
   return (
     <div
       className={cn(
-        "relative flex shrink-0 items-center justify-center overflow-hidden rounded-2xl border border-white/15 bg-white shadow-[0_0_0_1px_rgba(56,189,248,0.12),0_8px_24px_-12px_rgba(0,0,0,0.45)]",
+        "relative flex shrink-0 items-center justify-center overflow-hidden rounded-2xl border border-white/12 bg-white shadow-[0_0_0_1px_rgba(56,189,248,0.08),0_10px_28px_-14px_rgba(0,0,0,0.45)]",
         className
       )}
       style={{ width: size, height: size }}

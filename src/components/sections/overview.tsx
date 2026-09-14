@@ -24,8 +24,8 @@ export function Overview() {
         transition={{ duration: 0.5 }}
         className="mx-auto max-w-3xl"
       >
-        <TiltCard maxTilt={5} className="rounded-2xl">
-        <Spotlight className="aurora-border depth-card rounded-2xl border border-border/60 bg-card/60">
+        <TiltCard maxTilt={5} className="rounded-3xl">
+        <Spotlight className="aurora-border depth-card rounded-3xl border border-border/50 bg-card/60">
         <div className="relative p-6 sm:p-10">
           <div className="flex flex-col gap-5">
             {overview.intro.map((p, i) => (
@@ -67,7 +67,7 @@ export function Overview() {
                 return (
                   <li
                     key={c.title}
-                    className="flex items-start gap-3 rounded-xl border border-border/40 bg-background/50 px-4 py-3"
+                    className="flex items-start gap-3 rounded-2xl border border-border/35 bg-background/50 px-4 py-3"
                   >
                     <span
                       className={`mt-0.5 flex size-5 shrink-0 items-center justify-center rounded-full ${palette.bg} ${palette.text} ring-1 ${palette.ring}`}

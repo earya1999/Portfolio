@@ -101,14 +101,14 @@ export function Experience() {
                   />
                 </div>
 
-                <TiltCard maxTilt={4} className="rounded-2xl">
-                  <Spotlight className="rounded-2xl">
+                <TiltCard maxTilt={4} className="rounded-3xl">
+                  <Spotlight className="rounded-3xl">
                     <article
                       className={cn(
-                        "depth-card overflow-hidden rounded-2xl border bg-card/70 transition-all duration-300",
+                        "depth-card overflow-hidden rounded-3xl border bg-card/70 transition-all duration-300",
                         isOpen
                           ? "border-emerald-500/25 bg-card shadow-[0_0_0_1px_rgba(16,185,129,0.08)]"
-                          : "border-border/60 hover:border-foreground/15 hover:bg-card"
+                          : "border-border/50 hover:border-foreground/15 hover:bg-card"
                       )}
                     >
                       {/* Top accent line */}
@@ -266,7 +266,7 @@ export function Experience() {
 
                               {entry.technologies.length > 0 && (
                                 <div className="lg:col-span-2">
-                                  <div className="rounded-xl border border-border/50 bg-card/50 p-4">
+                                  <div className="rounded-2xl border border-border/40 bg-card/50 p-4">
                                     <div className="eyebrow mb-3">
                                       Skills used
                                     </div>

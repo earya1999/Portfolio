@@ -80,11 +80,11 @@ function ProfileCard() {
       custom={0}
       className="order-1 w-full max-w-lg lg:col-span-5 lg:max-w-none"
     >
-      <TiltCard maxTilt={4} className="rounded-2xl">
-      <Spotlight className="aurora-border depth-card rounded-2xl border border-sky-400/15 bg-card/70 backdrop-blur-2xl">
+      <TiltCard maxTilt={4} className="rounded-3xl">
+      <Spotlight className="aurora-border depth-card rounded-3xl border border-sky-400/10 bg-card/70 backdrop-blur-2xl">
       <div className="relative p-5 sm:p-6">
         <div className="flex items-start gap-4 sm:gap-5" style={{ transform: "translateZ(18px)" }}>
-          <div className="relative aspect-[4/5] w-36 shrink-0 overflow-hidden rounded-2xl border border-sky-400/20 bg-secondary shadow-[0_0_0_1px_rgba(56,189,248,0.15),0_12px_32px_-12px_rgba(0,0,0,0.55)] sm:w-40 lg:w-44">
+          <div className="relative aspect-[4/5] w-36 shrink-0 overflow-hidden rounded-3xl border border-sky-400/15 bg-secondary shadow-[0_0_0_1px_rgba(56,189,248,0.1),0_16px_40px_-16px_rgba(0,0,0,0.5)] sm:w-40 lg:w-44">
             {avatarOk ? (
               <Image
                 src={profile.avatar}
@@ -131,7 +131,7 @@ function ProfileCard() {
           </div>
         </div>
 
-        <div className="mt-5 flex items-start gap-2.5 rounded-xl border border-emerald-500/20 bg-emerald-500/[0.06] px-3.5 py-2.5">
+        <div className="mt-5 flex items-start gap-2.5 rounded-2xl border border-emerald-500/15 bg-emerald-500/[0.06] px-3.5 py-2.5">
           <span className="mt-1.5 size-1.5 shrink-0 rounded-full bg-emerald-500" />
           <p className="text-xs leading-relaxed text-foreground/85 text-pretty">
             {profile.availability}
@@ -220,7 +220,7 @@ function ContactTile({
       target={external ? "_blank" : undefined}
       rel={external ? "noopener noreferrer" : undefined}
       download={download}
-      className="group flex items-center gap-2 rounded-xl border border-border/50 bg-background/40 px-3 py-2.5 text-left transition-all duration-200 ease-out hover:border-sky-400/30 hover:bg-card/80"
+      className="group flex items-center gap-2 rounded-2xl border border-border/40 bg-background/40 px-3 py-2.5 text-left transition-all duration-200 ease-out hover:border-sky-400/25 hover:bg-card/80"
       aria-label={label}
     >
       <Icon className="size-4 shrink-0 text-foreground/70 transition-colors group-hover:text-foreground sm:size-[18px]" />

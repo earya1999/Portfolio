@@ -35,7 +35,7 @@ export function Tools() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-40px" }}
                     transition={{ duration: 0.35, delay: i * 0.03 }}
-                    className="group flex items-start gap-4 rounded-xl border border-border/60 bg-card/60 p-4 transition-all hover:border-foreground/20 hover:bg-card"
+                    className="group flex items-start gap-4 rounded-2xl border border-border/50 bg-card/60 p-4 transition-all hover:border-foreground/20 hover:bg-card"
                   >
                     <ToolIcon name={tool.icon} label={tool.name} />
                     <div className="min-w-0 flex-1">

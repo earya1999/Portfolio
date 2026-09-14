@@ -94,8 +94,8 @@ function ProjectCard({
       viewport={{ once: true, margin: "-40px" }}
       transition={{ duration: 0.5, delay: index * 0.05, ease: [0.22, 1, 0.36, 1] }}
     >
-      <Spotlight className="h-full rounded-2xl">
-        <article className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-sky-400/10 bg-card/55 transition-all duration-300 hover:border-sky-400/25 hover:bg-card/80">
+      <Spotlight className="h-full rounded-3xl">
+        <article className="group relative flex h-full flex-col overflow-hidden rounded-3xl border border-sky-400/10 bg-card/55 transition-all duration-300 hover:border-sky-400/25 hover:bg-card/80">
           <a
             href={project.url}
             target="_blank"
@@ -242,7 +242,7 @@ function ProjectPlaceholder({
 
 function EmptyProjects() {
   return (
-    <div className="rounded-2xl border border-dashed border-border/70 bg-card/40 px-6 py-12 text-center">
+    <div className="rounded-3xl border border-dashed border-border/60 bg-card/40 px-6 py-12 text-center">
       <Github className="mx-auto size-8 text-muted-foreground" />
       <h3 className="mt-4 font-display text-lg font-semibold">
         Projects coming soon

@@ -82,7 +82,7 @@ export function Skills() {
                 key={cat.category}
                 onClick={() => setActive(cat.category)}
                 className={cn(
-                  "flex shrink-0 items-center gap-3 rounded-xl border p-3 text-left transition-all lg:w-full",
+                  "flex shrink-0 items-center gap-3 rounded-2xl border p-3 text-left transition-all lg:w-full",
                   isActive
                     ? "border-foreground/20 bg-card"
                     : "border-border/60 bg-transparent hover:border-foreground/10 hover:bg-card/60"
@@ -114,7 +114,7 @@ export function Skills() {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.35 }}
-          className="rounded-2xl border border-border/60 bg-card/60 p-6"
+          className="rounded-3xl border border-border/50 bg-card/60 p-6"
         >
           <div className="mb-6 flex items-center justify-between gap-4">
             <div>

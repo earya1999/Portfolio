@@ -24,8 +24,8 @@ export function Education() {
             viewport={{ once: true, margin: "-60px" }}
             transition={{ duration: 0.45, delay: i * 0.06 }}
           >
-            <TiltCard maxTilt={4} className="h-full rounded-2xl">
-              <article className="depth-card flex h-full flex-col rounded-2xl border border-border/60 bg-card/70 p-6 transition-colors duration-200 hover:border-foreground/20 hover:bg-card">
+            <TiltCard maxTilt={4} className="h-full rounded-3xl">
+              <article className="depth-card flex h-full flex-col rounded-3xl border border-border/50 bg-card/70 p-6 transition-colors duration-200 hover:border-foreground/20 hover:bg-card">
                 <div
                   className="flex items-start gap-4"
                   style={{ transform: "translateZ(14px)" }}

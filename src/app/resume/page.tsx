@@ -57,7 +57,7 @@ export default function ResumePage() {
           </Button>
         </div>
 
-        <div className="overflow-hidden rounded-2xl border border-border/60 bg-card/40 no-print">
+        <div className="overflow-hidden rounded-3xl border border-border/50 bg-card/40 no-print">
           <object
             data={profile.resumeUrl}
             type="application/pdf"
@@ -78,7 +78,7 @@ export default function ResumePage() {
           </object>
         </div>
 
-        <div className="mt-16 rounded-2xl border border-border/60 bg-card/60 p-8 md:p-10">
+        <div className="mt-16 rounded-3xl border border-border/50 bg-card/60 p-8 md:p-10">
           <header className="border-b border-border/60 pb-6">
             <h2 className="font-display text-2xl font-semibold tracking-tight">
               {profile.name}

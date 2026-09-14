@@ -24,12 +24,12 @@ export function Certifications() {
             viewport={{ once: true, margin: "-60px" }}
             transition={{ duration: 0.4, delay: i * 0.05 }}
           >
-            <TiltCard maxTilt={4} className="h-full rounded-2xl">
+            <TiltCard maxTilt={4} className="h-full rounded-3xl">
               <a
                 href={c.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="depth-card group relative flex h-full flex-col overflow-hidden rounded-2xl border border-border/60 bg-card/70 p-6 transition-colors duration-200 ease-out hover:border-foreground/20 hover:bg-card"
+                className="depth-card group relative flex h-full flex-col overflow-hidden rounded-3xl border border-border/50 bg-card/70 p-6 transition-colors duration-200 ease-out hover:border-foreground/20 hover:bg-card"
               >
                 <div
                   className="flex items-start justify-between"

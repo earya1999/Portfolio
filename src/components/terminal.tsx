@@ -168,7 +168,7 @@ export function Terminal() {
 
   return (
     <div
-      className="overflow-hidden rounded-2xl border border-border/60 bg-black/90 font-mono text-[13px] text-emerald-300 shadow-2xl"
+      className="overflow-hidden rounded-3xl border border-border/50 bg-black/90 font-mono text-[13px] text-emerald-300 shadow-2xl"
       onClick={() => inputRef.current?.focus()}
     >
       <div className="flex items-center gap-1.5 border-b border-white/5 px-4 py-2">

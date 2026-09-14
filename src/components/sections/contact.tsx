@@ -95,7 +95,7 @@ export function Contact() {
           transition={{ duration: 0.4 }}
           className="lg:col-span-2 flex flex-col gap-4"
         >
-          <div className="flex flex-col gap-2 rounded-2xl border border-border/60 bg-card/60 p-6">
+          <div className="flex flex-col gap-2 rounded-3xl border border-border/50 bg-card/60 p-6">
             <div className="eyebrow">Direct</div>
             <div className="mt-1 flex items-center justify-between gap-3">
               <div className="min-w-0">
@@ -120,7 +120,7 @@ export function Contact() {
             href={profile.socials.calendly}
             target="_blank"
             rel="noopener noreferrer"
-            className="group flex items-center justify-between rounded-2xl border border-border/60 bg-card/60 p-6 transition-all hover:border-foreground/20 hover:bg-card"
+            className="group flex items-center justify-between rounded-3xl border border-border/50 bg-card/60 p-6 transition-all hover:border-foreground/20 hover:bg-card"
           >
             <div>
               <div className="eyebrow">Book time</div>
@@ -140,7 +140,7 @@ export function Contact() {
           </div>
         </motion.div>
 
-        <Spotlight className="lg:col-span-3 rounded-2xl">
+        <Spotlight className="lg:col-span-3 rounded-3xl">
         <motion.form
           onSubmit={onSubmit}
           noValidate
@@ -148,7 +148,7 @@ export function Contact() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-60px" }}
           transition={{ duration: 0.4, delay: 0.1 }}
-          className="relative rounded-2xl border border-border/60 bg-card/60 p-6"
+          className="relative rounded-3xl border border-border/50 bg-card/60 p-6"
         >
           <div className="eyebrow mb-4">Send a message</div>
           <div className="grid gap-4 sm:grid-cols-2">
@@ -210,7 +210,7 @@ function SocialTile({
       target={href.startsWith("http") ? "_blank" : undefined}
       rel="noopener noreferrer"
       download={download}
-      className="flex items-center gap-2 rounded-xl border border-border/60 bg-background/60 p-3 text-sm text-foreground/80 transition-all hover:border-foreground/20 hover:bg-card hover:text-foreground"
+      className="flex items-center gap-2 rounded-2xl border border-border/50 bg-background/60 p-3 text-sm text-foreground/80 transition-all hover:border-foreground/20 hover:bg-card hover:text-foreground"
     >
       <Icon className="size-4" />
       {label}
@@ -238,7 +238,7 @@ function Field({
   textarea,
 }: FieldProps) {
   const cls =
-    "mt-2 w-full rounded-xl border border-border bg-background/60 px-3 py-2.5 text-sm outline-none placeholder:text-muted-foreground focus:border-foreground/40 focus:ring-2 focus:ring-ring/30";
+    "mt-2 w-full rounded-2xl border border-border/60 bg-background/60 px-3.5 py-2.5 text-sm outline-none placeholder:text-muted-foreground focus:border-sky-400/35 focus:ring-2 focus:ring-ring/25";
   return (
     <label className="mt-4 block first:mt-0">
       <span className="text-xs font-medium text-muted-foreground">{label}</span>
