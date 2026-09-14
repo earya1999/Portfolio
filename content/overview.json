@@ -1,18 +1,18 @@
 {
   "intro": [
-    "I'm a client-facing Implementation Consultant with 3+ years of experience delivering enterprise SaaS implementations, customer onboarding, financial workflow optimization, training, and go-live success for Fortune 500 organizations.",
-    "At HighRadius, I led multiple end-to-end implementations — increasing automation from 42% to 70% on key workflows and turning around a high-risk Cash Application engagement from red to green in under a month.",
-    "At Purdue University, I'm completing an MS in Business Analytics and Information Management while working on a banking practicum focused on operational bottlenecks and data-backed automation recommendations."
+    "I run the messy middle of enterprise software programs: scoping the work, aligning finance and IT, keeping delivery honest, and getting the system into production without the usual last-mile stall.",
+    "At HighRadius I owned end-to-end SaaS implementations for Fortune 500 clients — lifting automation from 42% to 70% on key workflows and recovering a high-risk Cash Application program from red to green in under a month.",
+    "At Purdue I'm completing an MS in Business Analytics and Information Management, with a banking practicum at Community First Bank focused on operational bottlenecks and data-backed automation."
   ],
   "capabilities": [
     {
-      "title": "SaaS Implementation & ERP Integrations",
-      "description": "End-to-end enterprise deployments with SAP, Oracle, and cross-system integrations.",
+      "title": "Program & Project Delivery",
+      "description": "Owning timeline, scope, and stakeholders from kickoff through go-live.",
       "icon": "Rocket"
     },
     {
-      "title": "Business Process Analysis",
-      "description": "Mapping financial and operational workflows to the right system configuration.",
+      "title": "SaaS Implementation & ERP Integrations",
+      "description": "End-to-end enterprise deployments with SAP, Oracle, and cross-system integrations.",
       "icon": "BarChart3"
     },
     {
@@ -30,7 +30,8 @@
     "Project Manager",
     "Implementation Consultant",
     "Solutions Consultant",
-    "Professional Services / Customer Success"
+    "Professional Services",
+    "Customer Success"
   ],
-  "cta": "If you're hiring for Project Manager, enterprise SaaS implementation, or professional services roles, I'd welcome a conversation."
+  "cta": "If you're hiring a Project Manager for enterprise software delivery, I'd welcome a conversation."
 }

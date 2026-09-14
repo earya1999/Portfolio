@@ -24,6 +24,7 @@ import { Button } from "@/components/ui/button";
 import { TiltCard } from "@/components/tilt-card";
 import { Magnetic } from "@/components/magnetic";
 import { Spotlight } from "@/components/spotlight";
+import { cn } from "@/lib/utils";
 import { profile } from "@/lib/content";
 
 const fadeUp = {
@@ -152,9 +153,9 @@ function ProfileCard() {
             external
           />
           <ContactTile
-            href={profile.socials.calendly}
-            icon={Calendar}
-            label="Book a call"
+            href={profile.socials.github}
+            icon={Github}
+            label="GitHub"
             external
           />
           <ContactTile
@@ -163,16 +164,14 @@ function ProfileCard() {
             label="Resume"
             download
           />
+          <ContactTile
+            href={profile.socials.calendly}
+            icon={Calendar}
+            label="Book a call"
+            className="col-span-2"
+            external
+          />
         </div>
-        <a
-          href={profile.socials.github}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="mt-3 inline-flex items-center gap-1.5 text-xs text-muted-foreground transition-colors duration-200 hover:text-foreground"
-        >
-          <Github className="size-3.5" />
-          GitHub
-        </a>
 
         <div className="mt-5 grid grid-cols-2 gap-2" style={{ transform: "translateZ(12px)" }}>
           <Magnetic strength={0.16} className="w-full">
@@ -206,6 +205,7 @@ function ContactTile({
   hint,
   external,
   download,
+  className,
 }: {
   href: string;
   icon: React.ComponentType<{ className?: string }>;
@@ -213,6 +213,7 @@ function ContactTile({
   hint?: string;
   external?: boolean;
   download?: boolean;
+  className?: string;
 }) {
   return (
     <a
@@ -220,7 +221,10 @@ function ContactTile({
       target={external ? "_blank" : undefined}
       rel={external ? "noopener noreferrer" : undefined}
       download={download}
-      className="group flex items-center gap-2 rounded-2xl border border-border/40 bg-background/40 px-3 py-2.5 text-left transition-all duration-200 ease-out hover:border-sky-400/25 hover:bg-card/80"
+      className={cn(
+        "group flex items-center gap-2 rounded-2xl border border-border/40 bg-background/40 px-3 py-2.5 text-left transition-all duration-200 ease-out hover:border-sky-400/25 hover:bg-card/80",
+        className
+      )}
       aria-label={label}
     >
       <Icon className="size-4 shrink-0 text-foreground/70 transition-colors group-hover:text-foreground sm:size-[18px]" />
@@ -261,7 +265,7 @@ function HeroCopy() {
       <motion.p
         variants={fadeUp}
         custom={4}
-        className="mt-6 max-w-xl text-sm leading-relaxed text-muted-foreground text-pretty sm:text-base"
+        className="mt-6 max-w-2xl text-sm leading-relaxed text-muted-foreground text-pretty sm:text-base"
       >
         {profile.subheadline}
       </motion.p>
@@ -289,17 +293,24 @@ function HeroCopy() {
       <motion.div
         variants={fadeUp}
         custom={6}
-        className="mt-8 flex flex-wrap items-center gap-1.5"
+        className="mt-8"
       >
-        <span className="mr-1 text-xs text-muted-foreground">Target roles:</span>
-        {profile.targetRoles.map((r) => (
-          <span
-            key={r}
-            className="rounded-full border border-border/60 bg-background/60 px-2.5 py-1 text-[11px] text-foreground/80 backdrop-blur"
-          >
-            {r}
-          </span>
-        ))}
+        <p className="text-xs text-muted-foreground">Target roles</p>
+        <div className="mt-2 flex max-w-2xl flex-wrap gap-1.5">
+          {profile.targetRoles.map((r, i) => (
+            <span
+              key={r}
+              className={cn(
+                "rounded-full border px-2.5 py-1 text-[11px] backdrop-blur",
+                i === 0
+                  ? "border-sky-400/35 bg-sky-400/10 text-foreground"
+                  : "border-border/60 bg-background/60 text-foreground/80"
+              )}
+            >
+              {r}
+            </span>
+          ))}
+        </div>
       </motion.div>
     </motion.div>
   );
