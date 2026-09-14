@@ -41,6 +41,8 @@ export const metadata: Metadata = {
   description: profile.subheadline,
   keywords: [
     "Eshaan Arya",
+    "Project Manager",
+    "Technical Project Manager",
     "Enterprise SaaS Implementation Consultant",
     "Implementation Consultant",
     "Solutions Consultant",
