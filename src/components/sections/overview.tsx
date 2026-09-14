@@ -85,16 +85,28 @@ export function Overview() {
 
             <div>
               <h3 className="eyebrow">Target roles</h3>
-              <ul className="mt-4 flex flex-wrap gap-1.5">
-                {overview.seeking.map((s) => (
-                  <li
-                    key={s}
-                    className="rounded-full border border-border/50 bg-background/50 px-3 py-1.5 text-sm text-foreground/85"
-                  >
-                    {s}
-                  </li>
-                ))}
-              </ul>
+              <div className="mt-4 flex flex-col gap-1.5">
+                <ul className="flex flex-wrap gap-1.5">
+                  {overview.seeking.slice(0, 3).map((s) => (
+                    <li
+                      key={s}
+                      className="rounded-full border border-border/50 bg-background/50 px-3 py-1.5 text-sm text-foreground/85"
+                    >
+                      {s}
+                    </li>
+                  ))}
+                </ul>
+                <ul className="flex flex-wrap gap-1.5">
+                  {overview.seeking.slice(3).map((s) => (
+                    <li
+                      key={s}
+                      className="rounded-full border border-border/50 bg-background/50 px-3 py-1.5 text-sm text-foreground/85"
+                    >
+                      {s}
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
           </div>
 

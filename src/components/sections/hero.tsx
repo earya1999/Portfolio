@@ -56,7 +56,7 @@ export function Hero() {
       <HeroBackground mouseX={springX} mouseY={springY} />
 
       <div className="container relative z-10 w-full">
-        <div className="grid gap-10 lg:grid-cols-12 lg:items-start lg:gap-10 xl:gap-12">
+        <div className="grid gap-10 lg:grid-cols-12 lg:items-center lg:gap-10 xl:gap-14">
           <ProfileCard />
           <HeroCopy />
         </div>
@@ -84,14 +84,14 @@ function ProfileCard() {
       <TiltCard maxTilt={4} className="rounded-3xl">
       <Spotlight className="aurora-border depth-card rounded-3xl border border-sky-400/10 bg-card/70 backdrop-blur-2xl">
       <div className="relative p-5 sm:p-6">
-        <div className="flex items-start gap-4 sm:gap-5" style={{ transform: "translateZ(18px)" }}>
-          <div className="relative aspect-[4/5] w-36 shrink-0 overflow-hidden rounded-3xl border border-sky-400/15 bg-secondary shadow-[0_0_0_1px_rgba(56,189,248,0.1),0_16px_40px_-16px_rgba(0,0,0,0.5)] sm:w-40 lg:w-44">
+        <div className="flex items-start gap-4" style={{ transform: "translateZ(18px)" }}>
+          <div className="relative aspect-[4/5] w-32 shrink-0 overflow-hidden rounded-3xl border border-sky-400/15 bg-secondary shadow-[0_0_0_1px_rgba(56,189,248,0.1),0_16px_40px_-16px_rgba(0,0,0,0.5)] sm:w-36 lg:w-40">
             {avatarOk ? (
               <Image
                 src={profile.avatar}
                 alt={profile.name}
                 fill
-                sizes="(min-width: 1024px) 176px, (min-width: 640px) 160px, 144px"
+                sizes="(min-width: 1024px) 160px, (min-width: 640px) 144px, 128px"
                 quality={95}
                 className="object-cover object-top"
                 onError={() => setAvatarOk(false)}
@@ -132,19 +132,18 @@ function ProfileCard() {
           </div>
         </div>
 
-        <div className="mt-5 flex items-start gap-2.5 rounded-2xl border border-emerald-500/15 bg-emerald-500/[0.06] px-3.5 py-2.5">
+        <div className="mt-4 flex items-start gap-2.5 rounded-2xl border border-emerald-500/15 bg-emerald-500/[0.06] px-3.5 py-2">
           <span className="mt-1.5 size-1.5 shrink-0 rounded-full bg-emerald-500" />
           <p className="text-xs leading-relaxed text-foreground/85 text-pretty">
             {profile.availability}
           </p>
         </div>
 
-        <div className="mt-5 grid grid-cols-2 gap-2">
+        <div className="mt-4 grid grid-cols-2 gap-2">
           <ContactTile
             href={profile.socials.email}
             icon={Mail}
             label="Email"
-            hint={profile.email}
           />
           <ContactTile
             href={profile.socials.linkedin}
@@ -164,16 +163,9 @@ function ProfileCard() {
             label="Resume"
             download
           />
-          <ContactTile
-            href={profile.socials.calendly}
-            icon={Calendar}
-            label="Book a call"
-            className="col-span-2"
-            external
-          />
         </div>
 
-        <div className="mt-5 grid grid-cols-2 gap-2" style={{ transform: "translateZ(12px)" }}>
+        <div className="mt-4 grid grid-cols-2 gap-2" style={{ transform: "translateZ(12px)" }}>
           <Magnetic strength={0.16} className="w-full">
             <Button asChild className="w-full">
               <a href="#contact">
@@ -184,9 +176,9 @@ function ProfileCard() {
           </Magnetic>
           <Magnetic strength={0.16} className="w-full">
             <Button asChild variant="secondary" className="w-full">
-              <a href={profile.resumeUrl} download>
-                <Download />
-                Download resume
+              <a href={profile.socials.calendly} target="_blank" rel="noopener noreferrer">
+                <Calendar />
+                Book a call
               </a>
             </Button>
           </Magnetic>
@@ -296,15 +288,27 @@ function HeroCopy() {
         className="mt-8"
       >
         <p className="text-xs text-muted-foreground">Target roles</p>
-        <div className="mt-2 flex max-w-2xl flex-wrap gap-1.5">
-          {profile.targetRoles.map((r) => (
-            <span
-              key={r}
-              className="rounded-full border border-border/60 bg-background/60 px-2.5 py-1 text-[11px] text-foreground/80 backdrop-blur"
-            >
-              {r}
-            </span>
-          ))}
+        <div className="mt-2 flex flex-col gap-1.5">
+          <div className="flex flex-wrap gap-1.5">
+            {profile.targetRoles.slice(0, 3).map((r) => (
+              <span
+                key={r}
+                className="rounded-full border border-border/60 bg-background/60 px-2.5 py-1 text-[11px] text-foreground/80 backdrop-blur"
+              >
+                {r}
+              </span>
+            ))}
+          </div>
+          <div className="flex flex-wrap gap-1.5">
+            {profile.targetRoles.slice(3).map((r) => (
+              <span
+                key={r}
+                className="rounded-full border border-border/60 bg-background/60 px-2.5 py-1 text-[11px] text-foreground/80 backdrop-blur"
+              >
+                {r}
+              </span>
+            ))}
+          </div>
         </div>
       </motion.div>
     </motion.div>
