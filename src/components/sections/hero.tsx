@@ -317,7 +317,16 @@ function HeroBackground({
   const gridShift = useMotionTemplate`translate3d(calc((${mouseX} - 0.5) * -6px), calc((${mouseY} - 0.5) * -5px), 0)`;
 
   return (
-    <div aria-hidden className="pointer-events-none absolute inset-0 -z-0 [perspective:1200px]">
+    <div
+      aria-hidden
+      className="pointer-events-none absolute inset-0 -z-0 [perspective:1200px]"
+      style={{
+        maskImage:
+          "linear-gradient(to bottom, black 0%, black 52%, rgba(0,0,0,0.55) 78%, transparent 100%)",
+        WebkitMaskImage:
+          "linear-gradient(to bottom, black 0%, black 52%, rgba(0,0,0,0.55) 78%, transparent 100%)",
+      }}
+    >
       <motion.div
         className="absolute inset-[-8%] grid-bg opacity-60"
         style={{ transform: gridShift }}
@@ -339,7 +348,6 @@ function HeroBackground({
         <div className="absolute top-[48%] left-[4%] h-[380px] w-[380px] rounded-full bg-[radial-gradient(closest-side,rgba(96,165,250,0.18),transparent_70%)] blur-3xl" />
         <div className="absolute inset-x-[10%] top-0 h-px bg-gradient-to-r from-transparent via-cyan-300/50 to-transparent" />
       </motion.div>
-      <div className="absolute inset-x-0 bottom-0 h-64 bg-gradient-to-b from-transparent via-background/25 to-background/85" />
     </div>
   );
 }
