@@ -79,19 +79,19 @@ function ProfileCard() {
       initial="hidden"
       animate="show"
       custom={0}
-      className="order-1 w-full max-w-lg lg:col-span-5 lg:max-w-none"
+      className="order-1 w-full max-w-lg lg:col-span-6 lg:max-w-none"
     >
       <TiltCard maxTilt={4} className="rounded-3xl">
       <Spotlight className="aurora-border depth-card rounded-3xl border border-sky-400/10 bg-card/70 backdrop-blur-2xl">
-      <div className="relative p-5 sm:p-6">
-        <div className="flex items-start gap-4" style={{ transform: "translateZ(18px)" }}>
-          <div className="relative aspect-[3/4] w-32 shrink-0 overflow-hidden rounded-3xl border border-sky-400/15 bg-secondary shadow-[0_0_0_1px_rgba(56,189,248,0.1),0_16px_40px_-16px_rgba(0,0,0,0.5)] sm:w-36 lg:w-40">
+      <div className="relative p-5 sm:p-6 lg:p-7">
+        <div className="flex items-center gap-4 sm:gap-5" style={{ transform: "translateZ(18px)" }}>
+          <div className="relative aspect-[3/4] w-40 shrink-0 overflow-hidden rounded-3xl border border-sky-400/15 bg-secondary shadow-[0_0_0_1px_rgba(56,189,248,0.1),0_16px_40px_-16px_rgba(0,0,0,0.5)] sm:w-48 lg:w-52 xl:w-60 2xl:w-64">
             {avatarOk ? (
               <Image
                 src={profile.avatar}
                 alt={profile.name}
                 fill
-                sizes="(min-width: 1024px) 160px, (min-width: 640px) 144px, 128px"
+                sizes="(min-width: 1536px) 256px, (min-width: 1280px) 240px, (min-width: 1024px) 208px, (min-width: 640px) 192px, 160px"
                 quality={95}
                 className="object-cover object-center"
                 onError={() => setAvatarOk(false)}
@@ -103,29 +103,29 @@ function ProfileCard() {
               </div>
             )}
             <span
-              className="absolute bottom-2.5 right-2.5 size-3.5 rounded-full border-2 border-card bg-emerald-400 shadow-[0_0_12px_rgba(52,211,153,0.55)]"
+              className="absolute bottom-3 right-3 size-3.5 rounded-full border-2 border-card bg-emerald-400 shadow-[0_0_12px_rgba(52,211,153,0.55)]"
               aria-hidden
             />
           </div>
 
-          <div className="min-w-0 flex-1 py-0.5">
-            <h1 className="font-display text-2xl font-medium tracking-tight sm:text-[1.7rem]">
+          <div className="min-w-0 flex-1">
+            <h1 className="font-display text-2xl font-medium tracking-tight sm:text-[1.75rem]">
               {profile.name}
             </h1>
-            <p className="mt-1 text-sm text-foreground/85 text-pretty">
+            <p className="mt-1.5 text-sm text-foreground/85 text-pretty">
               {profile.role}
             </p>
-            <div className="mt-3 flex flex-col gap-1 text-xs text-muted-foreground">
+            <div className="mt-4 flex flex-col gap-1.5 text-xs text-muted-foreground sm:text-sm">
               <span className="inline-flex items-center gap-1.5">
-                <GraduationCap className="size-3.5" />
+                <GraduationCap className="size-3.5 shrink-0 sm:size-4" />
                 Purdue University
               </span>
               <span className="inline-flex items-center gap-1.5">
-                <MapPin className="size-3.5" />
+                <MapPin className="size-3.5 shrink-0 sm:size-4" />
                 {profile.location}
               </span>
               <span className="inline-flex items-center gap-1.5">
-                <Languages className="size-3.5" />
+                <Languages className="size-3.5 shrink-0 sm:size-4" />
                 {profile.languages.join(" · ")}
               </span>
             </div>
@@ -239,7 +239,7 @@ function HeroCopy() {
       initial="hidden"
       animate="show"
       custom={1}
-      className="order-2 lg:col-span-7 lg:pl-2 lg:pt-2 xl:pl-4"
+      className="order-2 lg:col-span-6 lg:pl-2 lg:pt-2 xl:pl-4"
     >
       <motion.p variants={fadeUp} custom={2} className="eyebrow">
         {profile.eyebrow}
