@@ -50,12 +50,12 @@ export function Hero() {
   return (
     <section
       onMouseMove={onMove}
-      className="relative overflow-hidden pt-28 pb-16 sm:pt-32 sm:pb-24 lg:min-h-[92vh] lg:flex lg:items-center"
+      className="relative overflow-hidden pt-24 pb-12 sm:pt-28 sm:pb-16 lg:pt-28 lg:pb-16"
     >
       <HeroBackground mouseX={springX} mouseY={springY} />
 
       <div className="container relative z-10 w-full">
-        <div className="grid items-start gap-10 lg:grid-cols-12 lg:items-center lg:gap-12 xl:gap-14">
+        <div className="grid items-start gap-8 lg:grid-cols-12 lg:gap-8 xl:gap-10">
           <ProfileCard />
           <HeroCopy />
         </div>
@@ -78,106 +78,111 @@ function ProfileCard() {
       initial="hidden"
       animate="show"
       custom={0}
-      className="order-1 w-full max-w-lg lg:col-span-6 lg:max-w-none xl:col-span-5"
+      className="order-1 w-full max-w-lg lg:col-span-5 lg:max-w-none"
     >
       <TiltCard maxTilt={4} className="rounded-3xl">
-      <Spotlight className="aurora-border depth-card rounded-3xl border border-sky-400/10 bg-card/70 backdrop-blur-2xl">
-      <div className="relative flex flex-col gap-5 p-4 sm:flex-row sm:items-stretch sm:gap-5 sm:p-5">
-        <div className="relative mx-auto aspect-[3/4] w-40 shrink-0 overflow-hidden rounded-3xl border border-sky-400/15 bg-secondary shadow-[0_0_0_1px_rgba(56,189,248,0.1),0_16px_40px_-16px_rgba(0,0,0,0.5)] sm:mx-0 sm:w-48 lg:w-52 xl:w-60 2xl:w-64">
-          {avatarOk ? (
-            <Image
-              src={profile.avatar}
-              alt={profile.name}
-              fill
-              sizes="(min-width: 1536px) 256px, (min-width: 1280px) 240px, (min-width: 1024px) 208px, (min-width: 640px) 192px, 160px"
-              quality={95}
-              className="object-cover object-center"
-              onError={() => setAvatarOk(false)}
-              priority
-            />
-          ) : (
-            <div className="flex h-full w-full items-center justify-center bg-foreground text-background font-display text-3xl font-medium">
-              {initials}
+        <Spotlight className="aurora-border depth-card rounded-3xl border border-sky-400/10 bg-card/70 backdrop-blur-2xl">
+          <div className="relative flex flex-col gap-4 p-4 sm:flex-row sm:items-stretch sm:gap-4 sm:p-4">
+            <div className="relative mx-auto aspect-[3/4] w-40 shrink-0 overflow-hidden rounded-[1.35rem] border border-sky-400/15 bg-secondary shadow-[0_0_0_1px_rgba(56,189,248,0.1),0_16px_40px_-16px_rgba(0,0,0,0.5)] sm:mx-0 sm:w-48 lg:w-52 xl:w-60 2xl:w-64">
+              {avatarOk ? (
+                <Image
+                  src={profile.avatar}
+                  alt={profile.name}
+                  fill
+                  sizes="(min-width: 1536px) 256px, (min-width: 1280px) 240px, (min-width: 1024px) 208px, (min-width: 640px) 192px, 160px"
+                  quality={95}
+                  className="object-cover object-center"
+                  onError={() => setAvatarOk(false)}
+                  priority
+                />
+              ) : (
+                <div className="flex h-full w-full items-center justify-center bg-foreground font-display text-3xl font-medium text-background">
+                  {initials}
+                </div>
+              )}
+              <span
+                className="absolute bottom-2.5 right-2.5 size-3 rounded-full border-2 border-card bg-emerald-400 shadow-[0_0_12px_rgba(52,211,153,0.55)]"
+                aria-hidden
+              />
             </div>
-          )}
-          <span
-            className="absolute bottom-3 right-3 size-3.5 rounded-full border-2 border-card bg-emerald-400 shadow-[0_0_12px_rgba(52,211,153,0.55)]"
-            aria-hidden
-          />
-        </div>
 
-        <div className="flex min-w-0 flex-1 flex-col" style={{ transform: "translateZ(18px)" }}>
-          <div>
-            <h1 className="font-display text-2xl font-medium tracking-tight sm:text-[1.75rem]">
-              {profile.name}
-            </h1>
-            <p className="mt-1 text-sm text-foreground/85 text-pretty">
-              {profile.role}
-            </p>
-            <div className="mt-3 flex flex-col gap-1.5 text-xs text-muted-foreground sm:text-sm">
-              <span className="inline-flex items-center gap-1.5">
-                <GraduationCap className="size-3.5 shrink-0 sm:size-4" />
-                Purdue University
-              </span>
-              <span className="inline-flex items-center gap-1.5">
-                <MapPin className="size-3.5 shrink-0 sm:size-4" />
-                {profile.location}
-              </span>
-              <span className="inline-flex items-center gap-1.5">
-                <Languages className="size-3.5 shrink-0 sm:size-4" />
-                {profile.languages.join(" · ")}
-              </span>
+            <div
+              className="flex min-w-0 flex-1 flex-col"
+              style={{ transform: "translateZ(18px)" }}
+            >
+              <div>
+                <h1 className="font-display text-[1.65rem] font-medium leading-none tracking-tight sm:text-[1.7rem]">
+                  {profile.name}
+                </h1>
+                <p className="mt-1.5 text-sm leading-snug text-foreground/85">
+                  {profile.role}
+                </p>
+                <div className="mt-2.5 space-y-1 text-xs leading-snug text-muted-foreground sm:text-[13px]">
+                  <span className="flex items-center gap-1.5">
+                    <GraduationCap className="size-3.5 shrink-0" />
+                    Purdue University
+                  </span>
+                  <span className="flex items-center gap-1.5">
+                    <MapPin className="size-3.5 shrink-0" />
+                    {profile.location}
+                  </span>
+                  <span className="flex items-center gap-1.5">
+                    <Languages className="size-3.5 shrink-0" />
+                    {profile.languages.join(" · ")}
+                  </span>
+                </div>
+              </div>
+
+              <div className="mt-3 flex flex-1 flex-col justify-end gap-3">
+                <p className="flex items-start gap-2 text-[11px] leading-relaxed text-foreground/80 sm:text-xs">
+                  <span className="mt-1.5 size-1.5 shrink-0 rounded-full bg-emerald-500" />
+                  <span className="text-pretty">{profile.availability}</span>
+                </p>
+
+                <div className="flex items-center gap-1.5">
+                  <IconLink href={profile.socials.email} icon={Mail} label="Email" />
+                  <IconLink
+                    href={profile.socials.linkedin}
+                    icon={Linkedin}
+                    label="LinkedIn"
+                    external
+                  />
+                  <IconLink
+                    href={profile.socials.github}
+                    icon={Github}
+                    label="GitHub"
+                    external
+                  />
+                  <IconLink
+                    href={profile.resumeUrl}
+                    icon={Download}
+                    label="Resume"
+                    download
+                  />
+                </div>
+
+                <div className="grid grid-cols-2 gap-2">
+                  <Button asChild size="sm" className="w-full">
+                    <a href="#contact">
+                      Contact me
+                      <ArrowRight />
+                    </a>
+                  </Button>
+                  <Button asChild variant="secondary" size="sm" className="w-full">
+                    <a
+                      href={profile.socials.calendly}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <Calendar />
+                      Book a call
+                    </a>
+                  </Button>
+                </div>
+              </div>
             </div>
           </div>
-
-          <div className="mt-5 flex flex-col gap-3 sm:mt-auto sm:pt-4">
-            <div className="flex items-start gap-2 rounded-2xl border border-emerald-500/15 bg-emerald-500/[0.06] px-3 py-2">
-              <span className="mt-1.5 size-1.5 shrink-0 rounded-full bg-emerald-500" />
-              <p className="text-xs leading-snug text-foreground/85 text-pretty">
-                {profile.availability}
-              </p>
-            </div>
-
-            <div className="flex items-center gap-1.5">
-              <IconLink href={profile.socials.email} icon={Mail} label="Email" />
-              <IconLink
-                href={profile.socials.linkedin}
-                icon={Linkedin}
-                label="LinkedIn"
-                external
-              />
-              <IconLink
-                href={profile.socials.github}
-                icon={Github}
-                label="GitHub"
-                external
-              />
-              <IconLink
-                href={profile.resumeUrl}
-                icon={Download}
-                label="Resume"
-                download
-              />
-            </div>
-
-            <div className="grid grid-cols-2 gap-2">
-              <Button asChild size="sm" className="w-full">
-                <a href="#contact">
-                  Contact me
-                  <ArrowRight />
-                </a>
-              </Button>
-              <Button asChild variant="secondary" size="sm" className="w-full">
-                <a href={profile.socials.calendly} target="_blank" rel="noopener noreferrer">
-                  <Calendar />
-                  Book a call
-                </a>
-              </Button>
-            </div>
-          </div>
-        </div>
-      </div>
-      </Spotlight>
+        </Spotlight>
       </TiltCard>
     </motion.aside>
   );
@@ -204,9 +209,9 @@ function IconLink({
       download={download}
       title={label}
       aria-label={label}
-      className="inline-flex size-9 items-center justify-center rounded-full border border-border/50 bg-background/40 text-foreground/70 transition-colors hover:border-sky-400/30 hover:bg-card/80 hover:text-foreground"
+      className="inline-flex size-8 items-center justify-center rounded-full border border-border/50 bg-background/40 text-foreground/70 transition-colors hover:border-sky-400/30 hover:bg-card/80 hover:text-foreground"
     >
-      <Icon className="size-4" />
+      <Icon className="size-3.5" />
     </a>
   );
 }
@@ -218,7 +223,7 @@ function HeroCopy() {
       initial="hidden"
       animate="show"
       custom={1}
-      className="order-2 lg:col-span-6 xl:col-span-7 xl:pl-2"
+      className="order-2 flex flex-col lg:col-span-7"
     >
       <motion.p variants={fadeUp} custom={2} className="eyebrow">
         {profile.eyebrow}
@@ -227,7 +232,7 @@ function HeroCopy() {
       <motion.h2
         variants={fadeUp}
         custom={3}
-        className="heading mt-3 text-3xl text-balance sm:text-4xl lg:text-[2.45rem] lg:leading-[1.16] xl:text-[2.75rem]"
+        className="heading mt-2.5 text-[1.85rem] leading-[1.12] tracking-tight text-balance sm:text-[2.35rem] lg:text-[2.5rem] xl:text-[2.65rem]"
       >
         <span className="gradient-text">Turning complex enterprise workflows</span>
         <span className="text-foreground"> into solutions customers actually use.</span>
@@ -236,7 +241,7 @@ function HeroCopy() {
       <motion.p
         variants={fadeUp}
         custom={4}
-        className="mt-5 max-w-xl text-sm leading-relaxed text-muted-foreground text-pretty sm:text-[15px]"
+        className="mt-3 max-w-xl text-sm leading-relaxed text-muted-foreground text-pretty sm:text-[15px]"
       >
         {profile.subheadline}
       </motion.p>
@@ -244,7 +249,7 @@ function HeroCopy() {
       <motion.div
         variants={fadeUp}
         custom={5}
-        className="mt-7 flex flex-wrap items-center gap-2"
+        className="mt-3.5 flex flex-wrap items-center gap-2"
       >
         <Magnetic strength={0.16}>
           <Button asChild>
@@ -261,33 +266,19 @@ function HeroCopy() {
         </Magnetic>
       </motion.div>
 
-      <motion.div
-        variants={fadeUp}
-        custom={6}
-        className="mt-6"
-      >
-        <p className="text-xs text-muted-foreground">Target roles</p>
-        <div className="mt-2 flex flex-col gap-1.5">
-          <div className="flex flex-wrap gap-1.5">
-            {profile.targetRoles.slice(0, 3).map((r) => (
-              <span
-                key={r}
-                className="rounded-full border border-border/60 bg-background/60 px-2.5 py-1 text-[11px] text-foreground/80 backdrop-blur"
-              >
-                {r}
-              </span>
-            ))}
-          </div>
-          <div className="flex flex-wrap gap-1.5">
-            {profile.targetRoles.slice(3).map((r) => (
-              <span
-                key={r}
-                className="rounded-full border border-border/60 bg-background/60 px-2.5 py-1 text-[11px] text-foreground/80 backdrop-blur"
-              >
-                {r}
-              </span>
-            ))}
-          </div>
+      <motion.div variants={fadeUp} custom={6} className="mt-3.5">
+        <p className="text-[11px] uppercase tracking-[0.14em] text-muted-foreground">
+          Target roles
+        </p>
+        <div className="mt-1.5 flex flex-wrap gap-1.5">
+          {profile.targetRoles.map((r) => (
+            <span
+              key={r}
+              className="rounded-full border border-border/60 bg-background/60 px-2.5 py-1 text-[11px] text-foreground/80 backdrop-blur"
+            >
+              {r}
+            </span>
+          ))}
         </div>
       </motion.div>
     </motion.div>
