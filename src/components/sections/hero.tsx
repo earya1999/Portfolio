@@ -50,7 +50,7 @@ export function Hero() {
   return (
     <section
       onMouseMove={onMove}
-      className="relative overflow-hidden pt-24 pb-12 sm:pt-28 sm:pb-16 lg:pt-28 lg:pb-16"
+      className="relative flex min-h-[100dvh] items-center overflow-hidden pt-20 pb-10 sm:pt-24 sm:pb-12"
     >
       <HeroBackground mouseX={springX} mouseY={springY} />
 
