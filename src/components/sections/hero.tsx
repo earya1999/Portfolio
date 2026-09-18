@@ -85,7 +85,7 @@ function ProfileCard() {
       <Spotlight className="aurora-border depth-card rounded-3xl border border-sky-400/10 bg-card/70 backdrop-blur-2xl">
       <div className="relative p-5 sm:p-6">
         <div className="flex items-start gap-4" style={{ transform: "translateZ(18px)" }}>
-          <div className="relative aspect-[4/5] w-32 shrink-0 overflow-hidden rounded-3xl border border-sky-400/15 bg-secondary shadow-[0_0_0_1px_rgba(56,189,248,0.1),0_16px_40px_-16px_rgba(0,0,0,0.5)] sm:w-36 lg:w-40">
+          <div className="relative aspect-[3/4] w-32 shrink-0 overflow-hidden rounded-3xl border border-sky-400/15 bg-secondary shadow-[0_0_0_1px_rgba(56,189,248,0.1),0_16px_40px_-16px_rgba(0,0,0,0.5)] sm:w-36 lg:w-40">
             {avatarOk ? (
               <Image
                 src={profile.avatar}
@@ -93,7 +93,7 @@ function ProfileCard() {
                 fill
                 sizes="(min-width: 1024px) 160px, (min-width: 640px) 144px, 128px"
                 quality={95}
-                className="object-cover object-[center_22%]"
+                className="object-cover object-center"
                 onError={() => setAvatarOk(false)}
                 priority
               />
