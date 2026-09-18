@@ -82,7 +82,7 @@ function ProfileCard() {
     >
       <TiltCard maxTilt={4} className="rounded-3xl">
         <Spotlight className="aurora-border depth-card rounded-3xl border border-sky-400/10 bg-card/70 backdrop-blur-2xl">
-          <div className="relative flex flex-col gap-4 p-4 sm:flex-row sm:items-stretch sm:gap-4 sm:p-4">
+          <div className="relative flex flex-col gap-4 p-4 sm:flex-row sm:items-start sm:gap-4 sm:p-4">
             <div className="relative mx-auto aspect-[3/4] w-40 shrink-0 overflow-hidden rounded-[1.35rem] border border-sky-400/15 bg-secondary shadow-[0_0_0_1px_rgba(56,189,248,0.1),0_16px_40px_-16px_rgba(0,0,0,0.5)] sm:mx-0 sm:w-48 lg:w-52 xl:w-60 2xl:w-64">
               {avatarOk ? (
                 <Image
@@ -110,75 +110,71 @@ function ProfileCard() {
               className="flex min-w-0 flex-1 flex-col"
               style={{ transform: "translateZ(18px)" }}
             >
-              <div>
-                <h1 className="font-display text-[1.65rem] font-medium leading-none tracking-tight sm:text-[1.7rem]">
-                  {profile.name}
-                </h1>
-                <p className="mt-1.5 text-sm leading-snug text-foreground/85">
-                  {profile.role}
-                </p>
-                <div className="mt-2.5 space-y-1 text-xs leading-snug text-muted-foreground sm:text-[13px]">
-                  <span className="flex items-center gap-1.5">
-                    <GraduationCap className="size-3.5 shrink-0" />
-                    Purdue University
-                  </span>
-                  <span className="flex items-center gap-1.5">
-                    <MapPin className="size-3.5 shrink-0" />
-                    {profile.location}
-                  </span>
-                  <span className="flex items-center gap-1.5">
-                    <Languages className="size-3.5 shrink-0" />
-                    {profile.languages.join(" · ")}
-                  </span>
-                </div>
+              <h1 className="font-display text-[1.65rem] font-medium leading-none tracking-tight sm:text-[1.7rem]">
+                {profile.name}
+              </h1>
+              <p className="mt-1.5 text-sm leading-snug text-foreground/85">
+                {profile.role}
+              </p>
+              <div className="mt-2 space-y-1 text-xs leading-snug text-muted-foreground sm:text-[13px]">
+                <span className="flex items-center gap-1.5">
+                  <GraduationCap className="size-3.5 shrink-0" />
+                  Purdue University
+                </span>
+                <span className="flex items-center gap-1.5">
+                  <MapPin className="size-3.5 shrink-0" />
+                  {profile.location}
+                </span>
+                <span className="flex items-center gap-1.5">
+                  <Languages className="size-3.5 shrink-0" />
+                  {profile.languages.join(" · ")}
+                </span>
               </div>
 
-              <div className="mt-3 flex flex-1 flex-col justify-end gap-3">
-                <p className="flex items-start gap-2 text-[11px] leading-relaxed text-foreground/80 sm:text-xs">
-                  <span className="mt-1.5 size-1.5 shrink-0 rounded-full bg-emerald-500" />
-                  <span className="text-pretty">{profile.availability}</span>
-                </p>
+              <p className="mt-2.5 flex items-start gap-2 text-[11px] leading-relaxed text-foreground/80 sm:text-xs">
+                <span className="mt-1.5 size-1.5 shrink-0 rounded-full bg-emerald-500" />
+                <span className="text-pretty">{profile.availability}</span>
+              </p>
 
-                <div className="flex items-center gap-1.5">
-                  <IconLink href={profile.socials.email} icon={Mail} label="Email" />
-                  <IconLink
-                    href={profile.socials.linkedin}
-                    icon={Linkedin}
-                    label="LinkedIn"
-                    external
-                  />
-                  <IconLink
-                    href={profile.socials.github}
-                    icon={Github}
-                    label="GitHub"
-                    external
-                  />
-                  <IconLink
-                    href={profile.resumeUrl}
-                    icon={Download}
-                    label="Resume"
-                    download
-                  />
-                </div>
+              <div className="mt-2.5 flex items-center gap-1.5">
+                <IconLink href={profile.socials.email} icon={Mail} label="Email" />
+                <IconLink
+                  href={profile.socials.linkedin}
+                  icon={Linkedin}
+                  label="LinkedIn"
+                  external
+                />
+                <IconLink
+                  href={profile.socials.github}
+                  icon={Github}
+                  label="GitHub"
+                  external
+                />
+                <IconLink
+                  href={profile.resumeUrl}
+                  icon={Download}
+                  label="Resume"
+                  download
+                />
+              </div>
 
-                <div className="grid grid-cols-2 gap-2">
-                  <Button asChild size="sm" className="w-full">
-                    <a href="#contact">
-                      Contact me
-                      <ArrowRight />
-                    </a>
-                  </Button>
-                  <Button asChild variant="secondary" size="sm" className="w-full">
-                    <a
-                      href={profile.socials.calendly}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <Calendar />
-                      Book a call
-                    </a>
-                  </Button>
-                </div>
+              <div className="mt-2.5 grid grid-cols-2 gap-2">
+                <Button asChild size="sm" className="w-full">
+                  <a href="#contact">
+                    Contact me
+                    <ArrowRight />
+                  </a>
+                </Button>
+                <Button asChild variant="secondary" size="sm" className="w-full">
+                  <a
+                    href={profile.socials.calendly}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Calendar />
+                    Book a call
+                  </a>
+                </Button>
               </div>
             </div>
           </div>
@@ -241,7 +237,7 @@ function HeroCopy() {
       <motion.p
         variants={fadeUp}
         custom={4}
-        className="mt-3 max-w-xl text-sm leading-relaxed text-muted-foreground text-pretty sm:text-[15px]"
+        className="mt-2.5 max-w-xl text-sm leading-relaxed text-muted-foreground text-pretty sm:text-[15px]"
       >
         {profile.subheadline}
       </motion.p>
@@ -249,7 +245,7 @@ function HeroCopy() {
       <motion.div
         variants={fadeUp}
         custom={5}
-        className="mt-3.5 flex flex-wrap items-center gap-2"
+        className="mt-2.5 flex flex-wrap items-center gap-2"
       >
         <Magnetic strength={0.16}>
           <Button asChild>
@@ -266,7 +262,7 @@ function HeroCopy() {
         </Magnetic>
       </motion.div>
 
-      <motion.div variants={fadeUp} custom={6} className="mt-3.5">
+      <motion.div variants={fadeUp} custom={6} className="mt-2.5">
         <p className="text-[11px] uppercase tracking-[0.14em] text-muted-foreground">
           Target roles
         </p>
