@@ -93,7 +93,7 @@ function ProfileCard() {
                 fill
                 sizes="(min-width: 1024px) 160px, (min-width: 640px) 144px, 128px"
                 quality={95}
-                className="object-cover object-top"
+                className="object-cover object-[center_22%]"
                 onError={() => setAvatarOk(false)}
                 priority
               />
