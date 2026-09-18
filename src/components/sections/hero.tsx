@@ -51,17 +51,28 @@ export function Hero() {
   return (
     <section
       onMouseMove={onMove}
-      className="relative overflow-hidden pt-28 pb-16 sm:pt-32 sm:pb-24 lg:min-h-[92vh] lg:flex lg:items-center"
+      className="relative overflow-hidden pt-24 pb-12 sm:pt-28 sm:pb-16 lg:flex lg:items-center lg:pt-32 lg:pb-20"
     >
       <HeroBackground mouseX={springX} mouseY={springY} />
 
       <div className="container relative z-10 w-full">
-        <div className="grid gap-10 lg:grid-cols-12 lg:items-center lg:gap-10 xl:gap-14">
+        <div className="grid gap-8 lg:grid-cols-12 lg:items-stretch lg:gap-10 xl:gap-12">
           <ProfileCard />
           <HeroCopy />
         </div>
       </div>
     </section>
+  );
+}
+
+function AvailabilityNote() {
+  return (
+    <div className="flex items-start gap-2.5 rounded-2xl border border-emerald-500/15 bg-emerald-500/[0.06] px-3.5 py-2.5">
+      <span className="mt-1.5 size-1.5 shrink-0 rounded-full bg-emerald-500" />
+      <p className="text-xs leading-relaxed text-foreground/85 text-pretty">
+        {profile.availability}
+      </p>
+    </div>
   );
 }
 
@@ -79,12 +90,12 @@ function ProfileCard() {
       initial="hidden"
       animate="show"
       custom={0}
-      className="order-1 w-full max-w-lg lg:col-span-6 lg:max-w-none"
+      className="order-1 h-full w-full max-w-lg lg:col-span-6 lg:max-w-none"
     >
-      <TiltCard maxTilt={4} className="rounded-3xl">
-      <Spotlight className="aurora-border depth-card rounded-3xl border border-sky-400/10 bg-card/70 backdrop-blur-2xl">
-      <div className="relative p-5 sm:p-6 lg:p-7">
-        <div className="flex items-center gap-4 sm:gap-5" style={{ transform: "translateZ(18px)" }}>
+      <TiltCard maxTilt={4} className="h-full rounded-3xl">
+      <Spotlight className="aurora-border depth-card h-full rounded-3xl border border-sky-400/10 bg-card/70 backdrop-blur-2xl">
+      <div className="relative flex h-full flex-col p-5 sm:p-6 lg:p-7">
+        <div className="flex items-stretch gap-4 sm:gap-5" style={{ transform: "translateZ(18px)" }}>
           <div className="relative aspect-[3/4] w-40 shrink-0 overflow-hidden rounded-3xl border border-sky-400/15 bg-secondary shadow-[0_0_0_1px_rgba(56,189,248,0.1),0_16px_40px_-16px_rgba(0,0,0,0.5)] sm:w-48 lg:w-52 xl:w-60 2xl:w-64">
             {avatarOk ? (
               <Image
@@ -108,7 +119,7 @@ function ProfileCard() {
             />
           </div>
 
-          <div className="min-w-0 flex-1">
+          <div className="flex min-w-0 flex-1 flex-col">
             <h1 className="font-display text-2xl font-medium tracking-tight sm:text-[1.75rem]">
               {profile.name}
             </h1>
@@ -129,14 +140,14 @@ function ProfileCard() {
                 {profile.languages.join(" · ")}
               </span>
             </div>
+            <div className="mt-auto hidden pt-4 sm:block">
+              <AvailabilityNote />
+            </div>
           </div>
         </div>
 
-        <div className="mt-4 flex items-start gap-2.5 rounded-2xl border border-emerald-500/15 bg-emerald-500/[0.06] px-3.5 py-2">
-          <span className="mt-1.5 size-1.5 shrink-0 rounded-full bg-emerald-500" />
-          <p className="text-xs leading-relaxed text-foreground/85 text-pretty">
-            {profile.availability}
-          </p>
+        <div className="mt-4 sm:hidden">
+          <AvailabilityNote />
         </div>
 
         <div className="mt-4 grid grid-cols-2 gap-2">
@@ -239,78 +250,82 @@ function HeroCopy() {
       initial="hidden"
       animate="show"
       custom={1}
-      className="order-2 lg:col-span-6 lg:pl-2 lg:pt-2 xl:pl-4"
+      className="order-2 flex h-full flex-col justify-between lg:col-span-6 lg:pl-1 xl:pl-2"
     >
-      <motion.p variants={fadeUp} custom={2} className="eyebrow">
-        {profile.eyebrow}
-      </motion.p>
+      <div>
+        <motion.p variants={fadeUp} custom={2} className="eyebrow">
+          {profile.eyebrow}
+        </motion.p>
 
-      <motion.h2
-        variants={fadeUp}
-        custom={3}
-        className="heading mt-4 text-3xl text-balance sm:text-4xl lg:text-[2.75rem] lg:leading-[1.15]"
-      >
-        <span className="gradient-text">Turning complex enterprise workflows</span>
-        <span className="text-foreground"> into solutions customers actually use.</span>
-      </motion.h2>
+        <motion.h2
+          variants={fadeUp}
+          custom={3}
+          className="heading mt-3 text-3xl text-balance sm:text-4xl lg:text-[2.55rem] lg:leading-[1.15] xl:text-[2.7rem]"
+        >
+          <span className="gradient-text">Turning complex enterprise workflows</span>
+          <span className="text-foreground"> into solutions customers actually use.</span>
+        </motion.h2>
 
-      <motion.p
-        variants={fadeUp}
-        custom={4}
-        className="mt-6 max-w-2xl text-sm leading-relaxed text-muted-foreground text-pretty sm:text-base"
-      >
-        {profile.subheadline}
-      </motion.p>
+        <motion.p
+          variants={fadeUp}
+          custom={4}
+          className="mt-5 max-w-xl text-sm leading-relaxed text-muted-foreground text-pretty sm:text-base"
+        >
+          {profile.subheadline}
+        </motion.p>
+      </div>
 
-      <motion.div
-        variants={fadeUp}
-        custom={5}
-        className="mt-8 flex flex-wrap items-center gap-2"
-      >
-        <Magnetic strength={0.16}>
-          <Button asChild size="lg">
-            <Link href="#overview">
-              Read overview
-              <ArrowRight />
-            </Link>
-          </Button>
-        </Magnetic>
-        <Magnetic strength={0.16}>
-          <Button asChild variant="secondary" size="lg">
-            <Link href="#experience">See experience</Link>
-          </Button>
-        </Magnetic>
-      </motion.div>
+      <div className="mt-8 lg:mt-0">
+        <motion.div
+          variants={fadeUp}
+          custom={5}
+          className="flex flex-wrap items-center gap-2"
+        >
+          <Magnetic strength={0.16}>
+            <Button asChild size="lg">
+              <Link href="#overview">
+                Read overview
+                <ArrowRight />
+              </Link>
+            </Button>
+          </Magnetic>
+          <Magnetic strength={0.16}>
+            <Button asChild variant="secondary" size="lg">
+              <Link href="#experience">See experience</Link>
+            </Button>
+          </Magnetic>
+        </motion.div>
 
-      <motion.div
-        variants={fadeUp}
-        custom={6}
-        className="mt-8"
-      >
-        <p className="text-xs text-muted-foreground">Target roles</p>
-        <div className="mt-2 flex flex-col gap-1.5">
-          <div className="flex flex-wrap gap-1.5">
-            {profile.targetRoles.slice(0, 3).map((r) => (
-              <span
-                key={r}
-                className="rounded-full border border-border/60 bg-background/60 px-2.5 py-1 text-[11px] text-foreground/80 backdrop-blur"
-              >
-                {r}
-              </span>
-            ))}
+        <motion.div
+          variants={fadeUp}
+          custom={6}
+          className="mt-6"
+        >
+          <p className="text-xs text-muted-foreground">Target roles</p>
+          <div className="mt-2 flex flex-col gap-1.5">
+            <div className="flex flex-wrap gap-1.5">
+              {profile.targetRoles.slice(0, 3).map((r) => (
+                <span
+                  key={r}
+                  className="rounded-full border border-border/60 bg-background/60 px-2.5 py-1 text-[11px] text-foreground/80 backdrop-blur"
+                >
+                  {r}
+                </span>
+              ))}
+            </div>
+            <div className="flex flex-wrap gap-1.5">
+              {profile.targetRoles.slice(3).map((r) => (
+                <span
+                  key={r}
+                  className="rounded-full border border-border/60 bg-background/60 px-2.5 py-1 text-[11px] text-foreground/80 backdrop-blur"
+                >
+                  {r}
+                </span>
+              ))}
+            </div>
           </div>
-          <div className="flex flex-wrap gap-1.5">
-            {profile.targetRoles.slice(3).map((r) => (
-              <span
-                key={r}
-                className="rounded-full border border-border/60 bg-background/60 px-2.5 py-1 text-[11px] text-foreground/80 backdrop-blur"
-              >
-                {r}
-              </span>
-            ))}
-          </div>
-        </div>
-      </motion.div>
+        </motion.div>
+      </div>
     </motion.div>
   );
 }
