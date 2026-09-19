@@ -9,7 +9,7 @@ import {
   useMotionValue,
   useSpring,
 } from "framer-motion";
-import { ArrowRight, ChevronDown } from "lucide-react";
+import { ArrowDown, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Magnetic } from "@/components/magnetic";
 import { profile } from "@/lib/content";
@@ -17,11 +17,11 @@ import { profile } from "@/lib/content";
 const ease = [0.22, 1, 0.36, 1] as const;
 
 const fadeUp = {
-  hidden: { opacity: 0, y: 12 },
+  hidden: { opacity: 0, y: 10 },
   show: (i: number) => ({
     opacity: 1,
     y: 0,
-    transition: { duration: 0.55, delay: 0.05 * i, ease },
+    transition: { duration: 0.55, delay: 0.04 * i, ease },
   }),
 };
 
@@ -38,8 +38,8 @@ const PAGE_INDEX = [
 export function Hero() {
   const mouseX = useMotionValue(0.5);
   const mouseY = useMotionValue(0.5);
-  const springX = useSpring(mouseX, { stiffness: 50, damping: 22 });
-  const springY = useSpring(mouseY, { stiffness: 50, damping: 22 });
+  const springX = useSpring(mouseX, { stiffness: 45, damping: 24 });
+  const springY = useSpring(mouseY, { stiffness: 45, damping: 24 });
 
   const onMove = (e: React.MouseEvent<HTMLElement>) => {
     const rect = e.currentTarget.getBoundingClientRect();
@@ -50,12 +50,13 @@ export function Hero() {
   return (
     <section
       onMouseMove={onMove}
-      className="relative flex min-h-[100dvh] items-center overflow-hidden pt-20 pb-24 sm:pt-24 sm:pb-28"
+      className="relative flex min-h-[100dvh] flex-col justify-center overflow-hidden pt-20 pb-28 sm:pt-24 sm:pb-32"
     >
       <HeroBackground mouseX={springX} mouseY={springY} />
 
-      <div className="relative z-10 mx-auto w-full max-w-[1180px] px-5 sm:px-8 lg:px-10">
-        <div className="grid items-center gap-8 sm:gap-10 lg:grid-cols-[minmax(0,15.5rem)_minmax(0,1fr)] lg:gap-12 xl:gap-14">
+      {/* Locked composition — photo + copy as one unit */}
+      <div className="relative z-10 mx-auto w-full max-w-[980px] px-5 sm:px-8">
+        <div className="flex flex-col items-center gap-9 sm:gap-10 lg:flex-row lg:items-center lg:gap-11">
           <Portrait />
           <HeroCopy />
         </div>
@@ -80,23 +81,23 @@ function Portrait() {
       initial="hidden"
       animate="show"
       custom={0}
-      className="order-1 mx-auto w-full max-w-[14.5rem] sm:max-w-[15.5rem] lg:mx-0 lg:max-w-none"
+      className="shrink-0"
     >
-      <div className="relative aspect-[3/4] overflow-hidden rounded-[1.15rem]">
+      <div className="relative aspect-[3/4] w-[13.5rem] overflow-hidden rounded-2xl shadow-[0_24px_64px_-28px_rgba(0,0,0,0.85)] sm:w-[14.75rem] lg:w-[15.25rem]">
         {avatarOk ? (
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.9, ease }}
+            initial={{ opacity: 0, scale: 1.02 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.95, ease }}
             className="absolute inset-0"
           >
             <Image
               src={profile.avatar}
               alt={profile.name}
               fill
-              sizes="(min-width: 1024px) 248px, 232px"
+              sizes="244px"
               quality={95}
-              className="object-cover object-center"
+              className="object-cover object-[center_20%]"
               onError={() => setAvatarOk(false)}
               priority
             />
@@ -108,7 +109,7 @@ function Portrait() {
         )}
         <div
           aria-hidden
-          className="pointer-events-none absolute inset-0 rounded-[1.15rem] ring-1 ring-inset ring-white/[0.08]"
+          className="pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-inset ring-white/[0.1]"
         />
       </div>
     </motion.aside>
@@ -122,12 +123,12 @@ function HeroCopy() {
       initial="hidden"
       animate="show"
       custom={1}
-      className="order-2 flex flex-col"
+      className="flex w-full max-w-xl flex-col text-center lg:max-w-none lg:text-left"
     >
       <motion.h1
         variants={fadeUp}
         custom={2}
-        className="font-display text-[2.5rem] font-medium leading-[0.98] tracking-tight text-foreground sm:text-[3.15rem] lg:text-[3.5rem]"
+        className="font-display text-[2.65rem] font-medium leading-[0.96] tracking-tight text-foreground sm:text-[3.35rem] lg:text-[3.65rem]"
       >
         {profile.name}
       </motion.h1>
@@ -135,7 +136,7 @@ function HeroCopy() {
       <motion.p
         variants={fadeUp}
         custom={3}
-        className="mt-2.5 text-[15px] font-medium tracking-wide text-sky-200/85 sm:text-base"
+        className="mt-3 text-[15px] font-semibold tracking-[0.04em] text-sky-200/90 sm:text-[16px]"
       >
         {profile.role}
       </motion.p>
@@ -143,36 +144,46 @@ function HeroCopy() {
       <motion.p
         variants={fadeUp}
         custom={4}
-        className="mt-5 max-w-lg text-[1.05rem] leading-[1.55] text-foreground/55 text-pretty sm:text-[1.125rem]"
+        className="mx-auto mt-5 max-w-md font-display text-[1.2rem] font-medium leading-[1.35] tracking-tight text-balance text-foreground/88 sm:text-[1.3rem] lg:mx-0 lg:max-w-lg"
       >
         Turning complex enterprise workflows into solutions customers actually
         use.
       </motion.p>
 
-      <motion.div
+      <motion.p
         variants={fadeUp}
         custom={5}
-        className="mt-6 flex flex-col gap-1.5 border-l border-white/[0.12] pl-4"
+        className="mt-5 text-[13px] leading-relaxed text-foreground/45"
       >
-        <p className="text-[13px] leading-snug text-foreground/55">
-          <span className="text-foreground/80">Purdue University</span>
-          <span className="mx-1.5 text-foreground/20">·</span>
-          {profile.location}
-          <span className="mx-1.5 text-foreground/20">·</span>
-          Open to relocation
-        </p>
-        <p className="text-[13px] leading-snug text-foreground/80">
-          {HERO_ROLES.join(" · ")}
-        </p>
-      </motion.div>
+        <span className="text-foreground/70">{profile.highlights.experience}</span>
+        <span className="mx-2 text-foreground/20">·</span>
+        <span className="text-foreground/70">{profile.highlights.degree}</span>
+        <span className="mx-2 text-foreground/20">·</span>
+        Open to relocation
+      </motion.p>
 
       <motion.div
         variants={fadeUp}
         custom={6}
-        className="mt-8 flex flex-wrap items-center gap-x-5 gap-y-3"
+        className="mt-4 text-[13px] leading-relaxed"
+      >
+        <span className="text-foreground/40">Open to </span>
+        <span className="font-medium text-foreground/85">
+          {HERO_ROLES.join(" · ")}
+        </span>
+      </motion.div>
+
+      <motion.div
+        variants={fadeUp}
+        custom={7}
+        className="mt-8 flex flex-wrap items-center justify-center gap-x-5 gap-y-3 lg:justify-start"
       >
         <Magnetic strength={0.08}>
-          <Button asChild size="lg" className="rounded-md">
+          <Button
+            asChild
+            size="lg"
+            className="rounded-md px-6 shadow-none"
+          >
             <Link href="#overview">
               Read overview
               <ArrowRight />
@@ -181,7 +192,7 @@ function HeroCopy() {
         </Magnetic>
         <Link
           href="#contact"
-          className="group inline-flex items-center gap-1.5 text-[14px] font-medium text-foreground/55 transition-colors hover:text-foreground"
+          className="group inline-flex items-center gap-1.5 text-[14px] font-medium text-foreground/60 underline-offset-4 transition-colors hover:text-foreground hover:underline"
         >
           Contact me
           <ArrowRight className="size-3.5 transition-transform group-hover:translate-x-0.5" />
@@ -195,38 +206,33 @@ function PageIndex() {
   return (
     <motion.nav
       aria-label="Page sections"
-      initial={{ opacity: 0, y: 8 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6, delay: 0.45, ease }}
-      className="absolute inset-x-0 bottom-5 z-10 flex flex-col items-center gap-2.5 px-5 sm:bottom-7"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.7, delay: 0.5, ease }}
+      className="absolute inset-x-0 bottom-0 z-10 border-t border-white/[0.06] bg-gradient-to-t from-background/80 to-transparent"
     >
-      <ul className="flex flex-wrap items-center justify-center gap-x-1 gap-y-1 text-[11px] font-medium uppercase tracking-[0.16em] text-foreground/35">
-        {PAGE_INDEX.map((item, i) => (
-          <li key={item.href} className="flex items-center">
-            {i > 0 && (
-              <span className="mx-2 text-foreground/15" aria-hidden>
-                ·
-              </span>
-            )}
-            <a
-              href={item.href}
-              className="transition-colors hover:text-foreground/75"
-            >
-              {item.label}
-            </a>
-          </li>
-        ))}
-      </ul>
-      <a
-        href="#overview"
-        className="group inline-flex flex-col items-center gap-0.5 text-foreground/30 transition-colors hover:text-foreground/60"
-        aria-label="Scroll to overview"
-      >
-        <span className="text-[10px] font-medium uppercase tracking-[0.2em]">
-          Scroll
-        </span>
-        <ChevronDown className="size-3.5 animate-bounce [animation-duration:2s]" />
-      </a>
+      <div className="mx-auto flex max-w-[980px] items-center justify-between gap-4 px-5 py-4 sm:px-8">
+        <ul className="flex flex-wrap items-center gap-x-5 gap-y-1 text-[11px] font-medium uppercase tracking-[0.14em] text-foreground/40">
+          {PAGE_INDEX.map((item) => (
+            <li key={item.href}>
+              <a
+                href={item.href}
+                className="transition-colors hover:text-foreground/85"
+              >
+                {item.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+        <a
+          href="#overview"
+          className="hidden items-center gap-1.5 text-[11px] font-medium uppercase tracking-[0.14em] text-foreground/35 transition-colors hover:text-foreground/70 sm:inline-flex"
+          aria-label="Continue to overview"
+        >
+          Continue
+          <ArrowDown className="size-3" />
+        </a>
+      </div>
     </motion.nav>
   );
 }
@@ -238,7 +244,7 @@ function HeroBackground({
   mouseX: ReturnType<typeof useSpring>;
   mouseY: ReturnType<typeof useSpring>;
 }) {
-  const layer1 = useMotionTemplate`translate3d(calc(-50% + (${mouseX} - 0.5) * 6px), calc((${mouseY} - 0.5) * 5px), 0)`;
+  const layer1 = useMotionTemplate`translate3d(calc(-50% + (${mouseX} - 0.5) * 5px), calc((${mouseY} - 0.5) * 4px), 0)`;
 
   return (
     <div
@@ -246,20 +252,20 @@ function HeroBackground({
       className="pointer-events-none absolute inset-0 -z-0"
       style={{
         maskImage:
-          "linear-gradient(to bottom, black 0%, black 70%, rgba(0,0,0,0.35) 88%, transparent 100%)",
+          "linear-gradient(to bottom, black 0%, black 72%, rgba(0,0,0,0.3) 90%, transparent 100%)",
         WebkitMaskImage:
-          "linear-gradient(to bottom, black 0%, black 70%, rgba(0,0,0,0.35) 88%, transparent 100%)",
+          "linear-gradient(to bottom, black 0%, black 72%, rgba(0,0,0,0.3) 90%, transparent 100%)",
       }}
     >
-      <div className="absolute inset-0 grid-bg opacity-10" />
+      <div className="absolute inset-0 grid-bg opacity-[0.07]" />
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 1.2 }}
+        transition={{ duration: 1.3 }}
         className="absolute inset-0"
       >
         <motion.div
-          className="absolute -top-28 left-[46%] h-[380px] w-[380px] rounded-full bg-[radial-gradient(closest-side,rgba(56,189,248,0.09),transparent_72%)] blur-3xl"
+          className="absolute top-[-10%] left-[42%] h-[360px] w-[360px] rounded-full bg-[radial-gradient(closest-side,rgba(56,189,248,0.08),transparent_70%)] blur-3xl"
           style={{ transform: layer1 }}
         />
       </motion.div>

@@ -79,7 +79,7 @@ export function Navbar() {
                 Resume
               </a>
             </Button>
-            <Button asChild size="sm" className="hidden rounded-md md:inline-flex">
+            <Button asChild size="sm" className="hidden rounded-md shadow-none md:inline-flex">
               <Link href="/#contact">Contact</Link>
             </Button>
             <Button
