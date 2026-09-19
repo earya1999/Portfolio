@@ -77,7 +77,15 @@ function Portrait() {
       custom={0}
       className="order-1 flex w-full flex-col items-center gap-4 lg:col-span-4 lg:items-start"
     >
-      <div className="relative aspect-[3/4] w-full max-w-[15.5rem] overflow-hidden sm:max-w-[16.5rem] lg:max-w-[17.5rem]">
+      <div
+        className="relative aspect-[3/4] w-full max-w-[15.5rem] overflow-hidden rounded-[1.35rem] sm:max-w-[16.5rem] lg:max-w-[17.5rem]"
+        style={{
+          maskImage:
+            "radial-gradient(ellipse 92% 90% at 50% 48%, #000 62%, transparent 100%)",
+          WebkitMaskImage:
+            "radial-gradient(ellipse 92% 90% at 50% 48%, #000 62%, transparent 100%)",
+        }}
+      >
         {avatarOk ? (
           <motion.div
             initial={{ scale: 1.04, opacity: 0 }}
@@ -101,11 +109,6 @@ function Portrait() {
             {initials}
           </div>
         )}
-        {/* Soft edge into canvas — editorial, not a card */}
-        <div
-          aria-hidden
-          className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background/40 via-transparent to-transparent lg:bg-gradient-to-r lg:from-transparent lg:via-transparent lg:to-background/25"
-        />
       </div>
 
       <div className="flex w-full max-w-[15.5rem] items-center justify-between gap-4 sm:max-w-[16.5rem] lg:max-w-[17.5rem]">
@@ -179,12 +182,12 @@ function HeroCopy() {
       initial="hidden"
       animate="show"
       custom={1}
-      className="order-2 flex flex-col lg:col-span-7 lg:max-w-[40rem] xl:max-w-[44rem]"
+      className="order-2 flex flex-col lg:col-span-8 lg:max-w-[40rem] xl:max-w-[44rem]"
     >
       <motion.p
         variants={fadeUp}
         custom={2}
-        className="text-[11px] font-medium uppercase tracking-[0.24em] text-sky-300/70"
+        className="text-[11px] font-medium uppercase tracking-[0.24em] text-sky-300/55"
       >
         {profile.eyebrow}
       </motion.p>
@@ -200,7 +203,7 @@ function HeroCopy() {
       <motion.p
         variants={fadeUp}
         custom={4}
-        className="mt-3 text-[15px] font-medium tracking-wide text-sky-200/65 sm:text-base"
+        className="mt-3 text-[15px] font-semibold tracking-wide text-sky-200/90 sm:text-base"
       >
         {profile.role}
       </motion.p>
@@ -208,20 +211,23 @@ function HeroCopy() {
       <motion.h2
         variants={fadeUp}
         custom={5}
-        className="mt-8 font-display text-[1.55rem] font-medium leading-[1.2] tracking-tight text-balance sm:text-[1.85rem] lg:text-[2.05rem]"
+        className="mt-8 font-display text-[1.55rem] font-medium leading-[1.25] tracking-tight text-balance sm:text-[1.85rem] lg:text-[2.05rem]"
       >
-        <span className="text-foreground">
-          Turning complex enterprise workflows
+        Turning complex{" "}
+        <span className="bg-gradient-to-r from-sky-200 via-cyan-200 to-sky-100 bg-clip-text text-transparent">
+          enterprise
         </span>{" "}
-        <span className="text-foreground/50">
-          into solutions customers actually use.
-        </span>
+        workflows into solutions customers{" "}
+        <span className="bg-gradient-to-r from-sky-200 via-cyan-200 to-sky-100 bg-clip-text text-transparent">
+          actually
+        </span>{" "}
+        use.
       </motion.h2>
 
       <motion.p
         variants={fadeUp}
         custom={6}
-        className="mt-5 max-w-xl text-[15px] leading-[1.7] text-muted-foreground text-pretty sm:text-[16px]"
+        className="mt-5 max-w-xl text-[15px] leading-[1.7] text-foreground/45 text-pretty sm:text-[16px]"
       >
         {profile.subheadline}
       </motion.p>
@@ -232,7 +238,7 @@ function HeroCopy() {
         className="mt-8 flex flex-wrap items-center gap-x-5 gap-y-3"
       >
         <Magnetic strength={0.12}>
-          <Button asChild size="lg" className="rounded-md shadow-none">
+          <Button asChild size="lg" className="rounded-md">
             <Link href="#overview">
               Read overview
               <ArrowRight />
@@ -241,14 +247,14 @@ function HeroCopy() {
         </Magnetic>
         <Link
           href="#experience"
-          className="group inline-flex items-center gap-1.5 text-[15px] font-medium text-foreground/65 transition-colors hover:text-foreground"
+          className="group inline-flex items-center gap-1.5 text-[15px] font-medium text-foreground/70 transition-colors hover:text-foreground"
         >
           See experience
           <ArrowRight className="size-3.5 transition-transform group-hover:translate-x-0.5" />
         </Link>
         <a
           href="#contact"
-          className="text-[15px] font-medium text-foreground/45 transition-colors hover:text-foreground"
+          className="text-[15px] font-medium text-foreground/40 transition-colors hover:text-foreground"
         >
           Contact
         </a>
@@ -257,17 +263,35 @@ function HeroCopy() {
       <motion.div
         variants={fadeUp}
         custom={8}
-        className="mt-10 space-y-2 border-t border-white/[0.08] pt-6"
+        className="mt-10 space-y-3 border-t border-white/[0.08] pt-6"
       >
-        <p className="text-[13px] leading-relaxed text-foreground/55">
-          Purdue University
-          <span className="mx-2 text-foreground/25">·</span>
-          {profile.location}
-          <span className="mx-2 text-foreground/25">·</span>
-          Open to relocation
+        <p className="text-[13px] leading-relaxed">
+          <span className="font-medium text-foreground/90">Purdue University</span>
+          <span className="mx-2 text-foreground/20">·</span>
+          <span className="text-foreground/40">{profile.location}</span>
+          <span className="mx-2 text-foreground/20">·</span>
+          <span className="font-medium text-emerald-300/85">Open to relocation</span>
         </p>
-        <p className="text-[13px] leading-relaxed text-foreground/40">
-          {profile.targetRoles.join("  ·  ")}
+        <p className="text-[13px] leading-relaxed">
+          <span className="mr-2 text-[10px] font-medium uppercase tracking-[0.18em] text-foreground/35">
+            Open to
+          </span>
+          {profile.targetRoles.map((role, i) => (
+            <React.Fragment key={role}>
+              {i > 0 && (
+                <span className="mx-1.5 text-foreground/20">·</span>
+              )}
+              <span
+                className={
+                  i === 0
+                    ? "font-medium text-foreground/85"
+                    : "text-foreground/50"
+                }
+              >
+                {role}
+              </span>
+            </React.Fragment>
+          ))}
         </p>
       </motion.div>
     </motion.div>
