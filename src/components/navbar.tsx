@@ -45,8 +45,8 @@ export function Navbar() {
       <div className="container">
         <nav
           className={cn(
-            "flex items-center justify-between rounded-full border border-white/[0.08] bg-background/60 px-4 py-2 backdrop-blur-2xl transition-all",
-            scrolled && "border-white/[0.12] bg-background/75"
+            "flex items-center justify-between rounded-full border border-border/60 bg-background/70 px-4 py-2 backdrop-blur-2xl transition-all",
+            scrolled && "border-border bg-background/90 shadow-sm"
           )}
         >
           <Link href="/" className="group flex items-center gap-2 pl-1">

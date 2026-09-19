@@ -54,7 +54,6 @@ export function Hero() {
     >
       <HeroBackground mouseX={springX} mouseY={springY} />
 
-      {/* Locked composition — photo + copy as one unit */}
       <div className="relative z-10 mx-auto w-full max-w-[980px] px-5 sm:px-8">
         <div className="flex flex-col items-center gap-9 sm:gap-10 lg:flex-row lg:items-center lg:gap-11">
           <Portrait />
@@ -83,7 +82,7 @@ function Portrait() {
       custom={0}
       className="shrink-0"
     >
-      <div className="relative aspect-[3/4] w-[13.5rem] overflow-hidden rounded-2xl shadow-[0_24px_64px_-28px_rgba(0,0,0,0.85)] sm:w-[14.75rem] lg:w-[15.25rem]">
+      <div className="relative aspect-[3/4] w-[13.5rem] overflow-hidden rounded-2xl shadow-[0_18px_48px_-20px_rgba(15,23,42,0.4)] dark:shadow-[0_24px_64px_-28px_rgba(0,0,0,0.85)] sm:w-[14.75rem] lg:w-[15.25rem]">
         {avatarOk ? (
           <motion.div
             initial={{ opacity: 0, scale: 1.02 }}
@@ -109,7 +108,7 @@ function Portrait() {
         )}
         <div
           aria-hidden
-          className="pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-inset ring-white/[0.1]"
+          className="pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-inset ring-black/10 dark:ring-white/10"
         />
       </div>
     </motion.aside>
@@ -136,7 +135,7 @@ function HeroCopy() {
       <motion.p
         variants={fadeUp}
         custom={3}
-        className="mt-3 text-[15px] font-semibold tracking-[0.04em] text-sky-200/90 sm:text-[16px]"
+        className="mt-3 text-[15px] font-semibold tracking-[0.04em] text-sky-800 dark:text-sky-200/90 sm:text-[16px]"
       >
         {profile.role}
       </motion.p>
@@ -144,7 +143,7 @@ function HeroCopy() {
       <motion.p
         variants={fadeUp}
         custom={4}
-        className="mx-auto mt-5 max-w-md font-display text-[1.2rem] font-medium leading-[1.35] tracking-tight text-balance text-foreground/88 sm:text-[1.3rem] lg:mx-0 lg:max-w-lg"
+        className="mx-auto mt-5 max-w-md font-display text-[1.2rem] font-medium leading-[1.35] tracking-tight text-balance text-foreground/90 sm:text-[1.3rem] lg:mx-0 lg:max-w-lg"
       >
         Turning complex enterprise workflows into solutions customers actually
         use.
@@ -153,22 +152,26 @@ function HeroCopy() {
       <motion.p
         variants={fadeUp}
         custom={5}
-        className="mt-5 text-[13px] leading-relaxed text-foreground/45"
+        className="mt-5 text-[13px] leading-relaxed text-muted-foreground"
       >
-        <span className="text-foreground/70">{profile.highlights.experience}</span>
-        <span className="mx-2 text-foreground/20">·</span>
-        <span className="text-foreground/70">{profile.highlights.degree}</span>
-        <span className="mx-2 text-foreground/20">·</span>
+        <span className="font-medium text-foreground/85">
+          {profile.highlights.experience}
+        </span>
+        <span className="mx-2 text-foreground/25">·</span>
+        <span className="font-medium text-foreground/85">
+          {profile.highlights.degree}
+        </span>
+        <span className="mx-2 text-foreground/25">·</span>
         Open to relocation
       </motion.p>
 
       <motion.div
         variants={fadeUp}
         custom={6}
-        className="mt-4 text-[13px] leading-relaxed"
+        className="mt-4 text-[13px] leading-relaxed text-muted-foreground"
       >
-        <span className="text-foreground/40">Open to </span>
-        <span className="font-medium text-foreground/85">
+        <span className="text-foreground/50">Open to </span>
+        <span className="font-medium text-foreground">
           {HERO_ROLES.join(" · ")}
         </span>
       </motion.div>
@@ -179,11 +182,7 @@ function HeroCopy() {
         className="mt-8 flex flex-wrap items-center justify-center gap-x-5 gap-y-3 lg:justify-start"
       >
         <Magnetic strength={0.08}>
-          <Button
-            asChild
-            size="lg"
-            className="rounded-md px-6 shadow-none"
-          >
+          <Button asChild size="lg" className="rounded-md px-6 shadow-none">
             <Link href="#overview">
               Read overview
               <ArrowRight />
@@ -192,7 +191,7 @@ function HeroCopy() {
         </Magnetic>
         <Link
           href="#contact"
-          className="group inline-flex items-center gap-1.5 text-[14px] font-medium text-foreground/60 underline-offset-4 transition-colors hover:text-foreground hover:underline"
+          className="group inline-flex items-center gap-1.5 text-[14px] font-medium text-foreground/70 underline-offset-4 transition-colors hover:text-foreground hover:underline"
         >
           Contact me
           <ArrowRight className="size-3.5 transition-transform group-hover:translate-x-0.5" />
@@ -209,15 +208,15 @@ function PageIndex() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.7, delay: 0.5, ease }}
-      className="absolute inset-x-0 bottom-0 z-10 border-t border-white/[0.06] bg-gradient-to-t from-background/80 to-transparent"
+      className="absolute inset-x-0 bottom-0 z-10 border-t border-border/80 bg-gradient-to-t from-background via-background/90 to-transparent"
     >
       <div className="mx-auto flex max-w-[980px] items-center justify-between gap-4 px-5 py-4 sm:px-8">
-        <ul className="flex flex-wrap items-center gap-x-5 gap-y-1 text-[11px] font-medium uppercase tracking-[0.14em] text-foreground/40">
+        <ul className="flex flex-wrap items-center gap-x-5 gap-y-1 text-[11px] font-medium uppercase tracking-[0.14em] text-muted-foreground">
           {PAGE_INDEX.map((item) => (
             <li key={item.href}>
               <a
                 href={item.href}
-                className="transition-colors hover:text-foreground/85"
+                className="transition-colors hover:text-foreground"
               >
                 {item.label}
               </a>
@@ -226,7 +225,7 @@ function PageIndex() {
         </ul>
         <a
           href="#overview"
-          className="hidden items-center gap-1.5 text-[11px] font-medium uppercase tracking-[0.14em] text-foreground/35 transition-colors hover:text-foreground/70 sm:inline-flex"
+          className="hidden items-center gap-1.5 text-[11px] font-medium uppercase tracking-[0.14em] text-muted-foreground transition-colors hover:text-foreground sm:inline-flex"
           aria-label="Continue to overview"
         >
           Continue
@@ -257,15 +256,16 @@ function HeroBackground({
           "linear-gradient(to bottom, black 0%, black 72%, rgba(0,0,0,0.3) 90%, transparent 100%)",
       }}
     >
-      <div className="absolute inset-0 grid-bg opacity-[0.07]" />
+      <div className="absolute inset-0 grid-bg opacity-[0.14] dark:opacity-[0.07]" />
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1.3 }}
         className="absolute inset-0"
       >
+        {/* Light: cooler steel wash · Dark: soft cyan glow */}
         <motion.div
-          className="absolute top-[-10%] left-[42%] h-[360px] w-[360px] rounded-full bg-[radial-gradient(closest-side,rgba(56,189,248,0.08),transparent_70%)] blur-3xl"
+          className="absolute top-[-10%] left-[42%] h-[360px] w-[360px] rounded-full bg-[radial-gradient(closest-side,rgba(14,116,144,0.16),transparent_70%)] blur-3xl dark:bg-[radial-gradient(closest-side,rgba(56,189,248,0.08),transparent_70%)]"
           style={{ transform: layer1 }}
         />
       </motion.div>
