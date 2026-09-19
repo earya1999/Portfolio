@@ -73,7 +73,7 @@ function Portrait() {
       custom={0}
       className="order-1 flex w-full justify-center lg:col-span-4 lg:justify-start"
     >
-      <div className="relative aspect-[3/4] w-full max-w-[15rem] overflow-hidden rounded-2xl sm:max-w-[16rem] lg:max-w-[17rem]">
+      <div className="relative aspect-[3/4] w-full max-w-[15rem] overflow-hidden rounded-xl sm:max-w-[16rem] lg:max-w-[17rem]">
         {avatarOk ? (
           <motion.div
             initial={{ scale: 1.03, opacity: 0 }}
@@ -97,6 +97,15 @@ function Portrait() {
             {initials}
           </div>
         )}
+        {/* Soft edge blend into the canvas */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0 rounded-xl shadow-[inset_0_0_48px_18px_hsl(var(--background))]"
+        />
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-white/[0.06]"
+        />
       </div>
     </motion.aside>
   );
@@ -141,14 +150,12 @@ function HeroCopy() {
         custom={5}
         className="mt-7 space-y-2.5"
       >
-        <p className="text-[14px] leading-relaxed text-foreground/75">
-          <span className="font-medium text-foreground">Purdue University</span>
+        <p className="text-[14px] leading-relaxed text-foreground/70">
+          <span className="font-medium text-foreground/90">Purdue University</span>
           <span className="mx-2 text-foreground/25">·</span>
-          <span className="text-foreground/50">{profile.location}</span>
+          <span className="text-foreground/45">{profile.location}</span>
           <span className="mx-2 text-foreground/25">·</span>
-          <span className="font-medium text-emerald-300/90">
-            Open to relocation
-          </span>
+          <span className="font-medium text-foreground/80">Open to relocation</span>
         </p>
         <p className="text-[14px] leading-relaxed text-foreground/70">
           {HERO_ROLES.map((role, i) => (
