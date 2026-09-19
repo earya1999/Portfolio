@@ -17,15 +17,14 @@ import { profile } from "@/lib/content";
 const ease = [0.22, 1, 0.36, 1] as const;
 
 const fadeUp = {
-  hidden: { opacity: 0, y: 14 },
+  hidden: { opacity: 0, y: 12 },
   show: (i: number) => ({
     opacity: 1,
     y: 0,
-    transition: { duration: 0.6, delay: 0.05 * i, ease },
+    transition: { duration: 0.55, delay: 0.05 * i, ease },
   }),
 };
 
-/** Primary hiring targets shown on the fold; full list lives in Overview. */
 const HERO_ROLES = profile.targetRoles.slice(0, 3);
 
 export function Hero() {
@@ -47,8 +46,9 @@ export function Hero() {
     >
       <HeroBackground mouseX={springX} mouseY={springY} />
 
-      <div className="relative z-10 mx-auto w-full max-w-[1320px] px-5 sm:px-8 lg:px-10 xl:px-12">
-        <div className="grid items-start gap-10 lg:grid-cols-12 lg:gap-12 xl:gap-14 lg:pt-6">
+      <div className="relative z-10 mx-auto w-full max-w-[1180px] px-5 sm:px-8 lg:px-10">
+        {/* One composition: photo + copy share a vertical center */}
+        <div className="grid items-center gap-8 sm:gap-10 lg:grid-cols-[minmax(0,15.5rem)_minmax(0,1fr)] lg:gap-12 xl:gap-14">
           <Portrait />
           <HeroCopy />
         </div>
@@ -71,21 +71,21 @@ function Portrait() {
       initial="hidden"
       animate="show"
       custom={0}
-      className="order-1 flex w-full justify-center lg:col-span-4 lg:justify-start"
+      className="order-1 mx-auto w-full max-w-[14.5rem] sm:max-w-[15.5rem] lg:mx-0 lg:max-w-none"
     >
-      <div className="relative aspect-[3/4] w-full max-w-[15rem] overflow-hidden rounded-xl sm:max-w-[16rem] lg:max-w-[17rem]">
+      <div className="relative aspect-[3/4] overflow-hidden rounded-[1.15rem]">
         {avatarOk ? (
           <motion.div
-            initial={{ scale: 1.03, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 1, ease }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.9, ease }}
             className="absolute inset-0"
           >
             <Image
               src={profile.avatar}
               alt={profile.name}
               fill
-              sizes="(min-width: 1024px) 272px, (min-width: 640px) 256px, 240px"
+              sizes="(min-width: 1024px) 248px, 232px"
               quality={95}
               className="object-cover object-center"
               onError={() => setAvatarOk(false)}
@@ -97,14 +97,9 @@ function Portrait() {
             {initials}
           </div>
         )}
-        {/* Soft edge blend into the canvas */}
         <div
           aria-hidden
-          className="pointer-events-none absolute inset-0 rounded-xl shadow-[inset_0_0_48px_18px_hsl(var(--background))]"
-        />
-        <div
-          aria-hidden
-          className="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-white/[0.06]"
+          className="pointer-events-none absolute inset-0 rounded-[1.15rem] ring-1 ring-inset ring-white/[0.08]"
         />
       </div>
     </motion.aside>
@@ -118,12 +113,12 @@ function HeroCopy() {
       initial="hidden"
       animate="show"
       custom={1}
-      className="order-2 flex flex-col lg:col-span-8 lg:max-w-[38rem] xl:max-w-[42rem] lg:pt-1"
+      className="order-2 flex flex-col"
     >
       <motion.h1
         variants={fadeUp}
         custom={2}
-        className="font-display text-[2.6rem] font-medium leading-[0.96] tracking-tight text-foreground sm:text-[3.25rem] lg:text-[3.75rem]"
+        className="font-display text-[2.5rem] font-medium leading-[0.98] tracking-tight text-foreground sm:text-[3.15rem] lg:text-[3.5rem]"
       >
         {profile.name}
       </motion.h1>
@@ -131,7 +126,7 @@ function HeroCopy() {
       <motion.p
         variants={fadeUp}
         custom={3}
-        className="mt-3 text-base font-medium tracking-wide text-sky-200/90 sm:text-lg"
+        className="mt-2.5 text-[15px] font-medium tracking-wide text-sky-200/85 sm:text-base"
       >
         {profile.role}
       </motion.p>
@@ -139,7 +134,7 @@ function HeroCopy() {
       <motion.p
         variants={fadeUp}
         custom={4}
-        className="mt-6 max-w-xl font-display text-[1.35rem] font-medium leading-[1.3] tracking-tight text-balance text-foreground/80 sm:text-[1.55rem]"
+        className="mt-5 max-w-lg text-[1.05rem] leading-[1.55] text-foreground/55 text-pretty sm:text-[1.125rem]"
       >
         Turning complex enterprise workflows into solutions customers actually
         use.
@@ -148,31 +143,26 @@ function HeroCopy() {
       <motion.div
         variants={fadeUp}
         custom={5}
-        className="mt-7 space-y-2.5"
+        className="mt-6 flex flex-col gap-1.5 border-l border-white/[0.12] pl-4"
       >
-        <p className="text-[14px] leading-relaxed text-foreground/70">
-          <span className="font-medium text-foreground/90">Purdue University</span>
-          <span className="mx-2 text-foreground/25">·</span>
-          <span className="text-foreground/45">{profile.location}</span>
-          <span className="mx-2 text-foreground/25">·</span>
-          <span className="font-medium text-foreground/80">Open to relocation</span>
+        <p className="text-[13px] leading-snug text-foreground/55">
+          <span className="text-foreground/80">Purdue University</span>
+          <span className="mx-1.5 text-foreground/20">·</span>
+          {profile.location}
+          <span className="mx-1.5 text-foreground/20">·</span>
+          Open to relocation
         </p>
-        <p className="text-[14px] leading-relaxed text-foreground/70">
-          {HERO_ROLES.map((role, i) => (
-            <React.Fragment key={role}>
-              {i > 0 && <span className="mx-2 text-foreground/25">·</span>}
-              <span className="font-medium text-foreground/90">{role}</span>
-            </React.Fragment>
-          ))}
+        <p className="text-[13px] leading-snug text-foreground/80">
+          {HERO_ROLES.join(" · ")}
         </p>
       </motion.div>
 
       <motion.div
         variants={fadeUp}
         custom={6}
-        className="mt-9 flex flex-wrap items-center gap-x-6 gap-y-3"
+        className="mt-8 flex flex-wrap items-center gap-x-5 gap-y-3"
       >
-        <Magnetic strength={0.1}>
+        <Magnetic strength={0.08}>
           <Button asChild size="lg" className="rounded-md">
             <Link href="#overview">
               Read overview
@@ -182,7 +172,7 @@ function HeroCopy() {
         </Magnetic>
         <Link
           href="#contact"
-          className="group inline-flex items-center gap-1.5 text-[15px] font-medium text-foreground/60 transition-colors hover:text-foreground"
+          className="group inline-flex items-center gap-1.5 text-[14px] font-medium text-foreground/55 transition-colors hover:text-foreground"
         >
           Contact me
           <ArrowRight className="size-3.5 transition-transform group-hover:translate-x-0.5" />
@@ -199,7 +189,7 @@ function HeroBackground({
   mouseX: ReturnType<typeof useSpring>;
   mouseY: ReturnType<typeof useSpring>;
 }) {
-  const layer1 = useMotionTemplate`translate3d(calc(-50% + (${mouseX} - 0.5) * 8px), calc((${mouseY} - 0.5) * 6px), 0)`;
+  const layer1 = useMotionTemplate`translate3d(calc(-50% + (${mouseX} - 0.5) * 6px), calc((${mouseY} - 0.5) * 5px), 0)`;
 
   return (
     <div
@@ -207,12 +197,12 @@ function HeroBackground({
       className="pointer-events-none absolute inset-0 -z-0"
       style={{
         maskImage:
-          "linear-gradient(to bottom, black 0%, black 65%, rgba(0,0,0,0.4) 85%, transparent 100%)",
+          "linear-gradient(to bottom, black 0%, black 70%, rgba(0,0,0,0.35) 88%, transparent 100%)",
         WebkitMaskImage:
-          "linear-gradient(to bottom, black 0%, black 65%, rgba(0,0,0,0.4) 85%, transparent 100%)",
+          "linear-gradient(to bottom, black 0%, black 70%, rgba(0,0,0,0.35) 88%, transparent 100%)",
       }}
     >
-      <div className="absolute inset-0 grid-bg opacity-15" />
+      <div className="absolute inset-0 grid-bg opacity-10" />
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -220,7 +210,7 @@ function HeroBackground({
         className="absolute inset-0"
       >
         <motion.div
-          className="absolute -top-24 left-[50%] h-[420px] w-[420px] rounded-full bg-[radial-gradient(closest-side,rgba(56,189,248,0.1),transparent_72%)] blur-3xl"
+          className="absolute -top-28 left-[46%] h-[380px] w-[380px] rounded-full bg-[radial-gradient(closest-side,rgba(56,189,248,0.09),transparent_72%)] blur-3xl"
           style={{ transform: layer1 }}
         />
       </motion.div>
