@@ -9,7 +9,7 @@ import {
   useMotionValue,
   useSpring,
 } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Magnetic } from "@/components/magnetic";
 import { profile } from "@/lib/content";
@@ -27,6 +27,14 @@ const fadeUp = {
 
 const HERO_ROLES = profile.targetRoles.slice(0, 3);
 
+const PAGE_INDEX = [
+  { href: "#overview", label: "Overview" },
+  { href: "#experience", label: "Experience" },
+  { href: "#projects", label: "Projects" },
+  { href: "#skills", label: "Skills" },
+  { href: "#contact", label: "Contact" },
+] as const;
+
 export function Hero() {
   const mouseX = useMotionValue(0.5);
   const mouseY = useMotionValue(0.5);
@@ -42,17 +50,18 @@ export function Hero() {
   return (
     <section
       onMouseMove={onMove}
-      className="relative flex min-h-[100dvh] items-center overflow-hidden pt-20 pb-12 sm:pt-24 sm:pb-14"
+      className="relative flex min-h-[100dvh] items-center overflow-hidden pt-20 pb-24 sm:pt-24 sm:pb-28"
     >
       <HeroBackground mouseX={springX} mouseY={springY} />
 
       <div className="relative z-10 mx-auto w-full max-w-[1180px] px-5 sm:px-8 lg:px-10">
-        {/* One composition: photo + copy share a vertical center */}
         <div className="grid items-center gap-8 sm:gap-10 lg:grid-cols-[minmax(0,15.5rem)_minmax(0,1fr)] lg:gap-12 xl:gap-14">
           <Portrait />
           <HeroCopy />
         </div>
       </div>
+
+      <PageIndex />
     </section>
   );
 }
@@ -179,6 +188,46 @@ function HeroCopy() {
         </Link>
       </motion.div>
     </motion.div>
+  );
+}
+
+function PageIndex() {
+  return (
+    <motion.nav
+      aria-label="Page sections"
+      initial={{ opacity: 0, y: 8 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6, delay: 0.45, ease }}
+      className="absolute inset-x-0 bottom-5 z-10 flex flex-col items-center gap-2.5 px-5 sm:bottom-7"
+    >
+      <ul className="flex flex-wrap items-center justify-center gap-x-1 gap-y-1 text-[11px] font-medium uppercase tracking-[0.16em] text-foreground/35">
+        {PAGE_INDEX.map((item, i) => (
+          <li key={item.href} className="flex items-center">
+            {i > 0 && (
+              <span className="mx-2 text-foreground/15" aria-hidden>
+                ·
+              </span>
+            )}
+            <a
+              href={item.href}
+              className="transition-colors hover:text-foreground/75"
+            >
+              {item.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+      <a
+        href="#overview"
+        className="group inline-flex flex-col items-center gap-0.5 text-foreground/30 transition-colors hover:text-foreground/60"
+        aria-label="Scroll to overview"
+      >
+        <span className="text-[10px] font-medium uppercase tracking-[0.2em]">
+          Scroll
+        </span>
+        <ChevronDown className="size-3.5 animate-bounce [animation-duration:2s]" />
+      </a>
+    </motion.nav>
   );
 }
 
