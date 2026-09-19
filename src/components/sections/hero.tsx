@@ -75,9 +75,9 @@ function Portrait() {
       initial="hidden"
       animate="show"
       custom={0}
-      className="order-1 flex w-full flex-col items-center gap-5 lg:col-span-5 lg:items-start"
+      className="order-1 flex w-full flex-col items-center gap-4 lg:col-span-4 lg:items-start"
     >
-      <div className="relative aspect-[3/4] w-full max-w-[20rem] overflow-hidden sm:max-w-[22rem] lg:max-w-none">
+      <div className="relative aspect-[3/4] w-full max-w-[15.5rem] overflow-hidden sm:max-w-[16.5rem] lg:max-w-[17.5rem]">
         {avatarOk ? (
           <motion.div
             initial={{ scale: 1.04, opacity: 0 }}
@@ -89,7 +89,7 @@ function Portrait() {
               src={profile.avatar}
               alt={profile.name}
               fill
-              sizes="(min-width: 1024px) 420px, (min-width: 640px) 352px, 320px"
+              sizes="(min-width: 1024px) 280px, (min-width: 640px) 264px, 248px"
               quality={95}
               className="object-cover object-center"
               onError={() => setAvatarOk(false)}
@@ -108,7 +108,7 @@ function Portrait() {
         />
       </div>
 
-      <div className="flex w-full max-w-[20rem] items-center justify-between gap-4 sm:max-w-[22rem] lg:max-w-none">
+      <div className="flex w-full max-w-[15.5rem] items-center justify-between gap-4 sm:max-w-[16.5rem] lg:max-w-[17.5rem]">
         <div className="flex items-center gap-0.5">
           <IconLink href={profile.socials.email} icon={Mail} label="Email" />
           <IconLink
