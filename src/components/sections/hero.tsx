@@ -16,30 +16,27 @@ import {
   Github,
   Mail,
   Calendar,
-  MapPin,
-  Languages,
-  GraduationCap,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { TiltCard } from "@/components/tilt-card";
 import { Magnetic } from "@/components/magnetic";
-import { Spotlight } from "@/components/spotlight";
 import { profile } from "@/lib/content";
 
+const ease = [0.22, 1, 0.36, 1] as const;
+
 const fadeUp = {
-  hidden: { opacity: 0, y: 14 },
+  hidden: { opacity: 0, y: 16 },
   show: (i: number) => ({
     opacity: 1,
     y: 0,
-    transition: { duration: 0.55, delay: 0.06 * i, ease: [0.22, 1, 0.36, 1] },
+    transition: { duration: 0.65, delay: 0.06 * i, ease },
   }),
 };
 
 export function Hero() {
   const mouseX = useMotionValue(0.5);
   const mouseY = useMotionValue(0.5);
-  const springX = useSpring(mouseX, { stiffness: 60, damping: 20 });
-  const springY = useSpring(mouseY, { stiffness: 60, damping: 20 });
+  const springX = useSpring(mouseX, { stiffness: 50, damping: 22 });
+  const springY = useSpring(mouseY, { stiffness: 50, damping: 22 });
 
   const onMove = (e: React.MouseEvent<HTMLElement>) => {
     const rect = e.currentTarget.getBoundingClientRect();
@@ -50,13 +47,13 @@ export function Hero() {
   return (
     <section
       onMouseMove={onMove}
-      className="relative flex min-h-[100dvh] items-center overflow-hidden pt-20 pb-10 sm:pt-24 sm:pb-12"
+      className="relative flex min-h-[100dvh] items-center overflow-hidden pt-20 pb-12 sm:pt-24 sm:pb-14"
     >
       <HeroBackground mouseX={springX} mouseY={springY} />
 
-      <div className="relative z-10 mx-auto w-full max-w-[1580px] px-5 sm:px-8 lg:px-10 xl:px-12">
-        <div className="grid items-start gap-8 lg:grid-cols-12 lg:gap-8 xl:gap-10 2xl:gap-12">
-          <ProfileCard />
+      <div className="relative z-10 mx-auto w-full max-w-[1480px] px-5 sm:px-8 lg:px-10 xl:px-14">
+        <div className="grid items-center gap-10 lg:grid-cols-12 lg:gap-14 xl:gap-16">
+          <Portrait />
           <HeroCopy />
         </div>
       </div>
@@ -64,7 +61,7 @@ export function Hero() {
   );
 }
 
-function ProfileCard() {
+function Portrait() {
   const [avatarOk, setAvatarOk] = React.useState(true);
   const initials = profile.name
     .split(" ")
@@ -78,108 +75,71 @@ function ProfileCard() {
       initial="hidden"
       animate="show"
       custom={0}
-      className="order-1 w-full max-w-xl lg:col-span-5 lg:max-w-none"
+      className="order-1 flex w-full flex-col items-center gap-5 lg:col-span-5 lg:items-start"
     >
-      <TiltCard maxTilt={4} className="rounded-3xl">
-        <Spotlight className="aurora-border depth-card rounded-3xl border border-sky-400/10 bg-card/70 backdrop-blur-2xl">
-          <div className="relative flex flex-col gap-4 p-4 sm:flex-row sm:items-start sm:gap-5 sm:p-5 lg:p-6">
-            <div className="relative mx-auto aspect-[3/4] w-44 shrink-0 overflow-hidden rounded-[1.35rem] border border-sky-400/15 bg-secondary shadow-[0_0_0_1px_rgba(56,189,248,0.1),0_16px_40px_-16px_rgba(0,0,0,0.5)] sm:mx-0 sm:w-52 lg:w-56 xl:w-64 2xl:w-[17rem]">
-              {avatarOk ? (
-                <Image
-                  src={profile.avatar}
-                  alt={profile.name}
-                  fill
-                  sizes="(min-width: 1536px) 272px, (min-width: 1280px) 256px, (min-width: 1024px) 224px, (min-width: 640px) 208px, 176px"
-                  quality={95}
-                  className="object-cover object-center"
-                  onError={() => setAvatarOk(false)}
-                  priority
-                />
-              ) : (
-                <div className="flex h-full w-full items-center justify-center bg-foreground font-display text-3xl font-medium text-background">
-                  {initials}
-                </div>
-              )}
-              <span
-                className="absolute bottom-2.5 right-2.5 size-3 rounded-full border-2 border-card bg-emerald-400 shadow-[0_0_12px_rgba(52,211,153,0.55)]"
-                aria-hidden
-              />
-            </div>
-
-            <div
-              className="flex min-w-0 flex-1 flex-col"
-              style={{ transform: "translateZ(18px)" }}
-            >
-              <h1 className="font-display text-[1.75rem] font-medium leading-none tracking-tight sm:text-[1.85rem] lg:text-[1.95rem]">
-                {profile.name}
-              </h1>
-              <p className="mt-1.5 text-sm leading-snug text-foreground/85 sm:text-[15px]">
-                {profile.role}
-              </p>
-              <div className="mt-2.5 space-y-1 text-xs leading-snug text-muted-foreground sm:text-sm">
-                <span className="flex items-center gap-1.5">
-                  <GraduationCap className="size-3.5 shrink-0 sm:size-4" />
-                  Purdue University
-                </span>
-                <span className="flex items-center gap-1.5">
-                  <MapPin className="size-3.5 shrink-0 sm:size-4" />
-                  {profile.location}
-                </span>
-                <span className="flex items-center gap-1.5">
-                  <Languages className="size-3.5 shrink-0 sm:size-4" />
-                  {profile.languages.join(" · ")}
-                </span>
-              </div>
-
-              <p className="mt-2.5 flex items-start gap-2 text-xs leading-relaxed text-foreground/80 sm:text-[13px]">
-                <span className="mt-1.5 size-1.5 shrink-0 rounded-full bg-emerald-500" />
-                <span className="text-pretty">{profile.availability}</span>
-              </p>
-
-              <div className="mt-3 flex items-center gap-1.5">
-                <IconLink href={profile.socials.email} icon={Mail} label="Email" />
-                <IconLink
-                  href={profile.socials.linkedin}
-                  icon={Linkedin}
-                  label="LinkedIn"
-                  external
-                />
-                <IconLink
-                  href={profile.socials.github}
-                  icon={Github}
-                  label="GitHub"
-                  external
-                />
-                <IconLink
-                  href={profile.resumeUrl}
-                  icon={Download}
-                  label="Resume"
-                  download
-                />
-              </div>
-
-              <div className="mt-3 grid grid-cols-2 gap-2">
-                <Button asChild className="w-full">
-                  <a href="#contact">
-                    Contact me
-                    <ArrowRight />
-                  </a>
-                </Button>
-                <Button asChild variant="secondary" className="w-full">
-                  <a
-                    href={profile.socials.calendly}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <Calendar />
-                    Book a call
-                  </a>
-                </Button>
-              </div>
-            </div>
+      <div className="relative aspect-[3/4] w-full max-w-[20rem] overflow-hidden sm:max-w-[22rem] lg:max-w-none">
+        {avatarOk ? (
+          <motion.div
+            initial={{ scale: 1.04, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 1.1, ease }}
+            className="absolute inset-0"
+          >
+            <Image
+              src={profile.avatar}
+              alt={profile.name}
+              fill
+              sizes="(min-width: 1024px) 420px, (min-width: 640px) 352px, 320px"
+              quality={95}
+              className="object-cover object-center"
+              onError={() => setAvatarOk(false)}
+              priority
+            />
+          </motion.div>
+        ) : (
+          <div className="flex h-full w-full items-center justify-center bg-foreground font-display text-4xl font-medium text-background">
+            {initials}
           </div>
-        </Spotlight>
-      </TiltCard>
+        )}
+        {/* Soft edge into canvas — editorial, not a card */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background/40 via-transparent to-transparent lg:bg-gradient-to-r lg:from-transparent lg:via-transparent lg:to-background/25"
+        />
+      </div>
+
+      <div className="flex w-full max-w-[20rem] items-center justify-between gap-4 sm:max-w-[22rem] lg:max-w-none">
+        <div className="flex items-center gap-0.5">
+          <IconLink href={profile.socials.email} icon={Mail} label="Email" />
+          <IconLink
+            href={profile.socials.linkedin}
+            icon={Linkedin}
+            label="LinkedIn"
+            external
+          />
+          <IconLink
+            href={profile.socials.github}
+            icon={Github}
+            label="GitHub"
+            external
+          />
+          <IconLink
+            href={profile.resumeUrl}
+            icon={Download}
+            label="Resume"
+            download
+          />
+        </div>
+        <a
+          href={profile.socials.calendly}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-1.5 text-[13px] text-foreground/55 transition-colors hover:text-foreground"
+        >
+          <Calendar className="size-3.5" />
+          Book a call
+        </a>
+      </div>
     </motion.aside>
   );
 }
@@ -205,7 +165,7 @@ function IconLink({
       download={download}
       title={label}
       aria-label={label}
-      className="inline-flex size-8 items-center justify-center rounded-full border border-border/50 bg-background/40 text-foreground/70 transition-colors hover:border-sky-400/30 hover:bg-card/80 hover:text-foreground"
+      className="inline-flex size-9 items-center justify-center text-foreground/50 transition-colors hover:text-foreground"
     >
       <Icon className="size-3.5" />
     </a>
@@ -219,63 +179,96 @@ function HeroCopy() {
       initial="hidden"
       animate="show"
       custom={1}
-      className="order-2 flex flex-col lg:col-span-7"
+      className="order-2 flex flex-col lg:col-span-7 lg:max-w-[40rem] xl:max-w-[44rem]"
     >
-      <motion.p variants={fadeUp} custom={2} className="eyebrow">
+      <motion.p
+        variants={fadeUp}
+        custom={2}
+        className="text-[11px] font-medium uppercase tracking-[0.24em] text-sky-300/70"
+      >
         {profile.eyebrow}
       </motion.p>
 
-      <motion.h2
+      <motion.h1
         variants={fadeUp}
         custom={3}
-        className="heading mt-2.5 text-[1.95rem] leading-[1.12] tracking-tight text-balance sm:text-[2.5rem] lg:text-[2.75rem] xl:text-[3rem]"
+        className="mt-5 font-display text-[2.75rem] font-medium leading-[0.95] tracking-tight text-foreground sm:text-[3.5rem] lg:text-[4rem] xl:text-[4.35rem]"
       >
-        <span className="gradient-text">Turning complex enterprise workflows</span>
-        <span className="text-foreground"> into solutions customers actually use.</span>
-      </motion.h2>
+        {profile.name}
+      </motion.h1>
 
       <motion.p
         variants={fadeUp}
         custom={4}
-        className="mt-3 max-w-2xl text-[15px] leading-relaxed text-muted-foreground text-pretty sm:text-base"
+        className="mt-3 text-[15px] font-medium tracking-wide text-sky-200/65 sm:text-base"
+      >
+        {profile.role}
+      </motion.p>
+
+      <motion.h2
+        variants={fadeUp}
+        custom={5}
+        className="mt-8 font-display text-[1.55rem] font-medium leading-[1.2] tracking-tight text-balance sm:text-[1.85rem] lg:text-[2.05rem]"
+      >
+        <span className="text-foreground">
+          Turning complex enterprise workflows
+        </span>{" "}
+        <span className="text-foreground/50">
+          into solutions customers actually use.
+        </span>
+      </motion.h2>
+
+      <motion.p
+        variants={fadeUp}
+        custom={6}
+        className="mt-5 max-w-xl text-[15px] leading-[1.7] text-muted-foreground text-pretty sm:text-[16px]"
       >
         {profile.subheadline}
       </motion.p>
 
       <motion.div
         variants={fadeUp}
-        custom={5}
-        className="mt-4 flex flex-wrap items-center gap-2.5"
+        custom={7}
+        className="mt-8 flex flex-wrap items-center gap-x-5 gap-y-3"
       >
-        <Magnetic strength={0.16}>
-          <Button asChild size="lg">
+        <Magnetic strength={0.12}>
+          <Button asChild size="lg" className="rounded-md shadow-none">
             <Link href="#overview">
               Read overview
               <ArrowRight />
             </Link>
           </Button>
         </Magnetic>
-        <Magnetic strength={0.16}>
-          <Button asChild variant="secondary" size="lg">
-            <Link href="#experience">See experience</Link>
-          </Button>
-        </Magnetic>
+        <Link
+          href="#experience"
+          className="group inline-flex items-center gap-1.5 text-[15px] font-medium text-foreground/65 transition-colors hover:text-foreground"
+        >
+          See experience
+          <ArrowRight className="size-3.5 transition-transform group-hover:translate-x-0.5" />
+        </Link>
+        <a
+          href="#contact"
+          className="text-[15px] font-medium text-foreground/45 transition-colors hover:text-foreground"
+        >
+          Contact
+        </a>
       </motion.div>
 
-      <motion.div variants={fadeUp} custom={6} className="mt-4">
-        <p className="text-[11px] uppercase tracking-[0.14em] text-muted-foreground">
-          Target roles
+      <motion.div
+        variants={fadeUp}
+        custom={8}
+        className="mt-10 space-y-2 border-t border-white/[0.08] pt-6"
+      >
+        <p className="text-[13px] leading-relaxed text-foreground/55">
+          Purdue University
+          <span className="mx-2 text-foreground/25">·</span>
+          {profile.location}
+          <span className="mx-2 text-foreground/25">·</span>
+          Open to relocation
         </p>
-        <div className="mt-2 flex flex-wrap gap-1.5">
-          {profile.targetRoles.map((r) => (
-            <span
-              key={r}
-              className="rounded-full border border-border/60 bg-background/60 px-3 py-1 text-xs text-foreground/80 backdrop-blur"
-            >
-              {r}
-            </span>
-          ))}
-        </div>
+        <p className="text-[13px] leading-relaxed text-foreground/40">
+          {profile.targetRoles.join("  ·  ")}
+        </p>
       </motion.div>
     </motion.div>
   );
@@ -288,41 +281,34 @@ function HeroBackground({
   mouseX: ReturnType<typeof useSpring>;
   mouseY: ReturnType<typeof useSpring>;
 }) {
-  const layer1 = useMotionTemplate`translate3d(calc(-50% + (${mouseX} - 0.5) * 16px), calc((${mouseY} - 0.5) * 12px), 0)`;
-  const layer2 = useMotionTemplate`translate3d(calc((${mouseX} - 0.5) * -18px), calc((${mouseY} - 0.5) * -14px), 0)`;
-  const gridShift = useMotionTemplate`translate3d(calc((${mouseX} - 0.5) * -6px), calc((${mouseY} - 0.5) * -5px), 0)`;
+  const layer1 = useMotionTemplate`translate3d(calc(-50% + (${mouseX} - 0.5) * 10px), calc((${mouseY} - 0.5) * 8px), 0)`;
+  const gridShift = useMotionTemplate`translate3d(calc((${mouseX} - 0.5) * -3px), calc((${mouseY} - 0.5) * -2px), 0)`;
 
   return (
     <div
       aria-hidden
-      className="pointer-events-none absolute inset-0 -z-0 [perspective:1200px]"
+      className="pointer-events-none absolute inset-0 -z-0"
       style={{
         maskImage:
-          "linear-gradient(to bottom, black 0%, black 52%, rgba(0,0,0,0.55) 78%, transparent 100%)",
+          "linear-gradient(to bottom, black 0%, black 60%, rgba(0,0,0,0.45) 82%, transparent 100%)",
         WebkitMaskImage:
-          "linear-gradient(to bottom, black 0%, black 52%, rgba(0,0,0,0.55) 78%, transparent 100%)",
+          "linear-gradient(to bottom, black 0%, black 60%, rgba(0,0,0,0.45) 82%, transparent 100%)",
       }}
     >
       <motion.div
-        className="absolute inset-[-8%] grid-bg opacity-60"
+        className="absolute inset-[-8%] grid-bg opacity-25"
         style={{ transform: gridShift }}
       />
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 1.2 }}
+        transition={{ duration: 1.4 }}
         className="absolute inset-0"
       >
         <motion.div
-          className="absolute -top-24 left-1/2 h-[620px] w-[620px] rounded-full bg-[radial-gradient(closest-side,rgba(56,189,248,0.38),transparent_70%)] blur-3xl"
+          className="absolute -top-20 left-[48%] h-[480px] w-[480px] rounded-full bg-[radial-gradient(closest-side,rgba(56,189,248,0.12),transparent_72%)] blur-3xl"
           style={{ transform: layer1 }}
         />
-        <motion.div
-          className="absolute top-[26%] -right-8 h-[500px] w-[500px] rounded-full bg-[radial-gradient(closest-side,rgba(45,212,191,0.28),transparent_70%)] blur-3xl"
-          style={{ transform: layer2 }}
-        />
-        <div className="absolute top-[48%] left-[4%] h-[380px] w-[380px] rounded-full bg-[radial-gradient(closest-side,rgba(96,165,250,0.18),transparent_70%)] blur-3xl" />
-        <div className="absolute inset-x-[10%] top-0 h-px bg-gradient-to-r from-transparent via-cyan-300/50 to-transparent" />
       </motion.div>
     </div>
   );
