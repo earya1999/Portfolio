@@ -9,14 +9,7 @@ import {
   useMotionValue,
   useSpring,
 } from "framer-motion";
-import {
-  ArrowRight,
-  Download,
-  Linkedin,
-  Github,
-  Mail,
-  Calendar,
-} from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Magnetic } from "@/components/magnetic";
 import { profile } from "@/lib/content";
@@ -24,13 +17,16 @@ import { profile } from "@/lib/content";
 const ease = [0.22, 1, 0.36, 1] as const;
 
 const fadeUp = {
-  hidden: { opacity: 0, y: 16 },
+  hidden: { opacity: 0, y: 14 },
   show: (i: number) => ({
     opacity: 1,
     y: 0,
-    transition: { duration: 0.65, delay: 0.06 * i, ease },
+    transition: { duration: 0.6, delay: 0.05 * i, ease },
   }),
 };
+
+/** Primary hiring targets shown on the fold; full list lives in Overview. */
+const HERO_ROLES = profile.targetRoles.slice(0, 3);
 
 export function Hero() {
   const mouseX = useMotionValue(0.5);
@@ -51,8 +47,8 @@ export function Hero() {
     >
       <HeroBackground mouseX={springX} mouseY={springY} />
 
-      <div className="relative z-10 mx-auto w-full max-w-[1480px] px-5 sm:px-8 lg:px-10 xl:px-14">
-        <div className="grid items-center gap-10 lg:grid-cols-12 lg:gap-14 xl:gap-16">
+      <div className="relative z-10 mx-auto w-full max-w-[1320px] px-5 sm:px-8 lg:px-10 xl:px-12">
+        <div className="grid items-start gap-10 lg:grid-cols-12 lg:gap-12 xl:gap-14 lg:pt-6">
           <Portrait />
           <HeroCopy />
         </div>
@@ -75,29 +71,21 @@ function Portrait() {
       initial="hidden"
       animate="show"
       custom={0}
-      className="order-1 flex w-full flex-col items-center gap-4 lg:col-span-4 lg:items-start"
+      className="order-1 flex w-full justify-center lg:col-span-4 lg:justify-start"
     >
-      <div
-        className="relative aspect-[3/4] w-full max-w-[15.5rem] overflow-hidden rounded-[1.35rem] sm:max-w-[16.5rem] lg:max-w-[17.5rem]"
-        style={{
-          maskImage:
-            "radial-gradient(ellipse 92% 90% at 50% 48%, #000 62%, transparent 100%)",
-          WebkitMaskImage:
-            "radial-gradient(ellipse 92% 90% at 50% 48%, #000 62%, transparent 100%)",
-        }}
-      >
+      <div className="relative aspect-[3/4] w-full max-w-[15rem] overflow-hidden rounded-2xl sm:max-w-[16rem] lg:max-w-[17rem]">
         {avatarOk ? (
           <motion.div
-            initial={{ scale: 1.04, opacity: 0 }}
+            initial={{ scale: 1.03, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 1.1, ease }}
+            transition={{ duration: 1, ease }}
             className="absolute inset-0"
           >
             <Image
               src={profile.avatar}
               alt={profile.name}
               fill
-              sizes="(min-width: 1024px) 280px, (min-width: 640px) 264px, 248px"
+              sizes="(min-width: 1024px) 272px, (min-width: 640px) 256px, 240px"
               quality={95}
               className="object-cover object-center"
               onError={() => setAvatarOk(false)}
@@ -110,68 +98,7 @@ function Portrait() {
           </div>
         )}
       </div>
-
-      <div className="flex w-full max-w-[15.5rem] items-center justify-between gap-4 sm:max-w-[16.5rem] lg:max-w-[17.5rem]">
-        <div className="flex items-center gap-0.5">
-          <IconLink href={profile.socials.email} icon={Mail} label="Email" />
-          <IconLink
-            href={profile.socials.linkedin}
-            icon={Linkedin}
-            label="LinkedIn"
-            external
-          />
-          <IconLink
-            href={profile.socials.github}
-            icon={Github}
-            label="GitHub"
-            external
-          />
-          <IconLink
-            href={profile.resumeUrl}
-            icon={Download}
-            label="Resume"
-            download
-          />
-        </div>
-        <a
-          href={profile.socials.calendly}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-1.5 text-[13px] text-foreground/55 transition-colors hover:text-foreground"
-        >
-          <Calendar className="size-3.5" />
-          Book a call
-        </a>
-      </div>
     </motion.aside>
-  );
-}
-
-function IconLink({
-  href,
-  icon: Icon,
-  label,
-  external,
-  download,
-}: {
-  href: string;
-  icon: React.ComponentType<{ className?: string }>;
-  label: string;
-  external?: boolean;
-  download?: boolean;
-}) {
-  return (
-    <a
-      href={href}
-      target={external ? "_blank" : undefined}
-      rel={external ? "noopener noreferrer" : undefined}
-      download={download}
-      title={label}
-      aria-label={label}
-      className="inline-flex size-9 items-center justify-center text-foreground/50 transition-colors hover:text-foreground"
-    >
-      <Icon className="size-3.5" />
-    </a>
   );
 }
 
@@ -182,62 +109,63 @@ function HeroCopy() {
       initial="hidden"
       animate="show"
       custom={1}
-      className="order-2 flex flex-col lg:col-span-8 lg:max-w-[40rem] xl:max-w-[44rem]"
+      className="order-2 flex flex-col lg:col-span-8 lg:max-w-[38rem] xl:max-w-[42rem] lg:pt-1"
     >
-      <motion.p
-        variants={fadeUp}
-        custom={2}
-        className="text-[11px] font-medium uppercase tracking-[0.24em] text-sky-300/55"
-      >
-        {profile.eyebrow}
-      </motion.p>
-
       <motion.h1
         variants={fadeUp}
-        custom={3}
-        className="mt-5 font-display text-[2.75rem] font-medium leading-[0.95] tracking-tight text-foreground sm:text-[3.5rem] lg:text-[4rem] xl:text-[4.35rem]"
+        custom={2}
+        className="font-display text-[2.6rem] font-medium leading-[0.96] tracking-tight text-foreground sm:text-[3.25rem] lg:text-[3.75rem]"
       >
         {profile.name}
       </motion.h1>
 
       <motion.p
         variants={fadeUp}
-        custom={4}
-        className="mt-3 text-[15px] font-semibold tracking-wide text-sky-200/90 sm:text-base"
+        custom={3}
+        className="mt-3 text-base font-medium tracking-wide text-sky-200/90 sm:text-lg"
       >
         {profile.role}
       </motion.p>
 
-      <motion.h2
-        variants={fadeUp}
-        custom={5}
-        className="mt-8 font-display text-[1.55rem] font-medium leading-[1.25] tracking-tight text-balance sm:text-[1.85rem] lg:text-[2.05rem]"
-      >
-        Turning complex{" "}
-        <span className="bg-gradient-to-r from-sky-200 via-cyan-200 to-sky-100 bg-clip-text text-transparent">
-          enterprise
-        </span>{" "}
-        workflows into solutions customers{" "}
-        <span className="bg-gradient-to-r from-sky-200 via-cyan-200 to-sky-100 bg-clip-text text-transparent">
-          actually
-        </span>{" "}
-        use.
-      </motion.h2>
-
       <motion.p
         variants={fadeUp}
-        custom={6}
-        className="mt-5 max-w-xl text-[15px] leading-[1.7] text-foreground/45 text-pretty sm:text-[16px]"
+        custom={4}
+        className="mt-6 max-w-xl font-display text-[1.35rem] font-medium leading-[1.3] tracking-tight text-balance text-foreground/80 sm:text-[1.55rem]"
       >
-        {profile.subheadline}
+        Turning complex enterprise workflows into solutions customers actually
+        use.
       </motion.p>
 
       <motion.div
         variants={fadeUp}
-        custom={7}
-        className="mt-8 flex flex-wrap items-center gap-x-5 gap-y-3"
+        custom={5}
+        className="mt-7 space-y-2.5"
       >
-        <Magnetic strength={0.12}>
+        <p className="text-[14px] leading-relaxed text-foreground/75">
+          <span className="font-medium text-foreground">Purdue University</span>
+          <span className="mx-2 text-foreground/25">·</span>
+          <span className="text-foreground/50">{profile.location}</span>
+          <span className="mx-2 text-foreground/25">·</span>
+          <span className="font-medium text-emerald-300/90">
+            Open to relocation
+          </span>
+        </p>
+        <p className="text-[14px] leading-relaxed text-foreground/70">
+          {HERO_ROLES.map((role, i) => (
+            <React.Fragment key={role}>
+              {i > 0 && <span className="mx-2 text-foreground/25">·</span>}
+              <span className="font-medium text-foreground/90">{role}</span>
+            </React.Fragment>
+          ))}
+        </p>
+      </motion.div>
+
+      <motion.div
+        variants={fadeUp}
+        custom={6}
+        className="mt-9 flex flex-wrap items-center gap-x-6 gap-y-3"
+      >
+        <Magnetic strength={0.1}>
           <Button asChild size="lg" className="rounded-md">
             <Link href="#overview">
               Read overview
@@ -246,53 +174,12 @@ function HeroCopy() {
           </Button>
         </Magnetic>
         <Link
-          href="#experience"
-          className="group inline-flex items-center gap-1.5 text-[15px] font-medium text-foreground/70 transition-colors hover:text-foreground"
+          href="#contact"
+          className="group inline-flex items-center gap-1.5 text-[15px] font-medium text-foreground/60 transition-colors hover:text-foreground"
         >
-          See experience
+          Contact me
           <ArrowRight className="size-3.5 transition-transform group-hover:translate-x-0.5" />
         </Link>
-        <a
-          href="#contact"
-          className="text-[15px] font-medium text-foreground/40 transition-colors hover:text-foreground"
-        >
-          Contact
-        </a>
-      </motion.div>
-
-      <motion.div
-        variants={fadeUp}
-        custom={8}
-        className="mt-10 space-y-3 border-t border-white/[0.08] pt-6"
-      >
-        <p className="text-[13px] leading-relaxed">
-          <span className="font-medium text-foreground/90">Purdue University</span>
-          <span className="mx-2 text-foreground/20">·</span>
-          <span className="text-foreground/40">{profile.location}</span>
-          <span className="mx-2 text-foreground/20">·</span>
-          <span className="font-medium text-emerald-300/85">Open to relocation</span>
-        </p>
-        <p className="text-[13px] leading-relaxed">
-          <span className="mr-2 text-[10px] font-medium uppercase tracking-[0.18em] text-foreground/35">
-            Open to
-          </span>
-          {profile.targetRoles.map((role, i) => (
-            <React.Fragment key={role}>
-              {i > 0 && (
-                <span className="mx-1.5 text-foreground/20">·</span>
-              )}
-              <span
-                className={
-                  i === 0
-                    ? "font-medium text-foreground/85"
-                    : "text-foreground/50"
-                }
-              >
-                {role}
-              </span>
-            </React.Fragment>
-          ))}
-        </p>
       </motion.div>
     </motion.div>
   );
@@ -305,8 +192,7 @@ function HeroBackground({
   mouseX: ReturnType<typeof useSpring>;
   mouseY: ReturnType<typeof useSpring>;
 }) {
-  const layer1 = useMotionTemplate`translate3d(calc(-50% + (${mouseX} - 0.5) * 10px), calc((${mouseY} - 0.5) * 8px), 0)`;
-  const gridShift = useMotionTemplate`translate3d(calc((${mouseX} - 0.5) * -3px), calc((${mouseY} - 0.5) * -2px), 0)`;
+  const layer1 = useMotionTemplate`translate3d(calc(-50% + (${mouseX} - 0.5) * 8px), calc((${mouseY} - 0.5) * 6px), 0)`;
 
   return (
     <div
@@ -314,23 +200,20 @@ function HeroBackground({
       className="pointer-events-none absolute inset-0 -z-0"
       style={{
         maskImage:
-          "linear-gradient(to bottom, black 0%, black 60%, rgba(0,0,0,0.45) 82%, transparent 100%)",
+          "linear-gradient(to bottom, black 0%, black 65%, rgba(0,0,0,0.4) 85%, transparent 100%)",
         WebkitMaskImage:
-          "linear-gradient(to bottom, black 0%, black 60%, rgba(0,0,0,0.45) 82%, transparent 100%)",
+          "linear-gradient(to bottom, black 0%, black 65%, rgba(0,0,0,0.4) 85%, transparent 100%)",
       }}
     >
-      <motion.div
-        className="absolute inset-[-8%] grid-bg opacity-25"
-        style={{ transform: gridShift }}
-      />
+      <div className="absolute inset-0 grid-bg opacity-15" />
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 1.4 }}
+        transition={{ duration: 1.2 }}
         className="absolute inset-0"
       >
         <motion.div
-          className="absolute -top-20 left-[48%] h-[480px] w-[480px] rounded-full bg-[radial-gradient(closest-side,rgba(56,189,248,0.12),transparent_72%)] blur-3xl"
+          className="absolute -top-24 left-[50%] h-[420px] w-[420px] rounded-full bg-[radial-gradient(closest-side,rgba(56,189,248,0.1),transparent_72%)] blur-3xl"
           style={{ transform: layer1 }}
         />
       </motion.div>

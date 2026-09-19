@@ -16,7 +16,6 @@ const links = [
   { href: "/#experience", label: "Experience" },
   { href: "/#projects", label: "Projects" },
   { href: "/#skills", label: "Skills" },
-  { href: "/#contact", label: "Contact" },
 ];
 
 export function Navbar() {
@@ -44,12 +43,12 @@ export function Navbar() {
       <div className="container">
         <nav
           className={cn(
-            "flex items-center justify-between rounded-full border border-sky-400/15 bg-background/55 px-4 py-2 backdrop-blur-2xl backdrop-saturate-150 transition-all",
-            scrolled && "border-sky-400/25 shadow-[0_8px_32px_-12px_rgba(56,189,248,0.25)]"
+            "flex items-center justify-between rounded-full border border-white/[0.08] bg-background/60 px-4 py-2 backdrop-blur-2xl transition-all",
+            scrolled && "border-white/[0.12] bg-background/75"
           )}
         >
           <Link href="/" className="group flex items-center gap-2 pl-1">
-            <span className="relative flex size-7 items-center justify-center rounded-full bg-foreground text-background shadow-[0_0_16px_rgba(56,189,248,0.35)]">
+            <span className="relative flex size-7 items-center justify-center rounded-full bg-foreground text-background">
               <span className="text-xs font-semibold">EA</span>
             </span>
             <span className="hidden text-sm font-medium sm:block">
@@ -62,39 +61,35 @@ export function Navbar() {
               <Link
                 key={l.href}
                 href={l.href}
-                className="rounded-full px-3 py-1.5 text-sm text-muted-foreground transition-colors hover:bg-secondary/60 hover:text-foreground"
+                className="rounded-md px-3 py-1.5 text-sm text-muted-foreground transition-colors hover:bg-secondary/50 hover:text-foreground"
               >
                 {l.label}
               </Link>
             ))}
           </div>
 
-          <div className="flex items-center gap-1">
+          <div className="flex items-center gap-0.5">
             <button
               onClick={() => setCmdOpen(true)}
-              className="hidden items-center gap-2 rounded-full border border-border/60 bg-background/60 px-2.5 py-1.5 text-xs text-muted-foreground transition-colors hover:border-foreground/30 hover:text-foreground md:inline-flex"
+              className="hidden size-8 items-center justify-center rounded-md text-muted-foreground transition-colors hover:bg-secondary/50 hover:text-foreground md:inline-flex"
               aria-label="Open command menu"
+              title="Search (⌘K)"
             >
               <Command className="size-3.5" />
-              <span>Search</span>
             </button>
             <ThemeToggle />
             <Button
               asChild
               size="sm"
-              variant="secondary"
-              className="hidden md:inline-flex"
+              variant="ghost"
+              className="hidden text-foreground/75 hover:text-foreground md:inline-flex"
             >
               <a href={profile.resumeUrl} download>
                 <Download />
                 Resume
               </a>
             </Button>
-            <Button
-              asChild
-              size="sm"
-              className="hidden md:inline-flex"
-            >
+            <Button asChild size="sm" className="hidden rounded-md md:inline-flex">
               <Link href="/#contact">Contact</Link>
             </Button>
             <Button
@@ -119,7 +114,7 @@ export function Navbar() {
             transition={{ duration: 0.2 }}
             className="container mt-2 lg:hidden"
           >
-            <div className="flex flex-col gap-1 rounded-3xl border border-border/50 bg-background/95 p-3 backdrop-blur-xl">
+            <div className="flex flex-col gap-1 rounded-2xl border border-border/50 bg-background/95 p-3 backdrop-blur-xl">
               {links.map((l) => (
                 <Link
                   key={l.href}
@@ -130,12 +125,18 @@ export function Navbar() {
                 </Link>
               ))}
               <Link
+                href="/#contact"
+                className="rounded-lg px-3 py-2.5 text-sm text-muted-foreground hover:bg-secondary/60 hover:text-foreground"
+              >
+                Contact
+              </Link>
+              <Link
                 href="/resume"
                 className="rounded-lg px-3 py-2.5 text-sm text-muted-foreground hover:bg-secondary/60 hover:text-foreground"
               >
                 Resume
               </Link>
-              <Button asChild size="sm" className="mt-2">
+              <Button asChild size="sm" className="mt-2 rounded-md">
                 <Link href="/#contact">Contact me</Link>
               </Button>
             </div>
