@@ -7,6 +7,7 @@ import { Tools } from "@/components/sections/tools";
 import { Projects } from "@/components/sections/projects";
 import { Certifications } from "@/components/sections/certifications";
 import { Contact } from "@/components/sections/contact";
+import { SectionIndex } from "@/components/section-index";
 import { getGithubProjects } from "@/lib/github";
 
 /** Refresh GitHub projects periodically (webhook can invalidate sooner). */
@@ -26,6 +27,9 @@ export default async function HomePage() {
       <Projects projects={projects} error={error} />
       <Certifications />
       <Contact />
+      <SectionIndex />
+      {/* Space so the last section isn’t covered by the fixed index */}
+      <div className="h-14" aria-hidden />
     </>
   );
 }

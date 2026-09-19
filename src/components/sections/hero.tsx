@@ -9,7 +9,7 @@ import {
   useMotionValue,
   useSpring,
 } from "framer-motion";
-import { ArrowDown, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Magnetic } from "@/components/magnetic";
 import { profile } from "@/lib/content";
@@ -27,14 +27,6 @@ const fadeUp = {
 
 const HERO_ROLES = profile.targetRoles.slice(0, 3);
 
-const PAGE_INDEX = [
-  { href: "#overview", label: "Overview" },
-  { href: "#experience", label: "Experience" },
-  { href: "#projects", label: "Projects" },
-  { href: "#skills", label: "Skills" },
-  { href: "#contact", label: "Contact" },
-] as const;
-
 export function Hero() {
   const mouseX = useMotionValue(0.5);
   const mouseY = useMotionValue(0.5);
@@ -50,7 +42,7 @@ export function Hero() {
   return (
     <section
       onMouseMove={onMove}
-      className="relative flex min-h-[100dvh] flex-col justify-center overflow-hidden pt-20 pb-28 sm:pt-24 sm:pb-32"
+      className="relative flex min-h-[100dvh] flex-col justify-center overflow-hidden pt-20 pb-24 sm:pt-24 sm:pb-28"
     >
       <HeroBackground mouseX={springX} mouseY={springY} />
 
@@ -60,8 +52,6 @@ export function Hero() {
           <HeroCopy />
         </div>
       </div>
-
-      <PageIndex />
     </section>
   );
 }
@@ -198,41 +188,6 @@ function HeroCopy() {
         </Link>
       </motion.div>
     </motion.div>
-  );
-}
-
-function PageIndex() {
-  return (
-    <motion.nav
-      aria-label="Page sections"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.7, delay: 0.5, ease }}
-      className="absolute inset-x-0 bottom-0 z-10 border-t border-border/80 bg-gradient-to-t from-background via-background/90 to-transparent"
-    >
-      <div className="mx-auto flex max-w-[980px] items-center justify-between gap-4 px-5 py-4 sm:px-8">
-        <ul className="flex flex-wrap items-center gap-x-5 gap-y-1 text-[11px] font-medium uppercase tracking-[0.14em] text-muted-foreground">
-          {PAGE_INDEX.map((item) => (
-            <li key={item.href}>
-              <a
-                href={item.href}
-                className="transition-colors hover:text-foreground"
-              >
-                {item.label}
-              </a>
-            </li>
-          ))}
-        </ul>
-        <a
-          href="#overview"
-          className="hidden items-center gap-1.5 text-[11px] font-medium uppercase tracking-[0.14em] text-muted-foreground transition-colors hover:text-foreground sm:inline-flex"
-          aria-label="Continue to overview"
-        >
-          Continue
-          <ArrowDown className="size-3" />
-        </a>
-      </div>
-    </motion.nav>
   );
 }
 
