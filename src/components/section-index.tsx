@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from "react";
+import { createPortal } from "react-dom";
 import { usePathname } from "next/navigation";
 import { ArrowDown } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -16,9 +17,13 @@ const SECTIONS = [
 export function SectionIndex() {
   const pathname = usePathname();
   const [active, setActive] = React.useState<string | null>(null);
-  const [visible, setVisible] = React.useState(true);
+  const [mounted, setMounted] = React.useState(false);
 
   const onHome = pathname === "/";
+
+  React.useEffect(() => {
+    setMounted(true);
+  }, []);
 
   React.useEffect(() => {
     if (!onHome) return;
@@ -48,22 +53,7 @@ export function SectionIndex() {
     return () => observer.disconnect();
   }, [onHome]);
 
-  React.useEffect(() => {
-    if (!onHome) return;
-
-    const onScroll = () => {
-      const nearBottom =
-        window.innerHeight + window.scrollY >=
-        document.documentElement.scrollHeight - 80;
-      setVisible(!nearBottom);
-    };
-
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, [onHome]);
-
-  if (!onHome) return null;
+  if (!onHome || !mounted) return null;
 
   const activeIdx = SECTIONS.findIndex((s) => s.id === active);
   const next =
@@ -71,15 +61,10 @@ export function SectionIndex() {
       ? SECTIONS[activeIdx + 1]
       : SECTIONS[0];
 
-  return (
+  return createPortal(
     <nav
       aria-label="Page sections"
-      className={cn(
-        "fixed inset-x-0 bottom-0 z-40 border-t border-border/80 bg-background/85 backdrop-blur-xl transition-all duration-300 no-print",
-        visible
-          ? "translate-y-0 opacity-100"
-          : "pointer-events-none translate-y-full opacity-0"
-      )}
+      className="fixed inset-x-0 bottom-0 z-[60] border-t border-border/80 bg-background/90 backdrop-blur-xl no-print"
     >
       <div className="mx-auto flex max-w-[980px] items-center justify-between gap-4 px-5 py-3.5 sm:px-8">
         <ul className="flex flex-wrap items-center gap-x-4 gap-y-1 text-[11px] font-medium uppercase tracking-[0.14em] sm:gap-x-5">
@@ -112,6 +97,7 @@ export function SectionIndex() {
           <ArrowDown className="size-3" />
         </a>
       </div>
-    </nav>
+    </nav>,
+    document.body
   );
 }
