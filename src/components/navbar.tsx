@@ -11,11 +11,13 @@ import { ThemeToggle } from "@/components/theme-toggle";
 import { useCommandMenu } from "@/components/command-menu";
 import { profile } from "@/lib/content";
 
+/** Mobile menu only — desktop section jump lives in the hero index. */
 const links = [
   { href: "/#overview", label: "Overview" },
   { href: "/#experience", label: "Experience" },
   { href: "/#projects", label: "Projects" },
   { href: "/#skills", label: "Skills" },
+  { href: "/#contact", label: "Contact" },
 ];
 
 export function Navbar() {
@@ -56,18 +58,6 @@ export function Navbar() {
             </span>
           </Link>
 
-          <div className="hidden items-center gap-0.5 lg:flex">
-            {links.map((l) => (
-              <Link
-                key={l.href}
-                href={l.href}
-                className="rounded-md px-3 py-1.5 text-sm text-muted-foreground transition-colors hover:bg-secondary/50 hover:text-foreground"
-              >
-                {l.label}
-              </Link>
-            ))}
-          </div>
-
           <div className="flex items-center gap-0.5">
             <button
               onClick={() => setCmdOpen(true)}
@@ -97,7 +87,7 @@ export function Navbar() {
               size="icon"
               onClick={() => setOpen((s) => !s)}
               aria-label="Toggle menu"
-              className="lg:hidden"
+              className="md:hidden"
             >
               {open ? <X className="size-4" /> : <Menu className="size-4" />}
             </Button>
@@ -112,7 +102,7 @@ export function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.2 }}
-            className="container mt-2 lg:hidden"
+            className="container mt-2 md:hidden"
           >
             <div className="flex flex-col gap-1 rounded-2xl border border-border/50 bg-background/95 p-3 backdrop-blur-xl">
               {links.map((l) => (
@@ -124,12 +114,6 @@ export function Navbar() {
                   {l.label}
                 </Link>
               ))}
-              <Link
-                href="/#contact"
-                className="rounded-lg px-3 py-2.5 text-sm text-muted-foreground hover:bg-secondary/60 hover:text-foreground"
-              >
-                Contact
-              </Link>
               <Link
                 href="/resume"
                 className="rounded-lg px-3 py-2.5 text-sm text-muted-foreground hover:bg-secondary/60 hover:text-foreground"
