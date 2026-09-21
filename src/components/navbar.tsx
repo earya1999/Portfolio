@@ -45,7 +45,7 @@ export function Navbar() {
       <div className="container">
         <nav
           className={cn(
-            "flex items-center justify-between rounded-full border border-border/60 bg-background/70 px-4 py-2 backdrop-blur-2xl transition-all",
+            "flex items-center justify-between rounded-md border border-border/60 bg-background/70 px-4 py-2 backdrop-blur-2xl transition-all",
             scrolled && "border-border bg-background/90 shadow-sm"
           )}
         >
@@ -79,7 +79,7 @@ export function Navbar() {
                 Resume
               </a>
             </Button>
-            <Button asChild size="sm" className="hidden rounded-md shadow-none md:inline-flex">
+            <Button asChild size="sm" className="hidden rounded-sm shadow-none md:inline-flex">
               <Link href="/#contact">Contact</Link>
             </Button>
             <Button

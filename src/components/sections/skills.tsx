@@ -64,6 +64,7 @@ export function Skills() {
     <Section
       id="skills"
       eyebrow="Skills"
+      index="04"
       title="Capabilities I bring to every engagement."
       accent="violet"
     >

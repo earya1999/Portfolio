@@ -42,13 +42,17 @@ export function Hero() {
   return (
     <section
       onMouseMove={onMove}
-      className="relative flex min-h-[100dvh] flex-col justify-center overflow-hidden pt-20 pb-24 sm:pt-24 sm:pb-28"
+      className="relative flex min-h-[100dvh] flex-col justify-center overflow-hidden pt-20 pb-20 sm:pt-24 sm:pb-24"
     >
       <HeroBackground mouseX={springX} mouseY={springY} />
 
-      <div className="relative z-10 mx-auto w-full max-w-[980px] px-5 sm:px-8">
-        <div className="flex flex-col items-center gap-9 sm:gap-10 lg:flex-row lg:items-center lg:gap-11">
+      <div className="relative z-10 mx-auto w-full max-w-[1040px] px-5 sm:px-8 lg:pl-16 xl:pl-10">
+        <div className="grid items-stretch gap-0 lg:grid-cols-[minmax(0,15rem)_1px_minmax(0,1fr)]">
           <Portrait />
+          <div
+            aria-hidden
+            className="hidden bg-border/80 lg:block"
+          />
           <HeroCopy />
         </div>
       </div>
@@ -70,9 +74,9 @@ function Portrait() {
       initial="hidden"
       animate="show"
       custom={0}
-      className="shrink-0"
+      className="flex justify-center lg:justify-start lg:pr-10"
     >
-      <div className="relative aspect-[3/4] w-[13.5rem] overflow-hidden rounded-2xl shadow-[0_18px_48px_-20px_rgba(15,23,42,0.4)] dark:shadow-[0_24px_64px_-28px_rgba(0,0,0,0.85)] sm:w-[14.75rem] lg:w-[15.25rem]">
+      <div className="relative aspect-[3/4] w-[13.5rem] overflow-hidden rounded-md border border-border/50 shadow-[0_16px_40px_-18px_rgba(15,23,42,0.35)] dark:shadow-[0_20px_50px_-22px_rgba(0,0,0,0.8)] sm:w-[14.5rem]">
         {avatarOk ? (
           <motion.div
             initial={{ opacity: 0, scale: 1.02 }}
@@ -84,7 +88,7 @@ function Portrait() {
               src={profile.avatar}
               alt={profile.name}
               fill
-              sizes="244px"
+              sizes="232px"
               quality={95}
               className="object-cover object-[center_20%]"
               onError={() => setAvatarOk(false)}
@@ -96,10 +100,6 @@ function Portrait() {
             {initials}
           </div>
         )}
-        <div
-          aria-hidden
-          className="pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-inset ring-black/10 dark:ring-white/10"
-        />
       </div>
     </motion.aside>
   );
@@ -112,12 +112,12 @@ function HeroCopy() {
       initial="hidden"
       animate="show"
       custom={1}
-      className="flex w-full max-w-xl flex-col text-center lg:max-w-none lg:text-left"
+      className="mt-9 flex flex-col text-center lg:mt-0 lg:pl-10 lg:text-left"
     >
       <motion.h1
         variants={fadeUp}
         custom={2}
-        className="font-display text-[2.65rem] font-medium leading-[0.96] tracking-tight text-foreground sm:text-[3.35rem] lg:text-[3.65rem]"
+        className="font-display text-[2.65rem] font-medium leading-[0.96] tracking-tight text-foreground sm:text-[3.25rem] lg:text-[3.5rem]"
       >
         {profile.name}
       </motion.h1>
@@ -125,7 +125,7 @@ function HeroCopy() {
       <motion.p
         variants={fadeUp}
         custom={3}
-        className="mt-3 text-[15px] font-semibold tracking-[0.04em] text-sky-800 dark:text-sky-200/90 sm:text-[16px]"
+        className="mt-3 text-[15px] font-semibold tracking-[0.06em] text-sky-800 dark:text-cyan-300/90 sm:text-[16px]"
       >
         {profile.role}
       </motion.p>
@@ -133,9 +133,16 @@ function HeroCopy() {
       <motion.p
         variants={fadeUp}
         custom={4}
-        className="mx-auto mt-5 max-w-md font-display text-[1.2rem] font-medium leading-[1.35] tracking-tight text-balance text-foreground/90 sm:text-[1.3rem] lg:mx-0 lg:max-w-lg"
+        className="mx-auto mt-5 max-w-md text-[1.05rem] leading-[1.5] text-balance text-foreground/80 sm:text-[1.15rem] lg:mx-0 lg:max-w-lg"
       >
-        Turning complex enterprise workflows into solutions customers actually
+        Turning complex{" "}
+        <span className="font-medium text-sky-800 dark:text-cyan-300/95">
+          enterprise
+        </span>{" "}
+        workflows into solutions customers{" "}
+        <span className="font-medium text-sky-800 dark:text-cyan-300/95">
+          actually
+        </span>{" "}
         use.
       </motion.p>
 
@@ -171,8 +178,8 @@ function HeroCopy() {
         custom={7}
         className="mt-8 flex flex-wrap items-center justify-center gap-x-5 gap-y-3 lg:justify-start"
       >
-        <Magnetic strength={0.08}>
-          <Button asChild size="lg" className="rounded-md px-6 shadow-none">
+        <Magnetic strength={0.06}>
+          <Button asChild size="lg" className="rounded-sm px-6">
             <Link href="#overview">
               Read overview
               <ArrowRight />
@@ -198,7 +205,7 @@ function HeroBackground({
   mouseX: ReturnType<typeof useSpring>;
   mouseY: ReturnType<typeof useSpring>;
 }) {
-  const layer1 = useMotionTemplate`translate3d(calc(-50% + (${mouseX} - 0.5) * 5px), calc((${mouseY} - 0.5) * 4px), 0)`;
+  const layer1 = useMotionTemplate`translate3d(calc(-50% + (${mouseX} - 0.5) * 4px), calc((${mouseY} - 0.5) * 3px), 0)`;
 
   return (
     <div
@@ -211,16 +218,15 @@ function HeroBackground({
           "linear-gradient(to bottom, black 0%, black 72%, rgba(0,0,0,0.3) 90%, transparent 100%)",
       }}
     >
-      <div className="absolute inset-0 grid-bg opacity-[0.14] dark:opacity-[0.07]" />
+      <div className="absolute inset-0 grid-bg opacity-[0.12] dark:opacity-[0.06]" />
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1.3 }}
         className="absolute inset-0"
       >
-        {/* Light: cooler steel wash · Dark: soft cyan glow */}
         <motion.div
-          className="absolute top-[-10%] left-[42%] h-[360px] w-[360px] rounded-full bg-[radial-gradient(closest-side,rgba(14,116,144,0.16),transparent_70%)] blur-3xl dark:bg-[radial-gradient(closest-side,rgba(56,189,248,0.08),transparent_70%)]"
+          className="absolute top-[-10%] left-[42%] h-[320px] w-[320px] rounded-full bg-[radial-gradient(closest-side,rgba(14,116,144,0.12),transparent_70%)] blur-3xl dark:bg-[radial-gradient(closest-side,rgba(56,189,248,0.07),transparent_70%)]"
           style={{ transform: layer1 }}
         />
       </motion.div>

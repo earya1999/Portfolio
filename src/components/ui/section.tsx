@@ -13,6 +13,8 @@ export type SectionAccent =
 interface SectionProps extends React.HTMLAttributes<HTMLElement> {
   id?: string;
   eyebrow?: string;
+  /** Optional section number shown before the eyebrow, e.g. "01" */
+  index?: string;
   title?: string;
   description?: string;
   center?: boolean;
@@ -35,6 +37,7 @@ const accentClass: Record<SectionAccent, string> = {
 export function Section({
   id,
   eyebrow,
+  index,
   title,
   description,
   center = false,
@@ -86,7 +89,14 @@ export function Section({
               center && "mx-auto text-center"
             )}
           >
-            {eyebrow && <div className="eyebrow mb-4">{eyebrow}</div>}
+            {eyebrow && (
+              <div className="eyebrow mb-4">
+                {index && (
+                  <span className="mr-2 text-foreground/40">{index}</span>
+                )}
+                {eyebrow}
+              </div>
+            )}
             {title && (
               <h2 className="heading text-3xl sm:text-4xl md:text-[2.75rem] md:leading-[1.15]">
                 {title}

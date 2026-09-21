@@ -3,22 +3,21 @@
 import * as React from "react";
 import { createPortal } from "react-dom";
 import { usePathname } from "next/navigation";
-import { ArrowDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const SECTIONS = [
-  { id: "overview", label: "Overview" },
-  { id: "experience", label: "Experience" },
-  { id: "projects", label: "Projects" },
-  { id: "skills", label: "Skills" },
-  { id: "contact", label: "Contact" },
+  { id: "overview", label: "Overview", n: "01" },
+  { id: "experience", label: "Experience", n: "02" },
+  { id: "projects", label: "Projects", n: "03" },
+  { id: "skills", label: "Skills", n: "04" },
+  { id: "contact", label: "Contact", n: "05" },
 ] as const;
 
 const LAST_ID = SECTIONS[SECTIONS.length - 1].id;
 
 export function SectionIndex() {
   const pathname = usePathname();
-  const [active, setActive] = React.useState<string | null>(null);
+  const [active, setActive] = React.useState<string | null>("overview");
   const [mounted, setMounted] = React.useState(false);
   const [atEnd, setAtEnd] = React.useState(false);
 
@@ -34,7 +33,6 @@ export function SectionIndex() {
     const nodes = SECTIONS.map((s) => document.getElementById(s.id)).filter(
       Boolean
     ) as HTMLElement[];
-
     if (!nodes.length) return;
 
     const observer = new IntersectionObserver(
@@ -47,7 +45,7 @@ export function SectionIndex() {
         }
       },
       {
-        rootMargin: "-20% 0px -45% 0px",
+        rootMargin: "-25% 0px -45% 0px",
         threshold: [0.1, 0.25, 0.5],
       }
     );
@@ -62,7 +60,7 @@ export function SectionIndex() {
     const update = () => {
       const contact = document.getElementById(LAST_ID);
       const contactInView = contact
-        ? contact.getBoundingClientRect().top < window.innerHeight * 0.55
+        ? contact.getBoundingClientRect().top < window.innerHeight * 0.5
         : false;
       const nearDocEnd =
         window.innerHeight + window.scrollY >=
@@ -82,56 +80,59 @@ export function SectionIndex() {
   if (!onHome || !mounted) return null;
 
   const hide = atEnd || active === LAST_ID;
-  const activeIdx = SECTIONS.findIndex((s) => s.id === active);
-  const next =
-    activeIdx >= 0 && activeIdx < SECTIONS.length - 1
-      ? SECTIONS[activeIdx + 1]
-      : SECTIONS[0];
 
   return createPortal(
     <nav
       aria-label="Page sections"
       aria-hidden={hide}
       className={cn(
-        "fixed inset-x-0 bottom-0 z-[60] border-t border-border/80 bg-background/90 backdrop-blur-xl transition-all duration-300 no-print",
-        hide
-          ? "pointer-events-none translate-y-full opacity-0"
-          : "translate-y-0 opacity-100"
+        "fixed left-0 top-1/2 z-[60] hidden -translate-y-1/2 flex-col no-print lg:flex",
+        "transition-opacity duration-300",
+        hide ? "pointer-events-none opacity-0" : "opacity-100"
       )}
     >
-      <div className="mx-auto flex max-w-[980px] items-center justify-between gap-4 px-5 py-3.5 sm:px-8">
-        <ul className="flex flex-wrap items-center gap-x-4 gap-y-1 text-[11px] font-medium uppercase tracking-[0.14em] sm:gap-x-5">
-          {SECTIONS.map((item) => {
-            const isActive = active === item.id;
-            return (
-              <li key={item.id}>
-                <a
-                  href={`#${item.id}`}
-                  tabIndex={hide ? -1 : undefined}
+      <ul className="ml-3 flex flex-col gap-1 border-l border-border/70 pl-3 xl:ml-5">
+        {SECTIONS.map((item) => {
+          const isActive = active === item.id;
+          return (
+            <li key={item.id}>
+              <a
+                href={`#${item.id}`}
+                tabIndex={hide ? -1 : undefined}
+                title={item.label}
+                aria-label={`${item.n} ${item.label}`}
+                aria-current={isActive ? "location" : undefined}
+                className={cn(
+                  "group flex items-center gap-2.5 py-1.5 font-mono text-[11px] tracking-wide transition-colors",
+                  isActive
+                    ? "text-foreground"
+                    : "text-muted-foreground/70 hover:text-foreground"
+                )}
+              >
+                <span
                   className={cn(
-                    "transition-colors",
+                    "inline-flex size-6 items-center justify-center border text-[10px] font-medium transition-colors",
                     isActive
-                      ? "text-foreground"
-                      : "text-muted-foreground hover:text-foreground"
+                      ? "border-foreground bg-foreground text-background"
+                      : "border-transparent text-muted-foreground/60 group-hover:border-border group-hover:text-foreground"
                   )}
-                  aria-current={isActive ? "location" : undefined}
+                >
+                  {item.n}
+                </span>
+                <span
+                  className={cn(
+                    "max-w-0 overflow-hidden uppercase tracking-[0.16em] opacity-0 transition-all duration-200",
+                    "group-hover:max-w-[7rem] group-hover:opacity-100",
+                    isActive && "max-w-[7rem] opacity-100"
+                  )}
                 >
                   {item.label}
-                </a>
-              </li>
-            );
-          })}
-        </ul>
-        <a
-          href={`#${next.id}`}
-          tabIndex={hide ? -1 : undefined}
-          className="hidden items-center gap-1.5 text-[11px] font-medium uppercase tracking-[0.14em] text-muted-foreground transition-colors hover:text-foreground sm:inline-flex"
-          aria-label={`Continue to ${next.label}`}
-        >
-          Continue
-          <ArrowDown className="size-3" />
-        </a>
-      </div>
+                </span>
+              </a>
+            </li>
+          );
+        })}
+      </ul>
     </nav>,
     document.body
   );

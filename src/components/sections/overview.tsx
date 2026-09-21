@@ -14,8 +14,9 @@ export function Overview() {
     <Section
       id="overview"
       eyebrow="Overview"
+      index="01"
       title="From discovery to go-live."
-      accent="violet"
+      accent="blue"
     >
       <motion.div
         initial={{ opacity: 0, y: 12 }}
@@ -23,8 +24,29 @@ export function Overview() {
         viewport={{ once: true, margin: "-80px" }}
         transition={{ duration: 0.5 }}
       >
-        <TiltCard maxTilt={5} className="rounded-3xl">
-        <Spotlight className="aurora-border depth-card rounded-3xl border border-border/50 bg-card/60">
+        {/* Proof strip — facts already in overview copy */}
+        <div className="mb-8 grid gap-px overflow-hidden border border-border/60 bg-border/60 sm:grid-cols-3">
+          {[
+            { value: "42% → 70%", label: "Automation on key workflows" },
+            { value: "Red → Green", label: "Cash App recovery in under a month" },
+            { value: "Fortune 500", label: "Enterprise SaaS implementations" },
+          ].map((stat) => (
+            <div
+              key={stat.label}
+              className="bg-card/80 px-5 py-4 sm:px-6 sm:py-5"
+            >
+              <p className="font-display text-xl font-medium tracking-tight text-foreground sm:text-2xl">
+                {stat.value}
+              </p>
+              <p className="mt-1 text-[12px] uppercase tracking-[0.14em] text-muted-foreground">
+                {stat.label}
+              </p>
+            </div>
+          ))}
+        </div>
+
+        <TiltCard maxTilt={5} className="rounded-2xl">
+        <Spotlight className="aurora-border depth-card rounded-2xl border border-border/50 bg-card/60">
         <div className="relative grid gap-10 p-6 sm:p-10 lg:grid-cols-12 lg:gap-12">
           <div className="flex flex-col gap-5 lg:col-span-7">
             {overview.intro.map((p, i) => (

@@ -28,8 +28,6 @@ export default async function HomePage() {
       <Certifications />
       <Contact />
       <SectionIndex />
-      {/* Space so the last section isn’t covered by the fixed index */}
-      <div className="h-14" aria-hidden />
     </>
   );
 }

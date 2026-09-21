@@ -6,16 +6,16 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full text-sm font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:pointer-events-none disabled:opacity-50 [&_svg]:size-4 [&_svg]:shrink-0",
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-sm text-sm font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:pointer-events-none disabled:opacity-50 [&_svg]:size-4 [&_svg]:shrink-0",
   {
     variants: {
       variant: {
         default:
-          "bg-foreground text-background hover:bg-foreground/92 shadow-[0_0_24px_-6px_rgba(56,189,248,0.45)]",
+          "bg-foreground text-background hover:bg-foreground/90 shadow-none",
         secondary:
-          "bg-secondary/80 text-secondary-foreground hover:bg-secondary border border-sky-400/20 hover:border-sky-400/35",
+          "bg-secondary/80 text-secondary-foreground hover:bg-secondary border border-border hover:border-foreground/25",
         outline:
-          "border border-sky-400/25 bg-transparent hover:bg-sky-400/5 hover:border-sky-400/40",
+          "border border-border bg-transparent hover:bg-secondary/50 hover:border-foreground/30",
         ghost:
           "hover:bg-secondary/60 text-foreground/80 hover:text-foreground",
         link: "text-foreground underline-offset-4 hover:underline rounded-none px-0",
@@ -23,7 +23,7 @@ const buttonVariants = cva(
       size: {
         default: "h-10 px-5",
         sm: "h-8 px-3.5 text-xs",
-        lg: "h-12 px-7 text-base",
+        lg: "h-11 px-6 text-[15px]",
         icon: "h-9 w-9",
       },
     },

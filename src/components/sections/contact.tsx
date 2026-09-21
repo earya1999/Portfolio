@@ -83,6 +83,7 @@ export function Contact() {
     <Section
       id="contact"
       eyebrow="Contact"
+      index="05"
       title="Let's build something that works."
       description="Open to Project Manager, Implementation Consultant, Solutions Consultant, Professional Services, and Customer Success conversations. I typically reply within a day."
       accent="emerald"
