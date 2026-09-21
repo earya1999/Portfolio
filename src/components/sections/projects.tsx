@@ -37,7 +37,7 @@ export function Projects({
     <Section
       id="projects"
       eyebrow="Projects"
-      index="03"
+      index="06"
       title={projectsConfig.title}
       description={projectsConfig.description}
       accent="blue"

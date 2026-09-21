@@ -8,9 +8,12 @@ import { cn } from "@/lib/utils";
 const SECTIONS = [
   { id: "overview", label: "Overview", n: "01" },
   { id: "experience", label: "Experience", n: "02" },
-  { id: "projects", label: "Projects", n: "03" },
+  { id: "education", label: "Education", n: "03" },
   { id: "skills", label: "Skills", n: "04" },
-  { id: "contact", label: "Contact", n: "05" },
+  { id: "tools", label: "Tools", n: "05" },
+  { id: "projects", label: "Projects", n: "06" },
+  { id: "certifications", label: "Certs", n: "07" },
+  { id: "contact", label: "Contact", n: "08" },
 ] as const;
 
 const LAST_ID = SECTIONS[SECTIONS.length - 1].id;

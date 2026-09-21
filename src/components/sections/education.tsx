@@ -12,6 +12,7 @@ export function Education() {
     <Section
       id="education"
       eyebrow="Education"
+      index="03"
       title="Business analytics, built on a CS foundation."
       accent="blue"
     >

@@ -12,6 +12,7 @@ export function Certifications() {
     <Section
       id="certifications"
       eyebrow="Certifications"
+      index="07"
       title="Professional certifications."
       accent="blue"
     >

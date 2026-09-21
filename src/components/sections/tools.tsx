@@ -12,6 +12,7 @@ export function Tools() {
     <Section
       id="tools"
       eyebrow="Tools"
+      index="05"
       title="Tools I work with."
       description="Platforms and technologies used across discovery, configuration, integrations, analytics, and delivery."
       accent="amber"
