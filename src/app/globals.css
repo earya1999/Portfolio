@@ -157,24 +157,64 @@
     mask-image: radial-gradient(ellipse at center, black 30%, transparent 70%);
   }
 
-  /* Site-wide atmosphere — one wash, no competing orbs */
+  /* Site-wide atmosphere — richer mesh, still restrained */
   .site-atmosphere {
     background:
       radial-gradient(
-        90% 70% at 50% -8%,
-        hsl(36 20% 88% / 0.55),
-        transparent 62%
+        110% 85% at 8% -5%,
+        hsl(208 42% 58% / 0.32),
+        transparent 58%
       ),
-      hsl(var(--background));
+      radial-gradient(
+        95% 75% at 92% 12%,
+        hsl(175 35% 42% / 0.22),
+        transparent 52%
+      ),
+      radial-gradient(
+        80% 65% at 55% 105%,
+        hsl(32 40% 55% / 0.18),
+        transparent 55%
+      ),
+      radial-gradient(
+        60% 50% at 70% 45%,
+        hsl(220 25% 55% / 0.1),
+        transparent 60%
+      ),
+      linear-gradient(
+        160deg,
+        hsl(215 22% 88%) 0%,
+        hsl(var(--background)) 42%,
+        hsl(210 18% 84%) 100%
+      );
   }
   .dark .site-atmosphere {
     background:
       radial-gradient(
-        80% 60% at 50% -10%,
-        hsl(220 20% 14% / 0.7),
-        transparent 60%
+        110% 85% at 8% -5%,
+        hsl(199 80% 48% / 0.28),
+        transparent 58%
       ),
-      hsl(var(--background));
+      radial-gradient(
+        95% 75% at 92% 12%,
+        hsl(175 70% 40% / 0.22),
+        transparent 52%
+      ),
+      radial-gradient(
+        80% 65% at 48% 108%,
+        hsl(220 50% 40% / 0.16),
+        transparent 55%
+      ),
+      radial-gradient(
+        55% 45% at 68% 40%,
+        hsl(186 60% 45% / 0.12),
+        transparent 65%
+      ),
+      linear-gradient(
+        160deg,
+        hsl(222 30% 9%) 0%,
+        hsl(var(--background)) 45%,
+        hsl(222 32% 5%) 100%
+      );
   }
 
   .ambient-orb {
@@ -278,15 +318,15 @@
   .site-horizon {
     background: linear-gradient(
       to bottom,
-      hsl(36 16% 82% / 0.28),
-      transparent 78%
+      hsl(210 50% 70% / 0.16),
+      transparent 70%
     );
   }
   .dark .site-horizon {
     background: linear-gradient(
       to bottom,
-      hsl(220 12% 12% / 0.35),
-      transparent 80%
+      hsl(210 55% 55% / 0.14),
+      transparent 72%
     );
   }
 
@@ -312,8 +352,8 @@
   .site-vignette {
     background: radial-gradient(
       ellipse at center,
-      transparent 52%,
-      hsl(var(--background) / 0.35) 100%
+      transparent 35%,
+      hsl(var(--background) / 0.55) 100%
     );
   }
   .ambient-drift-a {
