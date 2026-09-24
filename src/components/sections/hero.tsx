@@ -47,7 +47,7 @@ export function Hero() {
       <HeroBackground mouseX={springX} mouseY={springY} />
 
       <div className="relative z-10 mx-auto w-full max-w-[1080px] px-5 sm:px-8 lg:pl-16 xl:pl-10">
-        <div className="grid items-start gap-0 lg:grid-cols-[minmax(0,17rem)_1px_minmax(0,1fr)]">
+        <div className="grid items-stretch gap-0 lg:grid-cols-[minmax(0,17rem)_1px_minmax(0,1fr)]">
           <Portrait />
           <div
             aria-hidden
@@ -76,7 +76,7 @@ function Portrait() {
       custom={0}
       className="flex justify-center lg:justify-start lg:pr-10"
     >
-      <div className="relative aspect-[3/4] w-[15rem] overflow-hidden rounded-md border border-border sm:w-[16rem] lg:w-[16.5rem]">
+      <div className="relative aspect-[3/4] w-[15rem] overflow-hidden rounded-md border border-border/50 shadow-[0_16px_40px_-18px_rgba(15,23,42,0.35)] dark:shadow-[0_20px_50px_-22px_rgba(0,0,0,0.8)] sm:w-[16rem] lg:w-[16.5rem]">
         {avatarOk ? (
           <motion.div
             initial={{ opacity: 0, scale: 1.02 }}
@@ -112,7 +112,7 @@ function HeroCopy() {
       initial="hidden"
       animate="show"
       custom={1}
-      className="mt-9 flex flex-col text-center lg:mt-0 lg:pl-10 lg:pt-0 lg:text-left"
+      className="mt-9 flex flex-col text-center lg:mt-0 lg:pl-10 lg:text-left"
     >
       <motion.h1
         variants={fadeUp}
