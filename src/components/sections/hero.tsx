@@ -125,7 +125,7 @@ function HeroCopy() {
       <motion.p
         variants={fadeUp}
         custom={3}
-        className="mt-3 text-[15px] font-semibold tracking-[0.06em] text-sky-800 dark:text-cyan-300/90 sm:text-[16px]"
+        className="mt-3 text-[15px] font-semibold tracking-[0.06em] text-foreground/70 sm:text-[16px]"
       >
         {profile.role}
       </motion.p>
@@ -136,14 +136,9 @@ function HeroCopy() {
         className="mx-auto mt-5 max-w-md text-[1.05rem] leading-[1.5] text-balance text-foreground/80 sm:text-[1.15rem] lg:mx-0 lg:max-w-lg"
       >
         Turning complex{" "}
-        <span className="font-medium text-sky-800 dark:text-cyan-300/95">
-          enterprise
-        </span>{" "}
+        <span className="font-medium text-foreground">enterprise</span>{" "}
         workflows into solutions customers{" "}
-        <span className="font-medium text-sky-800 dark:text-cyan-300/95">
-          actually
-        </span>{" "}
-        use.
+        <span className="font-medium text-foreground">actually</span> use.
       </motion.p>
 
       <motion.p
@@ -218,7 +213,7 @@ function HeroBackground({
           "linear-gradient(to bottom, black 0%, black 72%, rgba(0,0,0,0.3) 90%, transparent 100%)",
       }}
     >
-      <div className="absolute inset-0 grid-bg opacity-[0.12] dark:opacity-[0.06]" />
+      <div className="absolute inset-0 grid-bg opacity-[0.06] dark:opacity-[0.04]" />
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -226,7 +221,7 @@ function HeroBackground({
         className="absolute inset-0"
       >
         <motion.div
-          className="absolute top-[-10%] left-[42%] h-[320px] w-[320px] rounded-full bg-[radial-gradient(closest-side,rgba(14,116,144,0.12),transparent_70%)] blur-3xl dark:bg-[radial-gradient(closest-side,rgba(56,189,248,0.07),transparent_70%)]"
+          className="absolute top-[-12%] left-[46%] h-[280px] w-[280px] rounded-full bg-[radial-gradient(closest-side,rgba(15,23,42,0.04),transparent_72%)] blur-3xl dark:bg-[radial-gradient(closest-side,rgba(255,255,255,0.035),transparent_72%)]"
           style={{ transform: layer1 }}
         />
       </motion.div>

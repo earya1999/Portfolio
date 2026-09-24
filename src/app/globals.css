@@ -4,42 +4,42 @@
 
 @layer base {
   :root {
-    /* Clean cool light canvas — readable without washout */
-    --background: 220 18% 94%;
-    --foreground: 222 28% 10%;
-    --muted: 220 12% 88%;
-    --muted-foreground: 220 12% 32%;
+    /* Paper-like light canvas with stronger type contrast */
+    --background: 40 18% 96%;
+    --foreground: 222 32% 8%;
+    --muted: 36 12% 90%;
+    --muted-foreground: 220 14% 28%;
     --card: 0 0% 100%;
-    --card-foreground: 222 28% 10%;
-    --primary: 222 28% 10%;
-    --primary-foreground: 210 40% 98%;
-    --secondary: 220 12% 90%;
-    --secondary-foreground: 222 28% 10%;
-    --accent: 220 12% 90%;
-    --accent-foreground: 222 28% 10%;
-    --border: 220 12% 82%;
-    --input: 220 12% 82%;
-    --ring: 222 28% 10%;
+    --card-foreground: 222 32% 8%;
+    --primary: 222 32% 8%;
+    --primary-foreground: 40 20% 98%;
+    --secondary: 36 10% 91%;
+    --secondary-foreground: 222 32% 8%;
+    --accent: 36 10% 91%;
+    --accent-foreground: 222 32% 8%;
+    --border: 30 10% 80%;
+    --input: 30 10% 80%;
+    --ring: 222 32% 8%;
     --radius: 14px;
   }
 
   .dark {
-    /* Near-black canvas with cool cyan-steel undertone */
-    --background: 222 28% 7%;
-    --foreground: 210 40% 98%;
-    --muted: 222 20% 12%;
-    --muted-foreground: 215 16% 68%;
-    --card: 222 22% 10%;
-    --card-foreground: 210 40% 98%;
-    --primary: 186 72% 52%;
-    --primary-foreground: 222 28% 6%;
-    --secondary: 222 18% 14%;
-    --secondary-foreground: 210 30% 96%;
-    --accent: 222 18% 14%;
-    --accent-foreground: 210 30% 96%;
-    --border: 215 16% 16%;
-    --input: 215 16% 16%;
-    --ring: 186 72% 52%;
+    /* Near-black canvas — less cyan wash */
+    --background: 222 20% 6%;
+    --foreground: 210 28% 96%;
+    --muted: 222 14% 11%;
+    --muted-foreground: 215 12% 62%;
+    --card: 222 16% 9%;
+    --card-foreground: 210 28% 96%;
+    --primary: 210 28% 96%;
+    --primary-foreground: 222 20% 8%;
+    --secondary: 222 12% 13%;
+    --secondary-foreground: 210 20% 94%;
+    --accent: 222 12% 13%;
+    --accent-foreground: 210 20% 94%;
+    --border: 220 10% 16%;
+    --input: 220 10% 16%;
+    --ring: 210 28% 80%;
   }
 
   * {
@@ -85,7 +85,7 @@
     @apply font-display tracking-tight text-balance font-medium;
   }
   .eyebrow {
-    @apply text-[11px] uppercase tracking-[0.24em] text-sky-300/80 font-medium;
+    @apply text-[11px] uppercase tracking-[0.24em] text-foreground/45 font-medium;
   }
   .gradient-text {
     background: linear-gradient(
@@ -100,7 +100,7 @@
     -webkit-text-fill-color: transparent;
   }
   :root:not(.dark) .eyebrow {
-    @apply text-sky-700/80;
+    @apply text-foreground/50;
   }
   :root:not(.dark) .gradient-text {
     background: linear-gradient(
@@ -157,64 +157,24 @@
     mask-image: radial-gradient(ellipse at center, black 30%, transparent 70%);
   }
 
-  /* Site-wide atmosphere — richer mesh, still restrained */
+  /* Site-wide atmosphere — one wash, no competing orbs */
   .site-atmosphere {
     background:
       radial-gradient(
-        110% 85% at 8% -5%,
-        hsl(208 42% 58% / 0.32),
-        transparent 58%
+        90% 70% at 50% -8%,
+        hsl(36 20% 88% / 0.55),
+        transparent 62%
       ),
-      radial-gradient(
-        95% 75% at 92% 12%,
-        hsl(175 35% 42% / 0.22),
-        transparent 52%
-      ),
-      radial-gradient(
-        80% 65% at 55% 105%,
-        hsl(32 40% 55% / 0.18),
-        transparent 55%
-      ),
-      radial-gradient(
-        60% 50% at 70% 45%,
-        hsl(220 25% 55% / 0.1),
-        transparent 60%
-      ),
-      linear-gradient(
-        160deg,
-        hsl(215 22% 88%) 0%,
-        hsl(var(--background)) 42%,
-        hsl(210 18% 84%) 100%
-      );
+      hsl(var(--background));
   }
   .dark .site-atmosphere {
     background:
       radial-gradient(
-        110% 85% at 8% -5%,
-        hsl(199 80% 48% / 0.28),
-        transparent 58%
+        80% 60% at 50% -10%,
+        hsl(220 20% 14% / 0.7),
+        transparent 60%
       ),
-      radial-gradient(
-        95% 75% at 92% 12%,
-        hsl(175 70% 40% / 0.22),
-        transparent 52%
-      ),
-      radial-gradient(
-        80% 65% at 48% 108%,
-        hsl(220 50% 40% / 0.16),
-        transparent 55%
-      ),
-      radial-gradient(
-        55% 45% at 68% 40%,
-        hsl(186 60% 45% / 0.12),
-        transparent 65%
-      ),
-      linear-gradient(
-        160deg,
-        hsl(222 30% 9%) 0%,
-        hsl(var(--background)) 45%,
-        hsl(222 32% 5%) 100%
-      );
+      hsl(var(--background));
   }
 
   .ambient-orb {
@@ -318,15 +278,15 @@
   .site-horizon {
     background: linear-gradient(
       to bottom,
-      hsl(210 50% 70% / 0.16),
-      transparent 70%
+      hsl(36 16% 82% / 0.28),
+      transparent 78%
     );
   }
   .dark .site-horizon {
     background: linear-gradient(
       to bottom,
-      hsl(210 55% 55% / 0.14),
-      transparent 72%
+      hsl(220 12% 12% / 0.35),
+      transparent 80%
     );
   }
 
@@ -352,8 +312,8 @@
   .site-vignette {
     background: radial-gradient(
       ellipse at center,
-      transparent 35%,
-      hsl(var(--background) / 0.55) 100%
+      transparent 52%,
+      hsl(var(--background) / 0.35) 100%
     );
   }
   .ambient-drift-a {
