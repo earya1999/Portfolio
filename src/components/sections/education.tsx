@@ -13,7 +13,6 @@ export function Education() {
       eyebrow="Education"
       index="03"
       title="Business analytics, built on a CS foundation."
-      accent="blue"
     >
       <div className="grid gap-5 md:grid-cols-2 md:gap-6">
         {education.map((e, i) => (

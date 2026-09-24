@@ -6,7 +6,6 @@ import { ArrowUpRight, ExternalLink, Github, Star, GitFork } from "lucide-react"
 import { Section } from "@/components/ui/section";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Spotlight } from "@/components/spotlight";
 import { Magnetic } from "@/components/magnetic";
 import {
   languageColor,
@@ -40,7 +39,6 @@ export function Projects({
       index="06"
       title={projectsConfig.title}
       description={projectsConfig.description}
-      accent="blue"
     >
       {error && (
         <p className="mb-6 text-sm text-amber-500 dark:text-amber-400">
@@ -95,8 +93,7 @@ function ProjectCard({
       viewport={{ once: true, margin: "-40px" }}
       transition={{ duration: 0.5, delay: index * 0.05, ease: [0.22, 1, 0.36, 1] }}
     >
-      <Spotlight className="h-full rounded-3xl">
-        <article className="group relative flex h-full flex-col overflow-hidden rounded-3xl border border-sky-400/10 bg-card/55 transition-all duration-300 hover:border-sky-400/25 hover:bg-card/80">
+      <article className="group relative flex h-full flex-col overflow-hidden border border-border bg-card transition-colors hover:border-foreground/30">
           <a
             href={project.url}
             target="_blank"
@@ -207,7 +204,6 @@ function ProjectCard({
             </div>
           </div>
         </article>
-      </Spotlight>
     </motion.div>
   );
 }
@@ -228,9 +224,9 @@ function ProjectPlaceholder({
     .toUpperCase();
 
   return (
-    <div className="absolute inset-0 flex items-center justify-center bg-[radial-gradient(ellipse_at_top_left,rgba(56,189,248,0.22),transparent_55%),radial-gradient(ellipse_at_bottom_right,rgba(52,211,153,0.18),transparent_50%),hsl(var(--card))]">
+    <div className="absolute inset-0 flex items-center justify-center bg-secondary">
       <div className="text-center">
-        <div className="mx-auto flex size-14 items-center justify-center rounded-2xl border border-border/60 bg-background/50 font-display text-lg font-semibold tracking-tight backdrop-blur">
+        <div className="mx-auto flex size-14 items-center justify-center border border-border bg-background font-display text-lg font-semibold tracking-tight">
           {initials || "PR"}
         </div>
         {language && (
@@ -243,7 +239,7 @@ function ProjectPlaceholder({
 
 function EmptyProjects() {
   return (
-    <div className="rounded-3xl border border-dashed border-border/60 bg-card/40 px-6 py-12 text-center">
+    <div className="border border-dashed border-border bg-card px-6 py-12 text-center">
       <Github className="mx-auto size-8 text-muted-foreground" />
       <h3 className="mt-4 font-display text-lg font-semibold">
         Projects coming soon
