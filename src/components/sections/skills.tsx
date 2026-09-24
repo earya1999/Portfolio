@@ -17,6 +17,7 @@ export function Skills() {
       eyebrow="Skills"
       index="04"
       title="Capabilities I bring to every engagement."
+      accent="violet"
     >
       <div className="grid gap-6 lg:grid-cols-[260px_1fr]">
         <div className="flex flex-row gap-2 overflow-x-auto no-scrollbar lg:flex-col lg:overflow-visible">

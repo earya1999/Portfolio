@@ -39,6 +39,7 @@ export function Projects({
       index="06"
       title={projectsConfig.title}
       description={projectsConfig.description}
+      accent="blue"
     >
       {error && (
         <p className="mb-6 text-sm text-amber-500 dark:text-amber-400">

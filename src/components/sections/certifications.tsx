@@ -12,6 +12,7 @@ export function Certifications() {
       eyebrow="Certifications"
       index="07"
       title="Professional certifications."
+      accent="blue"
     >
       <div className="grid gap-4 sm:grid-cols-2">
         {certifications.map((c, i) => (

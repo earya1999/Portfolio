@@ -15,6 +15,7 @@ export function Tools() {
       index="05"
       title="Tools I work with."
       description="Platforms and technologies used across discovery, configuration, integrations, analytics, and delivery."
+      accent="amber"
     >
       <div className="flex flex-col gap-8">
         {groupOrder.map((group) => {

@@ -19,6 +19,7 @@ export function Overview() {
       eyebrow="Overview"
       index="01"
       title="From discovery to go-live."
+      accent="blue"
     >
       <motion.div
         initial={{ opacity: 0, y: 12 }}

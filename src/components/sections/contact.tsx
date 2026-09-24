@@ -85,6 +85,7 @@ export function Contact() {
       index="08"
       title="Let's build something that works."
       description="Open to Project Manager, Implementation Consultant, Solutions Consultant, Professional Services, and Customer Success conversations. I typically reply within a day."
+      accent="emerald"
     >
       <div className="grid gap-6 lg:grid-cols-5">
         <motion.div
